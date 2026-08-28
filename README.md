@@ -2,7 +2,7 @@
 
 > Official **OpenLayers** skill for AI coding assistants (Cursor, Claude Code, Antigravity, GitHub Copilot, Cline).
 
-Maintained by **[MapSnippets](https://labs.maptiler.com/mapsnippets/)**.
+Maintained by **[MapSnippets](https://mapsnippets.com/)**.
 
 ---
 
@@ -60,4 +60,4 @@ apply(map, "https://api.maptiler.com/maps/streets-v2/style.json?key=YOUR_MAPTILE
 ---
 
 ## 📄 License
-MIT © [MapSnippets](https://labs.maptiler.com/mapsnippets/)
+MIT © [MapSnippets](https://mapsnippets.com/)
