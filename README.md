@@ -34,7 +34,7 @@ Maintained by **[MapSnippets](https://mapsnippets.com/)** — Open-source geospa
 A skill is on-demand expertise: the agent loads it only when your request matches the skill's description, then follows its instructions instead of guessing. When you ask for OpenLayers maps, vector tiles, projections, coordinate transforms, drawing tools, or spatial analysis, this skill makes the agent:
 
 - **Generate modern modular OpenLayers code** (v9–v10+) using standard ES module imports (`ol/Map`, `ol/View`, `ol/layer/Vector`, `ol/source/Vector`).
-- **Render Vector Tile styles seamlessly** using `ol-mapbox-style` (`apply` / `applyStyle`) with standard vector style JSON.
+- **Render Vector Tile styles seamlessly** using `ol-mapbox-style` (`apply` / `applyStyle`) with standard vector style JSON (`streets-v4`).
 - **Handle coordinate systems & projections reliably** (`EPSG:3857`, `EPSG:4326`, and custom national grids with `proj4` and `ol/proj`).
 - **Implement interactive GIS tools** — feature selection, drawing (`ol/interaction/Draw`), modification, snapping, and HTML overlays (`ol/Overlay`).
 - **Optimize heavy vector data rendering** using `ol/source/Cluster` and WebGL-accelerated point layers.
@@ -138,7 +138,7 @@ const map = new Map({
   })
 });
 
-apply(map, "https://api.maptiler.com/maps/streets-v2/style.json?key=YOUR_API_KEY");
+apply(map, "https://api.maptiler.com/maps/streets-v4/style.json?key=YOUR_API_KEY");
 ```
 
 <br>
