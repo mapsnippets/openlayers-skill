@@ -13,14 +13,22 @@ This catalog lists the deep-dive architectural and API references available in t
 4. **[api-interactions-and-controls.md](api-interactions-and-controls.md)** — `Draw`, `Modify`, `Select`, `Snap`, `Translate`, `ScaleLine`, custom UI controls.
 5. **[api-projections-and-geom.md](api-projections-and-geom.md)** — `ol/proj` (`fromLonLat`, `toLonLat`), `proj4` registration, `ol/geom/*`, `ol/format/GeoJSON`.
 
+### 🚀 Deep-Dive Advanced Capabilities & Official Examples:
+6. **[official-examples-catalog.md](official-examples-catalog.md)** — Categorized index of 150+ OpenLayers official interactive examples.
+7. **[advanced-webgl-and-cog.md](advanced-webgl-and-cog.md)** — WebGL Tile styles, COG (Cloud-Optimized GeoTIFF), dynamic NDVI band math, and 100k+ WebGL Points.
+8. **[ogc-wms-wmts-wfs.md](ogc-wms-wmts-wfs.md)** — Complete OGC enterprise guide (WMS GetFeatureInfo, WMTS custom grids, WFS bbox strategy, OGC API Features).
+9. **[canvas-effects-and-animations.md](canvas-effects-and-animations.md)** — Layer swipe, spyglass lens, flight pulse animations, high-res PDF/PNG export, canvas filters.
+10. **[spatial-analysis-and-editing.md](spatial-analysis-and-editing.md)** — Boundary tracing, magnetic snapping, geodesic measurements (`ol/sphere`), Turf.js & JSTS integration.
+11. **[advanced-vector-tiles-and-reprojection.md](advanced-vector-tiles-and-reprojection.md)** — Vector tile caching, `geojson-vt` client slicing, and on-the-fly raster/vector reprojection.
+
 ### Practical Guides & Modern Workflows:
-6. **[installation-and-cdn.md](installation-and-cdn.md)** — NPM/yarn/bun package setup, types, and standalone CDN scripts.
-7. **[vector-tiles-mapbox-style.md](vector-tiles-mapbox-style.md)** — Applying Mapbox/MapLibre Style JSON via `ol-mapbox-style` (`apply`).
-8. **[frameworks.md](frameworks.md)** — React (`useRef`/`useEffect`), Next.js App Router SSR fix, Svelte, and Vue 3.
-9. **[patterns-gotchas.md](patterns-gotchas.md)** — Solutions for the top 10 OpenLayers bugs (Null Island coordinates, projection mismatch, double-mount).
-10. **[prompt-benchmarks.md](prompt-benchmarks.md)** — 10 practical prompt benchmarks for evaluation.
+12. **[installation-and-cdn.md](installation-and-cdn.md)** — NPM/yarn/bun package setup, types, and standalone CDN scripts.
+13. **[vector-tiles-mapbox-style.md](vector-tiles-mapbox-style.md)** — Applying Mapbox/MapLibre Style JSON via `ol-mapbox-style` (`apply`).
+14. **[frameworks.md](frameworks.md)** — React (`useRef`/`useEffect`), Next.js App Router SSR fix, Svelte, and Vue 3.
+15. **[patterns-gotchas.md](patterns-gotchas.md)** — Solutions for the top 10 OpenLayers bugs (Null Island coordinates, projection mismatch, double-mount).
+16. **[prompt-benchmarks.md](prompt-benchmarks.md)** — 10 practical prompt benchmarks for evaluation.
 
 ### Basemaps, Schemas & Services:
-11. **[vector-tile-schemas.md](vector-tile-schemas.md)** — Full 9-schema vector catalog (`Planet v4`, `Outdoor`, `Contours`, `3D Buildings`, `Ocean`, `Cadastre`).
-12. **[basemaps-and-terrain.md](basemaps-and-terrain.md)** — Production endpoints for `streets-v4`, `outdoor-v4`, `satellite-v4`, and 512px raster tiles.
-13. **[geocoding-and-services.md](geocoding-and-services.md)** — Forward/reverse geocoding, autocomplete search, static maps, and elevation.
+17. **[vector-tile-schemas.md](vector-tile-schemas.md)** — Full 9-schema vector catalog (`Planet v4`, `Outdoor`, `Contours`, `3D Buildings`, `Ocean`, `Cadastre`).
+18. **[basemaps-and-terrain.md](basemaps-and-terrain.md)** — Production endpoints for `streets-v4`, `outdoor-v4`, `satellite-v4`, and 512px raster tiles.
+19. **[geocoding-and-services.md](geocoding-and-services.md)** — Forward/reverse geocoding, autocomplete search, static maps, and elevation.
