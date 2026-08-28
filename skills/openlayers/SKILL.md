@@ -1,23 +1,7 @@
 ---
-name: openlayers-maptiler
+name: openlayers
 description: >-
-  Expert coding skill for building interactive web maps with OpenLayers and
-  MapTiler Cloud tiles/services. USE WHEN the user wants to create an OpenLayers
-  map, use ol.Map, ol.View, add raster tiles from MapTiler with ol.source.XYZ,
-  display vector tiles via ol-mapbox-style (applyStyle, apply), add markers with
-  ol.Overlay or ol.Feature with ol.geom.Point, create vector layers with
-  ol.layer.Vector and ol.source.Vector, load GeoJSON with ol.format.GeoJSON,
-  style features with ol.style.Style/Fill/Stroke/Circle/Icon, build a heatmap
-  with ol.layer.Heatmap, create a choropleth or thematic map, add draw
-  interactions with ol.interaction.Draw, cluster points with ol.source.Cluster,
-  handle map events and feature selection, use ol.proj.fromLonLat for coordinate
-  transforms, switch tile layers, add WMS/WMTS layers, or integrate OpenLayers
-  with React/Vue/Angular. Also USE WHEN the user mentions OpenLayers, ol.Map,
-  EPSG:3857, ol.source.XYZ, ol-mapbox-style, or wants a GIS-capable mapping
-  library. OpenLayers uses EPSG:3857 internally — coordinates must be transformed
-  with ol.proj.fromLonLat([lng, lat]). This skill is for OpenLayers (NOT Leaflet,
-  NOT MapLibre GL JS, NOT MapTiler SDK). Covers CDN and NPM usage, projections,
-  styling, interactions, and framework integration patterns.
+  Expert coding skill for building enterprise GIS and web mapping applications with OpenLayers (v9-v10+). USE WHEN the user wants to create a map, add a GIS map to a web app, render vector tiles, display raster XYZ or WMS/WMTS layers, transform coordinates between projections/CRS (EPSG:3857, EPSG:4326, national grids), add markers or HTML overlays, load and style GeoJSON/KML/Shapefiles, build point clustering or heatmaps, create interactive drawing, modifying, snapping, or spatial measurement tools, integrate maps in React, Next.js, Vue, or Angular, or build high-performance spatial visualizations. Also USE WHEN the user mentions OpenLayers, ol/Map, ol/View, or GIS maps.
 ---
 
 # OpenLayers + MapTiler — Agent Skill
