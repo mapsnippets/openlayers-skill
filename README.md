@@ -6,7 +6,7 @@ Maintained by **[MapSnippets](https://mapsnippets.com/)** — Open-source geospa
 
 ---
 
-🌐 [Website](https://mapsnippets.com/) &nbsp; 📚 [Documentation](https://openlayers.org/doc/)
+🌐 [Website](https://mapsnippets.com/) &nbsp; 📚 [OpenLayers Documentation](https://openlayers.org/doc/)
 
 ---
 
@@ -20,6 +20,7 @@ Maintained by **[MapSnippets](https://mapsnippets.com/)** — Open-source geospa
 <li><a href="#-installation">Installation</a></li>
 <li><a href="#-repository-layout">Repository layout</a></li>
 <li><a href="#-quickstart-example">Quickstart Example</a></li>
+<li><a href="#-basemap-api-keys">Basemap API Keys</a></li>
 <li><a href="#links">Links</a></li>
 <li><a href="#-contributing">Contributing</a></li>
 <li><a href="#-license">License</a></li>
@@ -139,6 +140,14 @@ const map = new Map({
 
 apply(map, "https://api.maptiler.com/maps/streets-v2/style.json?key=YOUR_API_KEY");
 ```
+
+<br>
+
+## 🔑 Basemap API Keys
+
+The vector tile examples in this skill utilize MapTiler vector basemap styles. To run the examples with live vector tiles:
+- Follow the guide on [how to get a free MapTiler API Key](https://docs.maptiler.com/cloud/api/authentication-key/) (includes a free plan with 100,000 monthly map loads).
+- Replace `YOUR_API_KEY` in the snippet with your key.
 
 ---
 
