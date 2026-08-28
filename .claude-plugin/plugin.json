@@ -1,0 +1,21 @@
+{
+  "name": "openlayers-skill",
+  "version": "1.0.0",
+  "description": "Official OpenLayers AI Agent Skill by MapSnippets. Comprehensive instructions, modular imports, VectorTile sources, and projection patterns for AI coding assistants.",
+  "author": {
+    "name": "MapSnippets",
+    "url": "https://labs.maptiler.com/mapsnippets/"
+  },
+  "homepage": "https://labs.maptiler.com/mapsnippets/",
+  "license": "MIT",
+  "keywords": [
+    "openlayers",
+    "ol",
+    "maps",
+    "vectortile",
+    "ol-mapbox-style",
+    "projections",
+    "epsg-3857",
+    "maptiler"
+  ]
+}
