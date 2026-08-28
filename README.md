@@ -146,7 +146,7 @@ apply(map, "https://api.maptiler.com/maps/streets-v2/style.json?key=YOUR_API_KEY
 ## 🔑 Basemap API Keys
 
 The vector tile examples in this skill utilize MapTiler vector basemap styles. To run the examples with live vector tiles:
-- Follow the guide on [how to get a free MapTiler API Key](https://docs.maptiler.com/cloud/api/authentication-key/) (includes a free plan with 100,000 monthly map loads).
+- Follow the guide on [how to get a free MapTiler API Key](https://docs.maptiler.com/cloud/api/authentication-key/) (includes a free plan with 100,000 monthly tile requests).
 - Replace `YOUR_API_KEY` in the snippet with your key.
 
 ---
