@@ -19,7 +19,7 @@ Maintained by **[MapSnippets](https://mapsnippets.com/)** — Open-source geospa
 <li><a href="#how-skills-plugins-and-agents-fit-together">How skills, plugins, and agents fit together</a></li>
 <li><a href="#-installation">Installation</a></li>
 <li><a href="#-repository-layout">Repository layout</a></li>
-<li><a href="#-quickstart-example">Quickstart Example</a></li>
+<li><a href="#-quickstart-examples">Quickstart Examples</a></li>
 <li><a href="#-basemap-api-keys">Basemap API Keys</a></li>
 <li><a href="#links">Links</a></li>
 <li><a href="#-contributing">Contributing</a></li>
@@ -31,10 +31,11 @@ Maintained by **[MapSnippets](https://mapsnippets.com/)** — Open-source geospa
 
 ## What it does
 
-A skill is on-demand expertise: the agent loads it only when your request matches the skill's description, then follows its instructions instead of guessing. When you ask for OpenLayers maps, vector tiles, projections, coordinate transforms, drawing tools, or spatial analysis, this skill makes the agent:
+A skill is on-demand expertise: the agent loads it only when your request matches the skill's description, then follows its instructions instead of guessing. When you ask for OpenLayers maps, vector tiles, raster XYZ layers, projections, coordinate transforms, drawing tools, or spatial analysis, this skill makes the agent:
 
-- **Generate modern modular OpenLayers code** (v9–v10+) using standard ES module imports (`ol/Map`, `ol/View`, `ol/layer/Vector`, `ol/source/Vector`).
+- **Generate modern modular OpenLayers code** (v9–v10+) using standard ES module imports (`ol/Map`, `ol/View`, `ol/layer/Tile`, `ol/layer/Vector`, `ol/source/XYZ`).
 - **Render Vector Tile styles seamlessly** using `ol-mapbox-style` (`apply` / `applyStyle`) with standard vector style JSON (`streets-v4`).
+- **Configure high-DPI Raster Tiles** using `ol/source/XYZ` with custom tile sizes, retina scaling, and attributions.
 - **Handle coordinate systems & projections reliably** (`EPSG:3857`, `EPSG:4326`, and custom national grids with `proj4` and `ol/proj`).
 - **Implement interactive GIS tools** — feature selection, drawing (`ol/interaction/Draw`), modification, snapping, and HTML overlays (`ol/Overlay`).
 - **Optimize heavy vector data rendering** using `ol/source/Cluster` and WebGL-accelerated point layers.
@@ -120,7 +121,7 @@ LICENSE.md            — MIT License
 
 <br>
 
-## 🗺️ Quickstart Example
+## 🗺️ Quickstart Examples
 
 ### Vector Tiles via `ol-mapbox-style` (Recommended):
 ```javascript
@@ -141,11 +142,39 @@ const map = new Map({
 apply(map, "https://api.maptiler.com/maps/streets-v4/style.json?key=YOUR_API_KEY");
 ```
 
+### Raster Tiles via `ol/source/XYZ`:
+```javascript
+import Map from "ol/Map";
+import View from "ol/View";
+import TileLayer from "ol/layer/Tile";
+import XYZ from "ol/source/XYZ";
+import { fromLonLat } from "ol/proj";
+import "ol/ol.css";
+
+const map = new Map({
+  target: "map",
+  layers: [
+    new TileLayer({
+      source: new XYZ({
+        url: "https://api.maptiler.com/maps/streets-v4/{z}/{x}/{y}.png?key=YOUR_API_KEY",
+        tileSize: 512,
+        maxZoom: 22,
+        attributions: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
+      })
+    })
+  ],
+  view: new View({
+    center: fromLonLat([14.4378, 50.0755]), // [lng, lat]
+    zoom: 12
+  })
+});
+```
+
 <br>
 
 ## 🔑 Basemap API Keys
 
-The vector tile examples in this skill utilize MapTiler vector basemap styles. To run the examples with live vector tiles:
+The vector and raster tile examples in this skill utilize MapTiler basemap styles. To run the examples with live map tiles:
 - Follow the guide on [how to get a free MapTiler API Key](https://docs.maptiler.com/cloud/api/authentication-key/) (includes a free plan with 100,000 monthly tile requests).
 - Replace `YOUR_API_KEY` in the snippet with your key.
 
