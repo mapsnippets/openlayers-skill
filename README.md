@@ -16,6 +16,7 @@ Maintained by **[MapSnippets](https://mapsnippets.org/)** — Open-source geospa
 <summary><b>Table of Contents</b></summary>
 <ul>
 <li><a href="#what-it-does">What it does</a></li>
+<li><a href="#getting-started-npm--cdn">Getting Started (NPM & CDN)</a></li>
 <li><a href="#how-skills-plugins-and-agents-fit-together">How skills, plugins, and agents fit together</a></li>
 <li><a href="#-installation">Installation</a></li>
 <li><a href="#-repository-layout">Repository layout</a></li>
@@ -28,6 +29,27 @@ Maintained by **[MapSnippets](https://mapsnippets.org/)** — Open-source geospa
 </details>
 
 <br>
+
+
+## 🚀 Getting Started (NPM & CDN)
+
+### Option 1: Modern NPM / Bundler (Vite, Webpack, Next.js)
+```bash
+npm install ol ol-mapbox-style
+```
+```javascript
+import Map from "ol/Map.js";
+import View from "ol/View.js";
+import { fromLonLat } from "ol/proj.js";
+import { apply } from "ol-mapbox-style";
+import "ol/ol.css";
+```
+
+### Option 2: Vanilla HTML (Hosted CDN)
+```html
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@v10.1.0/ol.css">
+<script src="https://cdn.jsdelivr.net/npm/ol@v10.1.0/dist/ol.js"></script>
+```
 
 ## What it does
 
