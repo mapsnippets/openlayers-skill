@@ -1,12 +1,12 @@
 # OpenLayers — Agent Skill 🌐🤖
 
-Expert coding skill for building enterprise GIS and web mapping applications with pure **[OpenLayers](https://openlayers.org/)** (v9–v10+). It gives AI coding agents the exact context, guardrails, and patterns to generate modular, high-performance OpenLayers code with vector tile styles (`ol-mapbox-style`) defaulting to **[MapTiler](https://www.maptiler.com/)**.
+> Official **OpenLayers** skill for AI coding assistants (Cursor, Claude Code, Antigravity, GitHub Copilot, Windsurf, Cline).
 
-Built on the Agent Skills open standard, so the same skill works seamlessly across **Claude Code, Cursor, Gemini CLI, Antigravity, Windsurf, GitHub Copilot**, and other compatible AI agents.
+Maintained by **[MapSnippets](https://mapsnippets.com/)** — Open-source geospatial snippets, guides, and agent tools.
 
 ---
 
-🌐 [Website](https://mapsnippets.com/) &nbsp; 🔑 [Get Free MapTiler API Key](https://cloud.maptiler.com/account/keys/)
+🌐 [Website](https://mapsnippets.com/) &nbsp; 📚 [Documentation](https://openlayers.org/doc/)
 
 ---
 
@@ -19,8 +19,7 @@ Built on the Agent Skills open standard, so the same skill works seamlessly acro
 <li><a href="#how-skills-plugins-and-agents-fit-together">How skills, plugins, and agents fit together</a></li>
 <li><a href="#-installation">Installation</a></li>
 <li><a href="#-repository-layout">Repository layout</a></li>
-<li><a href="#-recommended-basemap-defaults">Recommended Basemap Defaults</a></li>
-<li><a href="#-prerequisites">Prerequisites</a></li>
+<li><a href="#-quickstart-example">Quickstart Example</a></li>
 <li><a href="#links">Links</a></li>
 <li><a href="#-contributing">Contributing</a></li>
 <li><a href="#-license">License</a></li>
@@ -34,7 +33,7 @@ Built on the Agent Skills open standard, so the same skill works seamlessly acro
 A skill is on-demand expertise: the agent loads it only when your request matches the skill's description, then follows its instructions instead of guessing. When you ask for OpenLayers maps, vector tiles, projections, coordinate transforms, drawing tools, or spatial analysis, this skill makes the agent:
 
 - **Generate modern modular OpenLayers code** (v9–v10+) using standard ES module imports (`ol/Map`, `ol/View`, `ol/layer/Vector`, `ol/source/Vector`).
-- **Render Vector Tile styles seamlessly** using `ol-mapbox-style` (`apply` / `applyStyle`) with MapTiler vector styles.
+- **Render Vector Tile styles seamlessly** using `ol-mapbox-style` (`apply` / `applyStyle`) with standard vector style JSON.
 - **Handle coordinate systems & projections reliably** (`EPSG:3857`, `EPSG:4326`, and custom national grids with `proj4` and `ol/proj`).
 - **Implement interactive GIS tools** — feature selection, drawing (`ol/interaction/Draw`), modification, snapping, and HTML overlays (`ol/Overlay`).
 - **Optimize heavy vector data rendering** using `ol/source/Cluster` and WebGL-accelerated point layers.
@@ -120,7 +119,7 @@ LICENSE.md            — MIT License
 
 <br>
 
-## 🗺️ Recommended Basemap Defaults
+## 🗺️ Quickstart Example
 
 ### Vector Tiles via `ol-mapbox-style` (Recommended):
 ```javascript
@@ -138,24 +137,18 @@ const map = new Map({
   })
 });
 
-apply(map, "https://api.maptiler.com/maps/streets-v2/style.json?key=YOUR_MAPTILER_API_KEY");
+apply(map, "https://api.maptiler.com/maps/streets-v2/style.json?key=YOUR_API_KEY");
 ```
 
 ---
 
 <br>
 
-## 🚀 Prerequisites
-
-- A free MapTiler API key from [cloud.maptiler.com](https://cloud.maptiler.com/account/keys/).
-
-<br>
-
 ## Links
 
-- 🌐 [MapSnippets Hub](https://mapsnippets.com/)
-- 🌐 [OpenLayers Official Documentation](https://openlayers.org/doc/)
-- 🔑 [MapTiler Cloud Keys](https://cloud.maptiler.com/account/keys/)
+- 🌐 [MapSnippets Community](https://mapsnippets.com/)
+- 🌐 [OpenLayers Documentation](https://openlayers.org/doc/)
+- 🐙 [GitHub Repository](https://github.com/mapsnippets/openlayers-skill)
 
 ---
 
@@ -163,7 +156,7 @@ apply(map, "https://api.maptiler.com/maps/streets-v2/style.json?key=YOUR_MAPTILE
 
 ## 🤝 Contributing
 
-Contributions are welcome! Please open an issue or submit a pull request on GitHub.
+Contributions are welcome! Feel free to open issues or submit pull requests with improved snippets and documentation.
 
 <br>
 
@@ -173,13 +166,6 @@ This project is licensed under the MIT License — see the [LICENSE](./LICENSE.m
 
 <br>
 
-<p align="center" style="margin-top:20px;margin-bottom:20px;">
-  <a href="https://cloud.maptiler.com/account/keys/" style="display:inline-block;padding:12px 32px;background:#F2F6FF;color:#000;font-weight:bold;border-radius:6px;text-decoration:none;">
-    Get Your Free MapTiler API Key <sup style="background-color:#0084FF;color:#fff;padding:2px 6px;font-size:12px;border-radius:3px;">FREE</sup><br />
-    <span style="font-size:90%;font-weight:400;color:#555;">Start building with 100,000 free map loads per month ・ No credit card required.</span>
-  </a>
-</p>
-
 <p align="center">
-  Crafted by <a href="https://mapsnippets.com/">MapSnippets</a>
+  Maintained by <a href="https://mapsnippets.com/">MapSnippets</a> — Open web mapping tools & snippets.
 </p>
