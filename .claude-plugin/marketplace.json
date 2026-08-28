@@ -1,0 +1,17 @@
+{
+  "name": "openlayers-skill",
+  "owner": {
+    "name": "mapsnippets"
+  },
+  "plugins": [
+    {
+      "name": "openlayers-skill",
+      "source": {
+        "source": "url",
+        "url": "https://github.com/mapsnippets/openlayers-skill.git"
+      },
+      "description": "OpenLayers expert skill for AI agents",
+      "version": "1.0.0"
+    }
+  ]
+}
