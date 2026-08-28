@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>OpenLayers - High-Performance Point Clustering</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@v10.1.0/ol.css">
+  <script src="https://cdn.jsdelivr.net/npm/ol@v10.1.0/dist/ol.js"></script>
+  <style>
+    body, html { margin: 0; padding: 0; height: 100%; font-family: sans-serif; }
+    #map { height: 100vh; width: 100vw; }
+  </style>
+</head>
+<body>
+  <div id="map"></div>
+
+  <script>
+    // Get free API key at: https://docs.maptiler.com/cloud/api/authentication-key/
+    const API_KEY = "YOUR_API_KEY";
+
+    const baseLayer = new ol.layer.Tile({
+      source: new ol.source.XYZ({
+        url: `https://api.maptiler.com/maps/streets-v4/{z}/{x}/{y}.png?key=${API_KEY}`,
+        tileSize: 512
+      })
+    });
+
+    // Generate 500 simulated EV points around Central Europe
+    const features = [];
+    for (let i = 0; i < 500; i++) {
+      const lng = 14.4378 + (Math.random() - 0.5) * 0.4;
+      const lat = 50.0755 + (Math.random() - 0.5) * 0.3;
+      features.push(new ol.Feature(new ol.geom.Point(ol.proj.fromLonLat([lng, lat]))));
+    }
+
+    const clusterSource = new ol.source.Cluster({
+      distance: 45,
+      source: new ol.source.Vector({ features: features })
+    });
+
+    const clusterLayer = new ol.layer.Vector({
+      source: clusterSource,
+      style: function (feature) {
+        const size = feature.get("features").length;
+        if (size === 1) {
+          return new ol.style.Style({
+            image: new ol.style.Circle({
+              radius: 6,
+              fill: new ol.style.Fill({ color: "#0084ff" }),
+              stroke: new ol.style.Stroke({ color: "#ffffff", width: 2 })
+            })
+          });
+        }
+        const color = size > 50 ? "#e74c3c" : size > 20 ? "#f39c12" : "#0084ff";
+        return new ol.style.Style({
+          image: new ol.style.Circle({
+            radius: Math.min(14 + size * 0.4, 28),
+            fill: new ol.style.Fill({ color: color }),
+            stroke: new ol.style.Stroke({ color: "#ffffff", width: 2.5 })
+          }),
+          text: new ol.style.Text({
+            text: size.toString(),
+            fill: new ol.style.Fill({ color: "#ffffff" }),
+            font: "bold 12px sans-serif"
+          })
+        });
+      }
+    });
+
+    const map = new ol.Map({
+      target: "map",
+      layers: [baseLayer, clusterLayer],
+      view: new ol.View({
+        center: ol.proj.fromLonLat([14.4378, 50.0755]),
+        zoom: 11
+      })
+    });
+
+    // Zoom into cluster on click
+    map.on("click", (e) => {
+      clusterLayer.getFeatures(e.pixel).then((clickedFeatures) => {
+        if (clickedFeatures.length) {
+          const features = clickedFeatures[0].get("features");
+          if (features.length > 1) {
+            const extent = ol.extent.createEmpty();
+            features.forEach((f) => ol.extent.extend(extent, f.getGeometry().getExtent()));
+            map.getView().fit(extent, { duration: 500, padding: [50, 50, 50, 50] });
+          }
+        }
+      });
+    });
+  </script>
+</body>
+</html>
