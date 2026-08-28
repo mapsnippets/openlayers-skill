@@ -4,9 +4,9 @@
   "description": "Official OpenLayers AI Agent Skill by MapSnippets. Comprehensive instructions, modular imports, VectorTile sources, and projection patterns for AI coding assistants.",
   "author": {
     "name": "MapSnippets",
-    "url": "https://mapsnippets.com/"
+    "url": "https://mapsnippets.org/"
   },
-  "homepage": "https://mapsnippets.com/",
+  "homepage": "https://mapsnippets.org/",
   "license": "MIT",
   "keywords": [
     "openlayers",
