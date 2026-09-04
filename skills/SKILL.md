@@ -94,37 +94,46 @@ Follow these rules on every OpenLayers code generation to prevent bugs:
 
 ---
 
-## ⚡ Fast Search Prefix Reference
+## ⚡ Fast Search Topic Router
 
-To quickly find the exact OpenLayers guide or pattern, search by topic prefix:
+To quickly find the exact OpenLayers implementation guide or API specification, use direct directory routing:
 
-| Category | File Prefix | Contents |
+| Category | Location | Contents |
 | :--- | :--- | :--- |
-| **Official Task Examples** | `examples-openlayers-*` | 12 atomic official examples with full HTML, CSS, and modular ES imports (Vector map, Choropleth, Draw/Modify/Snap, Clustering, Popup, Measure, Layer Swipe, WMS GetFeatureInfo, Vector Tile Selection, Heatmap, Drag-and-Drop, URL Link sync) |
-| **Core API & Architecture** | `api-*` | Specifications for Map & View, Layers & Sources, Interactions & Controls, Styling & Renderers, and Projections |
-| **Advanced GIS & WebGL** | `spatial-*`, `advanced-*`, `ogc-*`, `canvas-*` | Precision tracing, WebGL COG shaders, WMS/WMTS/WFS, vector tile reprojection, and canvas animations |
-| **Ecosystem & Services** | `frameworks.md`, `patterns-*`, `basemaps-*`, `geocoding-*` | React, Next.js, Vue, Svelte, anti-pattern debugging, Planet v4 basemaps, and REST services |
-
-Consult **[references/INDEX.md](references/INDEX.md)** for the complete master index.
+| **Official Task Examples** | **[examples/INDEX.md](examples/INDEX.md)** | **40 atomic official examples** with full HTML, CSS, and modular ES imports across Vector Basemaps, Digitization, Clustering, WebGL, Enterprise OGC, and COG |
+| **Core API & Architecture** | **[references/INDEX.md](references/INDEX.md)** | Declarative specifications for Map & View, Layers & Sources, Interactions & Controls, Styling & Renderers, and Projections |
+| **Advanced GIS & WebGL** | `references/spatial-*`, `advanced-*`, `ogc-*` | Precision tracing, WebGL COG shaders, WMS/WMTS/WFS, vector tile reprojection, and canvas animations |
+| **Ecosystem & Services** | `references/frameworks.md`, `patterns-*`, `basemaps-*` | React, Next.js, Vue, Svelte, anti-pattern debugging, Planet v4 basemaps, and REST services |
 
 ---
 
-## 📚 Modular Reference Guides & Examples
+## 🧪 40 Official Task Examples (`examples/`)
+
+All task examples are self-contained with complete HTML, CSS, and modular ES imports (`import Map from "ol/Map.js"`) using MapTiler Planet v4 basemaps. Browse **[examples/INDEX.md](examples/INDEX.md)** for the complete categorized catalog:
+
+- [examples/basic-vector-map.md](examples/basic-vector-map.md) — Vector tiles with `ol-mapbox-style` and MapTiler Streets v4.
+- [examples/geojson-choropleth.md](examples/geojson-choropleth.md) — Dynamic choropleth styling functions, HTML legend, and hover highlight.
+- [examples/draw-modify-snap.md](examples/draw-modify-snap.md) — Interactive GIS editing with `Draw`, `Modify`, and `Snap` magnetic vertices.
+- [examples/clustering.md](examples/clustering.md) — High-performance point aggregation via `ol/source/Cluster` and animated zoom.
+- [examples/popup-overlay.md](examples/popup-overlay.md) — `ol/Overlay` card anchoring, coordinate display, and `autoPan` animation.
+- [examples/measure-distance-area.md](examples/measure-distance-area.md) — Geodesic distance and area measurement tool with `ol/sphere`.
+- [examples/layer-swipe.md](examples/layer-swipe.md) — Split-screen layer swipe comparison using canvas `prerender` clipping.
+- [examples/wms-getfeatureinfo.md](examples/wms-getfeatureinfo.md) — Enterprise OGC `TileWMS` integration and `GetFeatureInfo` spatial inspection.
+- [examples/vector-tile-selection.md](examples/vector-tile-selection.md) — Interactive feature selection and dynamic styling inside binary MVT tiles.
+- [examples/heatmaps.md](examples/heatmaps.md) — Continuous density gradient heatmaps via `ol/layer/Heatmap`.
+- [examples/drag-and-drop.md](examples/drag-and-drop.md) — Drag-and-drop loader parsing local `.geojson`, `.gpx`, and `.kml` files.
+- [examples/url-link-sync.md](examples/url-link-sync.md) — Bidirectional URL synchronization with `ol/interaction/Link`.
+- [examples/cog-geotiff-rendering.md](examples/cog-geotiff-rendering.md) — Direct Cloud-Optimized GeoTIFF raster ingestion via HTTP byte-range chunks.
+- [examples/cog-ndvi-band-math.md](examples/cog-ndvi-band-math.md) — Real-time GPU NDVI vegetation index calculation from Sentinel-2 bands.
+- [examples/webgl-points-100k.md](examples/webgl-points-100k.md) — 100,000+ points rendered at 60 FPS using WebGL.
+- *...and 25 more task recipes in [examples/INDEX.md](examples/INDEX.md).*
+
+---
+
+## 📚 Core API & Architecture References (`references/`)
 
 Deep architectural and schema reference files live under `references/` and should be loaded on demand:
-- [references/INDEX.md](references/INDEX.md) — **Master topic index & router** for all OpenLayers references and guides.
-- [references/examples-openlayers-basic-vector-map.md](references/examples-openlayers-basic-vector-map.md) — Vector tiles with `ol-mapbox-style` and MapTiler Streets v4.
-- [references/examples-openlayers-geojson-choropleth.md](references/examples-openlayers-geojson-choropleth.md) — Dynamic choropleth styling functions, HTML legend, and hover highlight.
-- [references/examples-openlayers-draw-modify-snap.md](references/examples-openlayers-draw-modify-snap.md) — Interactive GIS editing with `Draw`, `Modify`, and `Snap` magnetic vertices.
-- [references/examples-openlayers-clustering.md](references/examples-openlayers-clustering.md) — High-performance point aggregation via `ol/source/Cluster` and animated zoom.
-- [references/examples-openlayers-popup-overlay.md](references/examples-openlayers-popup-overlay.md) — `ol/Overlay` card anchoring, coordinate display, and `autoPan` animation.
-- [references/examples-openlayers-measure-distance-area.md](references/examples-openlayers-measure-distance-area.md) — Geodesic distance and area measurement tool with `ol/sphere`.
-- [references/examples-openlayers-layer-swipe.md](references/examples-openlayers-layer-swipe.md) — Split-screen layer swipe comparison using canvas `prerender` clipping.
-- [references/examples-openlayers-wms-getfeatureinfo.md](references/examples-openlayers-wms-getfeatureinfo.md) — Enterprise OGC `TileWMS` integration and `GetFeatureInfo` spatial inspection.
-- [references/examples-openlayers-vector-tile-selection.md](references/examples-openlayers-vector-tile-selection.md) — Interactive feature selection and dynamic styling inside binary MVT tiles.
-- [references/examples-openlayers-heatmaps.md](references/examples-openlayers-heatmaps.md) — Continuous density gradient heatmaps via `ol/layer/Heatmap`.
-- [references/examples-openlayers-drag-and-drop.md](references/examples-openlayers-drag-and-drop.md) — Drag-and-drop loader parsing local `.geojson`, `.gpx`, and `.kml` files.
-- [references/examples-openlayers-url-link-sync.md](references/examples-openlayers-url-link-sync.md) — Bidirectional URL synchronization with `ol/interaction/Link`.
+- [references/INDEX.md](references/INDEX.md) — **Master API reference index & router**.
 - [references/api-map-and-view.md](references/api-map-and-view.md) — `ol/Map`, `ol/View`, `ol/Overlay`, view animations, resolutions, and event dictionary.
 - [references/api-layers-and-sources.md](references/api-layers-and-sources.md) — `TileLayer`, `VectorLayer`, `VectorTileLayer`, `WebGLPoints`, `Heatmap`, `Cluster`.
 - [references/api-styling-and-renderers.md](references/api-styling-and-renderers.md) — `ol/style/Style`, `Fill`, `Stroke`, `Icon`, `Text`, dynamic style functions, Flat Style Expressions.
