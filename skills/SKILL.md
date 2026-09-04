@@ -94,16 +94,47 @@ Follow these rules on every OpenLayers code generation to prevent bugs:
 
 ---
 
-## 📚 Modular Reference Guides
+## ⚡ Fast Search Prefix Reference
 
-Read these reference files on demand for deep implementation patterns:
+To quickly find the exact OpenLayers guide or pattern, search by topic prefix:
 
-- [references/installation-and-cdn.md](references/installation-and-cdn.md) — NPM, yarn, pnpm, bun setup and CDN scripts (`ol.js`, `ol.css`).
+| Category | File Prefix | Contents |
+| :--- | :--- | :--- |
+| **Official Task Examples** | `examples-openlayers-*` | 12 atomic official examples with full HTML, CSS, and modular ES imports (Vector map, Choropleth, Draw/Modify/Snap, Clustering, Popup, Measure, Layer Swipe, WMS GetFeatureInfo, Vector Tile Selection, Heatmap, Drag-and-Drop, URL Link sync) |
+| **Core API & Architecture** | `api-*` | Specifications for Map & View, Layers & Sources, Interactions & Controls, Styling & Renderers, and Projections |
+| **Advanced GIS & WebGL** | `spatial-*`, `advanced-*`, `ogc-*`, `canvas-*` | Precision tracing, WebGL COG shaders, WMS/WMTS/WFS, vector tile reprojection, and canvas animations |
+| **Ecosystem & Services** | `frameworks.md`, `patterns-*`, `basemaps-*`, `geocoding-*` | React, Next.js, Vue, Svelte, anti-pattern debugging, Planet v4 basemaps, and REST services |
+
+Consult **[references/INDEX.md](references/INDEX.md)** for the complete master index.
+
+---
+
+## 📚 Modular Reference Guides & Examples
+
+Deep architectural and schema reference files live under `references/` and should be loaded on demand:
+- [references/INDEX.md](references/INDEX.md) — **Master topic index & router** for all OpenLayers references and guides.
+- [references/examples-openlayers-basic-vector-map.md](references/examples-openlayers-basic-vector-map.md) — Vector tiles with `ol-mapbox-style` and MapTiler Streets v4.
+- [references/examples-openlayers-geojson-choropleth.md](references/examples-openlayers-geojson-choropleth.md) — Dynamic choropleth styling functions, HTML legend, and hover highlight.
+- [references/examples-openlayers-draw-modify-snap.md](references/examples-openlayers-draw-modify-snap.md) — Interactive GIS editing with `Draw`, `Modify`, and `Snap` magnetic vertices.
+- [references/examples-openlayers-clustering.md](references/examples-openlayers-clustering.md) — High-performance point aggregation via `ol/source/Cluster` and animated zoom.
+- [references/examples-openlayers-popup-overlay.md](references/examples-openlayers-popup-overlay.md) — `ol/Overlay` card anchoring, coordinate display, and `autoPan` animation.
+- [references/examples-openlayers-measure-distance-area.md](references/examples-openlayers-measure-distance-area.md) — Geodesic distance and area measurement tool with `ol/sphere`.
+- [references/examples-openlayers-layer-swipe.md](references/examples-openlayers-layer-swipe.md) — Split-screen layer swipe comparison using canvas `prerender` clipping.
+- [references/examples-openlayers-wms-getfeatureinfo.md](references/examples-openlayers-wms-getfeatureinfo.md) — Enterprise OGC `TileWMS` integration and `GetFeatureInfo` spatial inspection.
+- [references/examples-openlayers-vector-tile-selection.md](references/examples-openlayers-vector-tile-selection.md) — Interactive feature selection and dynamic styling inside binary MVT tiles.
+- [references/examples-openlayers-heatmaps.md](references/examples-openlayers-heatmaps.md) — Continuous density gradient heatmaps via `ol/layer/Heatmap`.
+- [references/examples-openlayers-drag-and-drop.md](references/examples-openlayers-drag-and-drop.md) — Drag-and-drop loader parsing local `.geojson`, `.gpx`, and `.kml` files.
+- [references/examples-openlayers-url-link-sync.md](references/examples-openlayers-url-link-sync.md) — Bidirectional URL synchronization with `ol/interaction/Link`.
 - [references/api-map-and-view.md](references/api-map-and-view.md) — `ol/Map`, `ol/View`, `ol/Overlay`, view animations, resolutions, and event dictionary.
 - [references/api-layers-and-sources.md](references/api-layers-and-sources.md) — `TileLayer`, `VectorLayer`, `VectorTileLayer`, `WebGLPoints`, `Heatmap`, `Cluster`.
 - [references/api-styling-and-renderers.md](references/api-styling-and-renderers.md) — `ol/style/Style`, `Fill`, `Stroke`, `Icon`, `Text`, dynamic style functions, Flat Style Expressions.
 - [references/api-interactions-and-controls.md](references/api-interactions-and-controls.md) — `Draw`, `Modify`, `Select`, `Snap`, `Translate`, `ScaleLine`, custom controls.
 - [references/api-projections-and-geom.md](references/api-projections-and-geom.md) — `ol/proj`, `proj4` registration (LV95, BNG), `ol/geom/*`, `ol/format/GeoJSON`.
+- [references/spatial-analysis-and-editing.md](references/spatial-analysis-and-editing.md) — Precision drawing, boundary tracing (`trace: true`), and Turf.js spatial analysis.
+- [references/advanced-webgl-and-cog.md](references/advanced-webgl-and-cog.md) — Cloud-Optimized GeoTIFF (COG) ingestion and real-time NDVI WebGL band math.
+- [references/ogc-wms-wmts-wfs.md](references/ogc-wms-wmts-wfs.md) — Enterprise OGC services (WMS, WMTS, WFS) and GetFeatureInfo.
+- [references/advanced-vector-tiles-and-reprojection.md](references/advanced-vector-tiles-and-reprojection.md) — Client-side `geojson-vt` tile slicing and coordinate reprojection.
+- [references/canvas-effects-and-animations.md](references/canvas-effects-and-animations.md) — Spyglass lens, flight pulse rings, and high-res PDF/PNG exports.
 - [references/vector-tiles-mapbox-style.md](references/vector-tiles-mapbox-style.md) — `ol-mapbox-style` integration, layer switching, and feature state.
 - [references/frameworks.md](references/frameworks.md) — React (`useRef`/`useEffect`), Next.js App Router SSR fix, Vue 3, Svelte.
 - [references/patterns-gotchas.md](references/patterns-gotchas.md) — Top 10 OpenLayers bugs (Null Island coordinates, projection mismatch, double-render).
@@ -111,6 +142,7 @@ Read these reference files on demand for deep implementation patterns:
 - [references/vector-tile-schemas.md](references/vector-tile-schemas.md) — Full 9-schema vector catalog (Planet v4, Outdoor, 3D Buildings, Ocean, Cadastre).
 - [references/basemaps-and-terrain.md](references/basemaps-and-terrain.md) — Production endpoints for `streets-v4`, `outdoor-v4`, `satellite-v4`.
 - [references/geocoding-and-services.md](references/geocoding-and-services.md) — Forward/reverse geocoding autocomplete, static maps, and elevation.
+- [references/installation-and-cdn.md](references/installation-and-cdn.md) — NPM, yarn, pnpm, bun setup and CDN scripts (`ol.js`, `ol.css`).
 
 ---
 
