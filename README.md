@@ -1,9 +1,9 @@
 # OpenLayers — Agent Skill 🌐🤖
 
 [![Agent Skills Specification](https://img.shields.io/badge/Agent_Skills-Specification_Compliant-0084FF?logo=anthropic&logoColor=white)](https://agentskills.io/specification)
-[![Claude Code Plugin](https://img.shields.io/badge/Claude_Code-Plugin_v1.1.0-7952B3?logo=anthropic&logoColor=white)](https://code.claude.com)
+[![Claude Code Plugin](https://img.shields.io/badge/Claude_Code-Plugin-7952B3?logo=anthropic&logoColor=white)](https://code.claude.com)
 [![Skills CLI](https://img.shields.io/badge/Skills_CLI-npx_skills_add-success)](https://github.com/vercel-labs/skills)
-[![OpenLayers](https://img.shields.io/badge/OpenLayers-v10.10.0-1F6B75)](https://openlayers.org/)
+[![OpenLayers](https://img.shields.io/badge/OpenLayers-ESM-1F6B75)](https://openlayers.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE.md)
 
 > Open-source **OpenLayers** AI skill for coding assistants (Claude Code, Cursor, Antigravity, GitHub Copilot, Windsurf, Roo Code, Gemini CLI). Built in accordance with the open **[Agent Skills Specification](https://agentskills.io/)**.
@@ -24,7 +24,7 @@ An **Agent Skill** is on-demand domain expertise: AI assistants load it dynamica
 
 When activated for **OpenLayers**, this skill guides the agent to:
 
-- **Generate modern modular OpenLayers code** (v9–v10+) using standard ES module imports (`ol/Map`, `ol/View`, `ol/layer/Tile`, `ol/layer/Vector`, `ol/source/XYZ`).
+- **Generate modern modular OpenLayers code** using standard ES module imports (`ol/Map`, `ol/View`, `ol/layer/Tile`, `ol/layer/Vector`, `ol/source/XYZ`).
 - **Render Vector Tile styles seamlessly** using `ol-mapbox-style` (`apply` / `applyStyle`) with standard vector style JSON.
 - **Configure high-DPI Raster Tiles** using `ol/source/XYZ` with custom tile sizes, retina scaling (`@2x`), and proper copyright attributions.
 - **Handle coordinate systems & projections reliably** (`EPSG:3857`, `EPSG:4326`, and custom national grids using `proj4` and `ol/proj`).
@@ -109,8 +109,8 @@ This repository strictly conforms to the [Agent Skills specification](https://ag
 ```text
 mapsnippets/openlayers-skill/
 ├── .claude-plugin/
-│   ├── marketplace.json    — Claude Code marketplace catalog manifest (v1.1.0)
-│   └── plugin.json         — Claude Code plugin manifest & metadata (v1.1.0)
+│   ├── marketplace.json    — Claude Code marketplace catalog manifest
+│   └── plugin.json         — Claude Code plugin manifest & metadata
 ├── skills/
 │   └── openlayers/
 │       ├── SKILL.md        — Entry point prompt & progressive disclosure router (< 200 lines)

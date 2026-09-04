@@ -2,7 +2,7 @@
 name: openlayers
 description: >-
   Expert coding skill for building enterprise-grade, high-performance web maps with
-  OpenLayers (v9–v10+). USE WHEN the user wants to create a map, render vector tiles
+  OpenLayers. USE WHEN the user wants to create a map, render vector tiles
   or raster tile layers, apply Mapbox/MapLibre Style JSON (ol-mapbox-style), display
   GeoJSON, KML, or GPX data, build GIS and spatial analysis tools, add geometry
   drawing or editing tools (ol/interaction/Draw, Modify, Snap), create point clustering
@@ -18,7 +18,7 @@ metadata:
 
 # OpenLayers — Agent Skill 🌐🗺️
 
-> The authoritative AI coding standard for building modular, high-performance web mapping applications with **OpenLayers (v9–v10+)** and modern vector/raster tile services.
+> The authoritative AI coding standard for building modular, high-performance web mapping applications with **OpenLayers** and modern vector/raster tile services.
 
 Maintained by **[MapSnippets](https://mapsnippets.org/)** — Open-source geospatial snippets, guides, and agent tools.
 
