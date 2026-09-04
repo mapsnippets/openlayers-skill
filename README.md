@@ -1,12 +1,18 @@
 # OpenLayers — Agent Skill 🌐🤖
 
-> Official **OpenLayers** skill for AI coding assistants (Cursor, Claude Code, Antigravity, GitHub Copilot, Windsurf, Cline).
+[![Agent Skills Specification](https://img.shields.io/badge/Agent_Skills-Specification_Compliant-0084FF?logo=anthropic&logoColor=white)](https://agentskills.io/specification)
+[![Claude Code Plugin](https://img.shields.io/badge/Claude_Code-Plugin_v1.1.0-7952B3?logo=anthropic&logoColor=white)](https://code.claude.com)
+[![Skills CLI](https://img.shields.io/badge/Skills_CLI-npx_skills_add-success)](https://github.com/vercel-labs/skills)
+[![OpenLayers](https://img.shields.io/badge/OpenLayers-v10.10.0-1F6B75)](https://openlayers.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE.md)
+
+> Official **OpenLayers** AI skill for coding assistants (Claude Code, Cursor, Antigravity, GitHub Copilot, Windsurf, Roo Code, Gemini CLI). Built in accordance with the open **[Agent Skills Specification](https://agentskills.io/)**.
 
 Maintained by **[MapSnippets](https://mapsnippets.org/)** — Open-source geospatial snippets, guides, and agent tools.
 
 ---
 
-🌐 [Website](https://mapsnippets.org/) &nbsp; 📚 [OpenLayers Documentation](https://openlayers.org/doc/)
+🌐 [Website](https://mapsnippets.org/) &nbsp; 📚 [OpenLayers Documentation](https://openlayers.org/doc/) &nbsp; 📋 [Agent Skills Standard](https://agentskills.io/)
 
 ---
 
@@ -15,13 +21,14 @@ Maintained by **[MapSnippets](https://mapsnippets.org/)** — Open-source geospa
 <details>
 <summary><b>Table of Contents</b></summary>
 <ul>
-<li><a href="#what-it-does">What it does</a></li>
-<li><a href="#getting-started-npm--cdn">Getting Started (NPM & CDN)</a></li>
-<li><a href="#how-skills-plugins-and-agents-fit-together">How skills, plugins, and agents fit together</a></li>
+<li><a href="#-overview--capabilities">Overview & Capabilities</a></li>
+<li><a href="#-how-agent-skills-work">How Agent Skills Work</a></li>
+<li><a href="#-example-prompts-that-trigger-this-skill">Example Prompts That Trigger This Skill</a></li>
 <li><a href="#-installation">Installation</a></li>
-<li><a href="#-repository-layout">Repository layout</a></li>
+<li><a href="#-repository-architecture">Repository Architecture</a></li>
 <li><a href="#-quickstart-examples">Quickstart Examples</a></li>
 <li><a href="#-basemap-api-keys">Basemap API Keys</a></li>
+<li><a href="#-evaluation--validation">Evaluation & Validation</a></li>
 <li><a href="#links">Links</a></li>
 <li><a href="#-contributing">Contributing</a></li>
 <li><a href="#-license">License</a></li>
@@ -30,62 +37,65 @@ Maintained by **[MapSnippets](https://mapsnippets.org/)** — Open-source geospa
 
 <br>
 
+## 💡 Overview & Capabilities
 
-## 🚀 Getting Started (NPM & CDN)
+An **Agent Skill** is on-demand domain expertise: AI assistants load it dynamically when a task requires specialized geospatial knowledge, replacing guesswork and hallucinated legacy APIs with verified patterns.
 
-### Option 1: Modern NPM / Bundler (Vite, Webpack, Next.js)
-```bash
-npm install ol ol-mapbox-style
-```
-```javascript
-import Map from "ol/Map.js";
-import View from "ol/View.js";
-import { fromLonLat } from "ol/proj.js";
-import { apply } from "ol-mapbox-style";
-import "ol/ol.css";
-```
-
-### Option 2: Vanilla HTML (Hosted CDN)
-```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@v10.10.0/ol.css">
-<script src="https://cdn.jsdelivr.net/npm/ol@v10.10.0/dist/ol.js"></script>
-```
-
-## What it does
-
-A skill is on-demand expertise: the agent loads it only when your request matches the skill's description, then follows its instructions instead of guessing. When you ask for OpenLayers maps, vector tiles, raster XYZ layers, projections, coordinate transforms, drawing tools, or spatial analysis, this skill makes the agent:
+When activated for **OpenLayers**, this skill guides the agent to:
 
 - **Generate modern modular OpenLayers code** (v9–v10+) using standard ES module imports (`ol/Map`, `ol/View`, `ol/layer/Tile`, `ol/layer/Vector`, `ol/source/XYZ`).
-- **Render Vector Tile styles seamlessly** using `ol-mapbox-style` (`apply` / `applyStyle`) with standard vector style JSON (`streets-v4`).
-- **Configure high-DPI Raster Tiles** using `ol/source/XYZ` with custom tile sizes, retina scaling, and attributions.
-- **Handle coordinate systems & projections reliably** (`EPSG:3857`, `EPSG:4326`, and custom national grids with `proj4` and `ol/proj`).
-- **Implement interactive GIS tools** — feature selection, drawing (`ol/interaction/Draw`), modification, snapping, and HTML overlays (`ol/Overlay`).
-- **Optimize heavy vector data rendering** using `ol/source/Cluster` and WebGL-accelerated point layers.
-- **Prevent common architecture pitfalls** — eliminates legacy global `ol.*` patterns, resolves asynchronous vector layer styling, and ensures clean cleanup in modern frontend frameworks.
+- **Render Vector Tile styles seamlessly** using `ol-mapbox-style` (`apply` / `applyStyle`) with standard vector style JSON (`streets-v4`, `outdoor-v4`).
+- **Configure high-DPI Raster Tiles** using `ol/source/XYZ` with custom tile sizes, retina scaling (`@2x`), and proper OpenStreetMap/MapTiler attributions.
+- **Handle coordinate systems & projections reliably** (`EPSG:3857`, `EPSG:4326`, and custom national grids using `proj4` and `ol/proj`).
+- **Implement interactive GIS tools** — feature selection, drawing (`ol/interaction/Draw`), polygon modification, vertex snapping, and HTML overlays (`ol/Overlay`).
+- **Optimize heavy vector data rendering** using `ol/source/Cluster` and WebGL-accelerated point layers (`ol/layer/WebGLPoints`).
+- **Prevent common architecture pitfalls** — eliminates legacy global `ol.*` patterns, resolves asynchronous vector layer styling, and ensures clean resource disposal in modern frontend frameworks (React, Vue, Svelte).
 
 <br>
 
-## How skills, plugins, and agents fit together
+## 🧠 How Agent Skills Work
 
-1. **The skill** is the portable content: a `SKILL.md` plus a `references/` folder. This is what every AI agent reads.
-2. **The plugin** is a Claude Code–specific wrapper for distributing the skill through a marketplace.
-3. **The agent** (Claude Code, Gemini CLI, Cursor, Antigravity, Windsurf…) loads the skill from its designated skills directory.
+This skill follows the **[Agent Skills open format](https://agentskills.io/)**, utilizing a **three-tier progressive disclosure model** to minimize context overhead:
+
+```mermaid
+graph LR
+    A[1. Discovery<br/>Startup] -->|Match Query| B[2. Activation<br/>Load SKILL.md]
+    B -->|As Needed| C[3. Execution<br/>Modular References & Examples]
+```
+
+1. **Discovery (Startup)**: The agent only inspects the YAML frontmatter `name` and `description` (~50 tokens).
+2. **Activation (Task Identified)**: When your prompt mentions OpenLayers, modular `ol/*` imports, vector tiles, or reprojection, the agent loads `skills/openlayers/SKILL.md` (< 2,850 tokens).
+3. **Execution (Deep Dive)**: The agent traverses targeted guides in `references/` or runnable recipes in `examples/` on demand, without polluting your context window.
+
+<br>
+
+## 🎯 Example Prompts That Trigger This Skill
+
+You don't need special commands to use this skill. Any natural language request matching its capabilities will trigger it:
+
+- *"Create an OpenLayers map in React using ol-mapbox-style and MapTiler streets-v4 vector tiles."*
+- *"How do I reproject a British National Grid (EPSG:27700) GeoJSON polygon into OpenLayers EPSG:3857?"*
+- *"Add a vector layer with drawing and vertex editing tools so users can digitize custom polygons."*
+- *"Implement high-density marker clustering with dynamic cluster count badges and spiderfy clicks in OpenLayers."*
+- *"Render a Cloud-Optimized GeoTIFF (COG) in OpenLayers using ol/source/GeoTIFF with true color bands."*
 
 <br>
 
 ## 📦 Installation
 
-### Universal — via Skills CLI
+### Option 1: Universal — via Skills CLI (Recommended)
 
-Works with Claude Code, Cursor, Gemini CLI, Windsurf, and dozens of other agents. The [Skills CLI](https://github.com/vercel-labs/skills) auto-detects which agents you have installed:
+Works across Claude Code, Cursor, Windsurf, Gemini CLI, Antigravity, and dozens of other AI coding tools. The [Skills CLI](https://github.com/vercel-labs/skills) auto-detects your active environments:
 
 ```bash
 npx skills add mapsnippets/openlayers-skill
 ```
 
-### Claude Code — as a plugin
+<br>
 
-Add the marketplace, install the plugin, then reload:
+### Option 2: Claude Code Plugin
+
+Install directly via the official Claude Code plugin marketplace:
 
 ```bash
 /plugin marketplace add mapsnippets/openlayers-skill
@@ -93,62 +103,46 @@ Add the marketplace, install the plugin, then reload:
 /reload-plugins
 ```
 
-### Gemini CLI & Antigravity
+<br>
 
-Install directly from the repository:
+### Option 3: Manual Installation by Client
 
-#### Windows (PowerShell)
-```powershell
-git clone https://github.com/mapsnippets/openlayers-skill.git; mkdir "$HOME\.gemini\skills" -Force; cp -Recurse openlayers-skill\skills\openlayers "$HOME\.gemini\skills\"; rm -Recurse -Force openlayers-skill
-```
+Copy or symlink the `skills/openlayers` directory into your agent's configured skills path:
 
-#### Linux & macOS (bash)
-```bash
-git clone https://github.com/mapsnippets/openlayers-skill.git && mkdir -p ~/.gemini/skills && cp -r openlayers-skill/skills/openlayers ~/.gemini/skills/ && rm -rf openlayers-skill
-```
-
-### Cursor
-
-Project-scoped. Copy the skill folder into your project's skills directory:
-
-```bash
-mkdir -p .cursor/skills && cp -r skills/openlayers .cursor/skills/
-```
-
-### VS Code & GitHub Copilot
-
-Project-scoped. Place the skill folder into `.agents/skills/`:
-
-```bash
-mkdir -p .agents/skills && cp -r skills/openlayers .agents/skills/
-```
-
-### Windsurf
-
-Project-scoped, read by Cascade:
-
-```bash
-mkdir -p .windsurf/skills && cp -r skills/openlayers .windsurf/skills/
-```
-
----
+| Agent / Tool | Target Directory | Install Command |
+| :--- | :--- | :--- |
+| **Cursor** | `.cursor/skills/openlayers` | `mkdir -p .cursor/skills && cp -r skills/openlayers .cursor/skills/` |
+| **VS Code / Copilot** | `.agents/skills/openlayers` | `mkdir -p .agents/skills && cp -r skills/openlayers .agents/skills/` |
+| **Gemini CLI / Antigravity** | `~/.gemini/skills/openlayers` | `mkdir -p ~/.gemini/skills && cp -r skills/openlayers ~/.gemini/skills/` |
+| **Windsurf (Cascade)** | `.windsurf/skills/openlayers` | `mkdir -p .windsurf/skills && cp -r skills/openlayers .windsurf/skills/` |
+| **Roo Code / Cline** | `.roo/skills/openlayers` | `mkdir -p .roo/skills && cp -r skills/openlayers .roo/skills/` |
+| **OpenHands** | `.agents/skills/openlayers` | `mkdir -p .agents/skills && cp -r skills/openlayers .agents/skills/` |
 
 <br>
 
-## 📘 Repository layout
+## 📘 Repository Architecture
+
+This repository strictly conforms to the [Agent Skills specification](https://agentskills.io/specification) (`dir_name == name`):
 
 ```text
-.claude-plugin/
-  marketplace.json    — Claude Code marketplace manifest
-  plugin.json         — Claude Code plugin manifest
-skills/
-  openlayers/
-    SKILL.md          — Main skill prompt entry point & progressive disclosure router
-    evals/            — Standard benchmark evaluation suites (agentskills.io spec)
-    examples/         — 40 standalone runnable task examples (HTML/CSS/JS)
-    references/       — 20 deep technical reference guides & API specifications
-README.md             — Documentation & installation guide
-LICENSE.md            — MIT License
+mapsnippets/openlayers-skill/
+├── .claude-plugin/
+│   ├── marketplace.json    — Claude Code marketplace catalog manifest (v1.1.0)
+│   └── plugin.json         — Claude Code plugin manifest & metadata (v1.1.0)
+├── skills/
+│   └── openlayers/
+│       ├── SKILL.md        — Entry point prompt & progressive disclosure router (< 200 lines)
+│       ├── evals/
+│       │   └── evals.json  — Machine-readable evaluation benchmarks (5 core test cases)
+│       ├── examples/       — 61 standalone runnable recipes (HTML/CSS/JS)
+│       │   ├── INDEX.md    — Curated categorized catalog of all recipes
+│       │   └── ...         — Vector tiles, drawing tools, clustering, GeoTIFF, WMS
+│       └── references/     — 21 deep technical reference guides & API specifications
+│           ├── INDEX.md    — Searchable index of references
+│           ├── versions.md — Single source of truth for library releases & styles
+│           └── ...         — modular imports, vector tile styling, projections, interactions
+├── README.md               — Project documentation & setup guide
+└── LICENSE.md              — MIT License
 ```
 
 <br>
@@ -156,17 +150,18 @@ LICENSE.md            — MIT License
 ## 🗺️ Quickstart Examples
 
 ### Vector Tiles via `ol-mapbox-style` (Recommended):
+
 ```javascript
-import Map from "ol/Map";
-import View from "ol/View";
-import { fromLonLat } from "ol/proj";
+import Map from "ol/Map.js";
+import View from "ol/View.js";
+import { fromLonLat } from "ol/proj.js";
 import { apply } from "ol-mapbox-style";
 import "ol/ol.css";
 
 const map = new Map({
   target: "map",
   view: new View({
-    center: fromLonLat([14.4378, 50.0755]), // [lng, lat]
+    center: fromLonLat([14.4378, 50.0755]), // [longitude, latitude]
     zoom: 12
   })
 });
@@ -174,13 +169,16 @@ const map = new Map({
 apply(map, "https://api.maptiler.com/maps/streets-v4/style.json?key=YOUR_API_KEY");
 ```
 
-### Raster Tiles via `ol/source/XYZ`:
+<br>
+
+### High-DPI Raster Tiles via `ol/source/XYZ`:
+
 ```javascript
-import Map from "ol/Map";
-import View from "ol/View";
-import TileLayer from "ol/layer/Tile";
-import XYZ from "ol/source/XYZ";
-import { fromLonLat } from "ol/proj";
+import Map from "ol/Map.js";
+import View from "ol/View.js";
+import TileLayer from "ol/layer/Tile.js";
+import XYZ from "ol/source/XYZ.js";
+import { fromLonLat } from "ol/proj.js";
 import "ol/ol.css";
 
 const map = new Map({
@@ -190,13 +188,13 @@ const map = new Map({
       source: new XYZ({
         url: "https://api.maptiler.com/maps/streets-v4/{z}/{x}/{y}.png?key=YOUR_API_KEY",
         tileSize: 512,
-        maxZoom: 22,
+        maxZoom: 19,
         attributions: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
       })
     })
   ],
   view: new View({
-    center: fromLonLat([14.4378, 50.0755]), // [lng, lat]
+    center: fromLonLat([14.4378, 50.0755]),
     zoom: 12
   })
 });
@@ -206,27 +204,45 @@ const map = new Map({
 
 ## 🔑 Basemap API Keys
 
-The vector and raster tile examples in this skill utilize MapTiler basemap styles. To run the examples with live map tiles:
-- Follow the guide on [how to get a free MapTiler API Key](https://docs.maptiler.com/cloud/api/authentication-key/) (includes a free plan with 100,000 monthly tile requests).
-- Replace `YOUR_API_KEY` in the snippet with your key.
+The vector and raster tile recipes in this skill use MapTiler Planet v4 basemap styles. To run recipes with live vector tiles:
+- Follow the official guide on [how to get a free MapTiler API Key](https://docs.maptiler.com/cloud/api/authentication-key/) (free tier includes 100,000 monthly requests).
+- Replace `YOUR_API_KEY` in the snippet with your active key.
 
----
+<br>
+
+## 🧪 Evaluation & Validation
+
+This skill includes an automated evaluation benchmark suite in `skills/openlayers/evals/evals.json` covering:
+1. Modular Vector Tile Initialization (`ol-mapbox-style`)
+2. Coordinate Transformations & Projections (`proj4` + `ol/proj`)
+3. Interactive Feature Drawing & Digitization (`ol/interaction/Draw`)
+4. Vector Marker Clustering (`ol/source/Cluster`)
+5. Cloud-Optimized GeoTIFF & WMS Overlays
+
+To validate compliance against the official Agent Skills specification using the reference validator:
+
+```bash
+npx @agentskills/skills-ref validate skills/openlayers
+```
 
 <br>
 
 ## Links
 
 - 🌐 [MapSnippets Community](https://mapsnippets.org/)
-- 🌐 [OpenLayers Documentation](https://openlayers.org/doc/)
+- 📚 [OpenLayers Official Documentation](https://openlayers.org/doc/)
+- 📋 [Agent Skills Specification](https://agentskills.io/)
 - 🐙 [GitHub Repository](https://github.com/mapsnippets/openlayers-skill)
-
----
 
 <br>
 
 ## 🤝 Contributing
 
-Contributions are welcome! Feel free to open issues or submit pull requests with improved snippets and documentation.
+Contributions are welcome! If you have optimized recipes, updated API references, or new evaluation benchmarks:
+1. Fork the repository.
+2. Ensure relative links in `skills/openlayers/SKILL.md` remain strictly valid.
+3. Validate your changes with `npx @agentskills/skills-ref validate skills/openlayers`.
+4. Submit a Pull Request.
 
 <br>
 
@@ -237,5 +253,5 @@ This project is licensed under the MIT License — see the [LICENSE](./LICENSE.m
 <br>
 
 <p align="center">
-  Maintained by <a href="https://mapsnippets.org/">MapSnippets</a> — Open web mapping tools & snippets.
+  Maintained with ❤️ by <a href="https://mapsnippets.org/">MapSnippets</a> — Open web mapping tools & agent skills.
 </p>
