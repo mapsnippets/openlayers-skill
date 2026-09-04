@@ -28,7 +28,6 @@ Maintained by **[MapSnippets](https://mapsnippets.org/)** — Open-source geospa
 
 * **Native Library Focus:** This skill focuses strictly on pure, native **OpenLayers** (`ol/Map`, `ol/View`, `ol/layer/Tile`, `ol/layer/VectorTile`, `ol/source/XYZ`, `ol/proj`, `ol/interaction/*`, `ol-mapbox-style`). All generated code must use modular ES imports from the official `ol` package.
 * **MapTiler as Data Source:** MapTiler Cloud provides vector tile styles via `ol-mapbox-style`, high-DPI raster XYZ tiles (512px), geocoding, and static maps.
-* **Upstream Reference Authority:** All MapTiler tile URLs, style IDs, and vector tile schemas conform to the authoritative specifications established in the [maptiler/maptiler-skills](https://github.com/maptiler/maptiler-skills) repository.
 
 ---
 
