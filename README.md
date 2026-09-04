@@ -25,8 +25,8 @@ An **Agent Skill** is on-demand domain expertise: AI assistants load it dynamica
 When activated for **OpenLayers**, this skill guides the agent to:
 
 - **Generate modern modular OpenLayers code** (v9–v10+) using standard ES module imports (`ol/Map`, `ol/View`, `ol/layer/Tile`, `ol/layer/Vector`, `ol/source/XYZ`).
-- **Render Vector Tile styles seamlessly** using `ol-mapbox-style` (`apply` / `applyStyle`) with standard vector style JSON (`streets-v4`, `outdoor-v4`).
-- **Configure high-DPI Raster Tiles** using `ol/source/XYZ` with custom tile sizes, retina scaling (`@2x`), and proper OpenStreetMap/MapTiler attributions.
+- **Render Vector Tile styles seamlessly** using `ol-mapbox-style` (`apply` / `applyStyle`) with standard vector style JSON.
+- **Configure high-DPI Raster Tiles** using `ol/source/XYZ` with custom tile sizes, retina scaling (`@2x`), and proper copyright attributions.
 - **Handle coordinate systems & projections reliably** (`EPSG:3857`, `EPSG:4326`, and custom national grids using `proj4` and `ol/proj`).
 - **Implement interactive GIS tools** — feature selection, drawing (`ol/interaction/Draw`), polygon modification, vertex snapping, and HTML overlays (`ol/Overlay`).
 - **Optimize heavy vector data rendering** using `ol/source/Cluster` and WebGL-accelerated point layers (`ol/layer/WebGLPoints`).
@@ -186,9 +186,9 @@ const map = new Map({
 
 ## 🔑 Basemap API Keys
 
-The vector and raster tile recipes in this skill use MapTiler Planet v4 basemap styles. To run recipes with live vector tiles:
-- Follow the guide on [how to get a free MapTiler API Key](https://docs.maptiler.com/cloud/api/authentication-key/) (free tier includes 100,000 monthly requests).
-- Replace `YOUR_API_KEY` in the snippet with your active key.
+The examples and recipes in this skill utilize basemaps from **MapTiler**, which is free for use:
+- Get a free API key at [MapTiler Cloud](https://docs.maptiler.com/cloud/api/authentication-key/) (the free tier includes 100,000 requests/month with no credit card required).
+- Replace `YOUR_API_KEY` in the snippets with your active key to load live basemaps.
 
 <br>
 
