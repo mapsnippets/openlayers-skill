@@ -213,11 +213,11 @@ The vector and raster tile recipes in this skill use MapTiler Planet v4 basemap 
 ## 🧪 Evaluation & Validation
 
 This skill includes an automated evaluation benchmark suite in `skills/openlayers/evals/evals.json` covering:
-1. Modular Vector Tile Initialization (`ol-mapbox-style`)
-2. Coordinate Transformations & Projections (`proj4` + `ol/proj`)
-3. Interactive Feature Drawing & Digitization (`ol/interaction/Draw`)
-4. Vector Marker Clustering (`ol/source/Cluster`)
-5. Cloud-Optimized GeoTIFF & WMS Overlays
+1. Modern Interactive Vector Basemap (modular ES imports, clean street styling)
+2. Interactive Geometry Digitization (Draw, Modify, and magnetic Snap interactions)
+3. High-Performance Point Clustering (dynamic count badges, zoom to extent)
+4. Split-Screen Layer Swipe Comparison (real-time canvas event clipping)
+5. Cloud-Optimized GeoTIFF (COG) Ingestion (WebGLTileLayer with band expressions)
 
 To validate compliance against the Agent Skills specification using the reference validator:
 
