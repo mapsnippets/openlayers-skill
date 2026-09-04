@@ -2,6 +2,8 @@
 
 This directory contains the authoritative, complete reference and example catalog for **OpenLayers (v9–v10+)**, mapping all **281 official interactive examples** and the **entire OpenLayers API module hierarchy**.
 
+> **Upstream Authority:** All MapTiler basemap styles, tile endpoints, and vector tile schemas conform to the official definitions in the [`maptiler/maptiler-skills`](https://github.com/maptiler/maptiler-skills) reference repository.
+
 ---
 
 ## 📑 Complete Catalog Architecture
