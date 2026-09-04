@@ -99,12 +99,12 @@ Install directly from the repository:
 
 #### Windows (PowerShell)
 ```powershell
-git clone https://github.com/mapsnippets/openlayers-skill.git; mkdir "$HOME\.gemini\skills\openlayers" -Force; cp -Recurse openlayers-skill\skills\* "$HOME\.gemini\skills\openlayers\"; rm -Recurse -Force openlayers-skill
+git clone https://github.com/mapsnippets/openlayers-skill.git; mkdir "$HOME\.gemini\skills" -Force; cp -Recurse openlayers-skill\skills\openlayers "$HOME\.gemini\skills\"; rm -Recurse -Force openlayers-skill
 ```
 
 #### Linux & macOS (bash)
 ```bash
-git clone https://github.com/mapsnippets/openlayers-skill.git && mkdir -p ~/.gemini/skills/openlayers && cp -r openlayers-skill/skills/* ~/.gemini/skills/openlayers/ && rm -rf openlayers-skill
+git clone https://github.com/mapsnippets/openlayers-skill.git && mkdir -p ~/.gemini/skills && cp -r openlayers-skill/skills/openlayers ~/.gemini/skills/ && rm -rf openlayers-skill
 ```
 
 ### Cursor
@@ -112,7 +112,15 @@ git clone https://github.com/mapsnippets/openlayers-skill.git && mkdir -p ~/.gem
 Project-scoped. Copy the skill folder into your project's skills directory:
 
 ```bash
-mkdir -p .cursor/skills && cp -r skills .cursor/skills/
+mkdir -p .cursor/skills && cp -r skills/openlayers .cursor/skills/
+```
+
+### VS Code & GitHub Copilot
+
+Project-scoped. Place the skill folder into `.agents/skills/`:
+
+```bash
+mkdir -p .agents/skills && cp -r skills/openlayers .agents/skills/
 ```
 
 ### Windsurf
@@ -120,7 +128,7 @@ mkdir -p .cursor/skills && cp -r skills .cursor/skills/
 Project-scoped, read by Cascade:
 
 ```bash
-mkdir -p .windsurf/skills && cp -r skills .windsurf/skills/
+mkdir -p .windsurf/skills && cp -r skills/openlayers .windsurf/skills/
 ```
 
 ---
@@ -134,9 +142,12 @@ mkdir -p .windsurf/skills && cp -r skills .windsurf/skills/
   marketplace.json    — Claude Code marketplace manifest
   plugin.json         — Claude Code plugin manifest
 skills/
-  SKILL.md          — Main skill prompt entry point
-    references/       — Deep technical reference guides (loaded on demand)
-README.md             — This guide
+  openlayers/
+    SKILL.md          — Main skill prompt entry point & progressive disclosure router
+    evals/            — Standard benchmark evaluation suites (agentskills.io spec)
+    examples/         — 40 standalone runnable task examples (HTML/CSS/JS)
+    references/       — 20 deep technical reference guides & API specifications
+README.md             — Documentation & installation guide
 LICENSE.md            — MIT License
 ```
 
