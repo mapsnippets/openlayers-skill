@@ -1,203 +1,125 @@
-# OpenLayers API Reference — Layers & Sources
+# OpenLayers Layers & Sources Reference 📦🗺️
 
-OpenLayers strictly separates the visual presentation container (`ol/layer/*`) from the underlying data protocol (`ol/source/*`). A single source can feed multiple layers with different styles, filters, or renderers.
+> Comprehensive technical reference for OpenLayers layer and source architectures, covering vector tiles, raster XYZ, WebGL renderers, Cloud-Optimized GeoTIFFs (COG), GeoZarr, and OGC services.
 
 ---
 
-## 1. Complete Layer Hierarchy (`ol/layer/*`)
+## 1. Layer Classes Architecture
 
-| Layer Class | Import Path | Best Use Case |
+Every layer in OpenLayers inherits from `ol/layer/Base` and manages visual styling, opacity, zoom ranges, and rendering pipeline:
+
+| Layer Class | Import Path | Primary Use Case |
 | :--- | :--- | :--- |
-| `TileLayer` | `ol/layer/Tile.js` | Pre-rendered raster tile pyramids (MapTiler XYZ, OpenStreetMap, TileWMS, WMTS). |
-| `VectorLayer` | `ol/layer/Vector.js` | Client-side vector geometries (GeoJSON, KML, GPX, interactive drawing). |
-| `VectorTileLayer` | `ol/layer/VectorTile.js` | Vector tiles (MVT / Mapbox vector tiles) with client-side styling. |
-| `VectorImageLayer` | `ol/layer/VectorImage.js` | Complex vector layers pre-rendered to canvas tiles for fast panning/zooming. |
-| `WebGLTileLayer` | `ol/layer/WebGLTile.js` | High-performance WebGL-rendered raster tiles and Cloud Optimized GeoTIFFs (COG). |
-| `Heatmap` | `ol/layer/Heatmap.js` | Density heatmaps with customizable blur, radius, and color gradients. |
-| `ImageLayer` | `ol/layer/Image.js` | Single untiled images (WMS Single Tile, static floorplans, drone orthophotos). |
-| `LayerGroup` | `ol/layer/Group.js` | Hierarchical collection of layers toggled or managed as a single unit. |
+| **`TileLayer`** | `ol/layer/Tile.js` | Tiled raster imagery (MapTiler Streets, Satellite, OSM, WMS, WMTS). |
+| **`VectorLayer`** | `ol/layer/Vector.js` | Client-side 2D vector geometries (GeoJSON, KML, GPX, Shapefiles). |
+| **`VectorTileLayer`**| `ol/layer/VectorTile.js` | Tiled vector slices in Mapbox Vector Tile (`.pbf`) format. |
+| **`WebGLTile`** | `ol/layer/WebGLTile.js` | Hardware-accelerated WebGL raster tile rendering, COG, and shader expressions. |
+| **`WebGLPoints`** | `ol/layer/WebGLPoints.js` | Ultra-high performance rendering of 100,000+ vector points at 60 FPS. |
+| **`ImageLayer`** | `ol/layer/Image.js` | Single untiled dynamic images (Single-image WMS, custom Canvas). |
 
-### Universal Layer Options
-Every layer inherits from `ol/layer/Base` and supports these configuration properties:
-- `opacity` (`number`, default `1.0`) — Layer opacity between `0.0` and `1.0`.
-- `visible` (`boolean`, default `true`) — Visibility toggle.
-- `extent` (`[minX, minY, maxX, maxY]`) — Bounding extent outside which the layer is not rendered.
-- `zIndex` (`number`, default `0`) — Stacking order index.
-- `minZoom` / `maxZoom` (`number`) — Zoom levels (inclusive/exclusive) where layer is visible.
-- `minResolution` / `maxResolution` (`number`) — Ground resolution thresholds in projection units.
+### Common Layer Options
+* **`opacity`** *(number, default 1)*: Layer transparency (0 to 1).
+* **`visible`** *(boolean, default true)*: Layer visibility toggle.
+* **`minZoom` / `maxZoom`** *(number)*: Zoom level constraints for rendering.
+* **`minResolution` / `maxResolution`** *(number)*: Resolution constraints in meters/pixel.
+* **`zIndex`** *(number, default 0)*: Visual stacking order.
 
 ---
 
-## 2. Vector Sources (`ol/source/*`)
+## 2. Source Classes Reference
 
-### A. `ol/source/Vector` (GeoJSON & In-Memory Data)
+### A. `ol/source/XYZ` (Raster Tiles)
+Consumes slippy map raster tiles (`{z}/{x}/{y}`):
 ```javascript
-import VectorLayer from 'ol/layer/Vector.js';
-import VectorSource from 'ol/source/Vector.js';
-import GeoJSON from 'ol/format/GeoJSON.js';
-import Feature from 'ol/Feature.js';
-import Point from 'ol/geom/Point.js';
-import { fromLonLat } from 'ol/proj.js';
+import XYZ from 'ol/source/XYZ.js';
 
-// 1. Static Remote GeoJSON Source
-const remoteVectorSource = new VectorSource({
-  url: 'https://example.com/api/data.geojson',
-  format: new GeoJSON({
-    dataProjection: 'EPSG:4326',      // Coordinates in the file are [lng, lat]
-    featureProjection: 'EPSG:3857'    // Coordinates are transformed to Web Mercator
-  })
+const source = new XYZ({
+  url: `https://api.maptiler.com/maps/streets-v4/{z}/{x}/{y}.png?key=${MAPTILER_KEY}`,
+  tileSize: 512,
+  tilePixelRatio: 2, // HiDPI Retina support
+  maxZoom: 19,
+  crossOrigin: 'anonymous'
 });
-
-// 2. In-Memory Programmatic Source
-const memorySource = new VectorSource();
-const marker = new Feature({
-  geometry: new Point(fromLonLat([14.4378, 50.0755])),
-  name: 'Prague Office',
-  type: 'headquarters'
-});
-memorySource.addFeature(marker);
-
-const vectorLayer = new VectorLayer({
-  source: memorySource,
-  zIndex: 10
-});
-map.addLayer(vectorLayer);
 ```
 
-### B. BBOX Loading Strategy (Streaming Large Data on Viewport Move)
-When dealing with millions of features on a remote server, load only the features inside the current map viewport using `ol/loadingstrategy.js`:
+---
 
+### B. `ol/source/VectorTile` (MVT Vector Tiles)
+Consumes Mapbox Vector Tiles (`.pbf`):
+```javascript
+import VectorTileSource from 'ol/source/VectorTile.js';
+import MVT from 'ol/format/MVT.js';
+
+const vtSource = new VectorTileSource({
+  format: new MVT(),
+  url: `https://api.maptiler.com/tiles/v4/{z}/{x}/{y}.pbf?key=${MAPTILER_KEY}`,
+  maxZoom: 14
+});
+```
+
+---
+
+### C. `ol/source/Vector` (Feature Datasets)
+Stores client-side vector geometries with spatial indexing:
 ```javascript
 import VectorSource from 'ol/source/Vector.js';
 import GeoJSON from 'ol/format/GeoJSON.js';
 import { bbox } from 'ol/loadingstrategy.js';
 
-const wfsSource = new VectorSource({
+const vectorSource = new VectorSource({
   format: new GeoJSON(),
-  strategy: bbox, // Re-runs loader function whenever viewport extent changes
-  loader: function (extent, resolution, projection, success, failure) {
-    const url = `https://example.com/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&outputFormat=application/json&srsname=${projection.getCode()}&bbox=${extent.join(',')},${projection.getCode()}`;
-    
-    fetch(url)
-      .then((res) => res.json())
-      .then((data) => {
-        const features = new GeoJSON().readFeatures(data);
-        wfsSource.addFeatures(features);
-        success(features);
-      })
-      .catch((err) => {
-        failure();
-      });
-  }
+  url: (extent) => `/api/features?bbox=${extent.join(',')}`,
+  strategy: bbox // Reloads data as the map view changes bounding box
 });
-```
-
-### C. `ol/source/Cluster` (Marker Clustering)
-```javascript
-import VectorSource from 'ol/source/Vector.js';
-import Cluster from 'ol/source/Cluster.js';
-import VectorLayer from 'ol/layer/Vector.js';
-import { Style, Circle as CircleStyle, Fill, Stroke, Text } from 'ol/style.js';
-
-const pointSource = new VectorSource({
-  url: 'https://example.com/stores.geojson',
-  format: new GeoJSON()
-});
-
-const clusterSource = new Cluster({
-  distance: 45,       // Cluster distance in pixels
-  minDistance: 20,    // Minimum distance between two clusters
-  source: pointSource
-});
-
-const clusterLayer = new VectorLayer({
-  source: clusterSource,
-  style: (feature) => {
-    const clusteredFeatures = feature.get('features');
-    const size = clusteredFeatures.length;
-
-    // Single unclustered marker
-    if (size === 1) {
-      return new Style({
-        image: new CircleStyle({
-          radius: 7,
-          fill: new Fill({ color: '#0084FF' }),
-          stroke: new Stroke({ color: '#ffffff', width: 2 })
-        })
-      });
-    }
-
-    // Cluster badge with count
-    return new Style({
-      image: new CircleStyle({
-        radius: Math.min(14 + size * 1.2, 32),
-        fill: new Fill({ color: size > 20 ? '#ef4444' : '#0084FF' }),
-        stroke: new Stroke({ color: '#ffffff', width: 3 })
-      }),
-      text: new Text({
-        text: size.toString(),
-        fill: new Fill({ color: '#ffffff' }),
-        font: 'bold 12px sans-serif'
-      })
-    });
-  }
-});
-map.addLayer(clusterLayer);
 ```
 
 ---
 
-## 3. Raster & Tile Sources (`ol/source/*`)
-
-### A. `ol/source/XYZ` (MapTiler & Standard Raster Tiles)
+### D. `ol/source/Cluster` (Point Aggregation)
+Groups nearby points within a pixel radius into aggregated cluster features:
 ```javascript
-import TileLayer from 'ol/layer/Tile.js';
-import XYZ from 'ol/source/XYZ.js';
+import Cluster from 'ol/source/Cluster.js';
 
-const maptilerStreets = new TileLayer({
-  source: new XYZ({
-    url: 'https://api.maptiler.com/maps/streets-v4/{z}/{x}/{y}.png?key=YOUR_API_KEY',
-    tileSize: 512,
-    maxZoom: 22,
-    crossOrigin: 'anonymous',
-    attributions: '<a href="https://www.maptiler.com/copyright/">&copy; MapTiler</a>'
-  })
+const clusterSource = new Cluster({
+  distance: 40,      // Distance in pixels between clusters
+  minDistance: 20,   // Minimum distance between clusters
+  source: vectorSource
 });
-map.addLayer(maptilerStreets);
 ```
 
-### B. `ol/layer/Group` (Hierarchical Layer Management)
+---
+
+### E. `ol/source/GeoTIFF` (Cloud-Optimized GeoTIFF)
+Streams multi-band Cloud-Optimized GeoTIFFs using HTTP range requests:
 ```javascript
-import LayerGroup from 'ol/layer/Group.js';
+import GeoTIFF from 'ol/source/GeoTIFF.js';
 
-const basemapGroup = new LayerGroup({
-  layers: [streetsTileLayer, satelliteTileLayer]
+const cogSource = new GeoTIFF({
+  sources: [
+    {
+      url: 'https://sentinel-cogs.s3.us-west-2.amazonaws.com/.../TCI.tif',
+      bands: [1, 2, 3]
+    }
+  ]
 });
-
-const overlayGroup = new LayerGroup({
-  layers: [parcelsLayer, pipelinesLayer]
-});
-
-map.addLayer(basemapGroup);
-map.addLayer(overlayGroup);
-
-// Toggle all overlays with a single call:
-overlayGroup.setVisible(false);
 ```
 
-### C. `ol/layer/Heatmap`
-```javascript
-import Heatmap from 'ol/layer/Heatmap.js';
+---
 
-const heatmapLayer = new Heatmap({
-  source: pointSource,
-  blur: 15,                     // Blur size in pixels
-  radius: 10,                   // Radius size in pixels
-  weight: (feature) => {
-    // Return float between 0.0 and 1.0
-    return feature.get('magnitude') / 10;
-  },
-  gradient: ['#00f', '#0ff', '#0f0', '#ff0', '#f00'] // Custom color ramp
+### F. `ol/source/Raster` (Pixelwise GPU/Worker Operations)
+Executes pixelwise raster operations across multiple input sources:
+```javascript
+import RasterSource from 'ol/source/Raster.js';
+
+const raster = new RasterSource({
+  sources: [demSource],
+  operation: (pixels, data) => {
+    const pixel = pixels[0];
+    const elev = -10000 + ((pixel[0] * 256 * 256 + pixel[1] * 256 + pixel[2]) * 0.1);
+    if (elev > data.threshold) {
+      return [255, 0, 0, 200];
+    }
+    return [0, 0, 0, 0];
+  }
 });
-map.addLayer(heatmapLayer);
 ```

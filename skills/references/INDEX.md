@@ -1,48 +1,43 @@
-# OpenLayers Skill References Index 📚🗺️
+# OpenLayers Reference Index 🗂️⚡
 
-> The authoritative catalog of declarative API specifications, architecture guides, and schema references for building enterprise web mapping applications with **OpenLayers (v9–v10+)**.
+> Master index and topic routing directory for all OpenLayers agent references, API standards, official documentation guides, and MapTiler basemap integrations. Load on demand.
+
+Maintained by **[MapSnippets](https://mapsnippets.org/)** — Open-source geospatial snippets, guides, and agent tools.
 
 ---
 
-## ⚡ Fast Search Prefix Conventions
+## 🔎 Fast Search & Directory Routing
 
-When searching for specific topics, use file prefix routing to locate the exact reference without context window overhead:
-
-| Topic Area | Directory / Prefix | Description |
+| Topic Area | Directory / Prefix | Contents |
 | :--- | :--- | :--- |
-| **Official Task Examples** | `examples/` | 40 complete, production-tested recipes categorized in [examples/INDEX.md](../examples/INDEX.md). |
-| **Core APIs & Architecture** | `references/api-*` | Deep specs on Map, View, Layers, Sources, Interactions, Styling, and Projections. |
-| **Advanced GIS & WebGL** | `references/spatial-*`, `advanced-*`, `ogc-*` | Snapping, boundary tracing, WebGL COG shaders, WMS/WMTS/WFS, reprojection, and canvas animations. |
-| **Frameworks & Production** | `references/frameworks.md`, `patterns-*`, `basemaps-*` | React, Next.js, Vue, Svelte, anti-pattern guides, and Planet v4 endpoints. |
+| **Official Task Examples** | **[examples/INDEX.md](../examples/INDEX.md)** | **60 atomic official recipes** with full HTML, CSS, and native JS across Projections, Digitization, Clustering, WebGL, COG, OGC, and UI Overlays |
+| **Core API & View** | `references/api-map-*`, `references/api-projections-*` | `Map` options, `View` physics, coordinate transformations, Proj4js registration |
+| **Layers & Sources** | `references/api-layers-*`, `references/ogc-*` | `TileLayer`, `VectorLayer`, `WebGLTile`, COG, GeoZarr, WMS, WMTS, WFS |
+| **Styling & Shaders** | `references/api-styling-*` | Style DSL, dynamic style functions, Flat Style expressions, WebGL styling |
+| **Interactions & CAD** | `references/api-interactions-*` | Vector drawing, vertex editing, magnetic snapping, spatial analysis |
+| **Basemaps, Schemas & Services**| `references/basemaps-*`, `references/vector-tile-*` | MapTiler Planet v4 tile URLs, vector schemas, and REST endpoints |
 
 ---
 
-## 📑 Complete Reference Catalog
+## 📑 Complete Reference Catalog (`references/`)
 
-### 🏛️ 1. Core API Specifications & Architecture
-* **[api-map-and-view.md](api-map-and-view.md)** — Complete guide to `ol/Map`, `ol/View`, `ol/Overlay`, view animations, resolutions, extent constraints, and map event lifecycles.
-* **[api-layers-and-sources.md](api-layers-and-sources.md)** — Exhaustive guide to `TileLayer`, `VectorLayer`, `VectorTileLayer`, `VectorImageLayer`, `Heatmap`, `LayerGroup`, `VectorSource`, `Cluster`, and `XYZ`.
-* **[api-interactions-and-controls.md](api-interactions-and-controls.md)** — Full reference for `Draw`, `Modify`, `Snap`, `Select`, `Translate`, `DragBox`, `DragAndDrop`, `Link`, built-in UI controls, and subclassing `ol/control/Control`.
-* **[api-styling-and-renderers.md](api-styling-and-renderers.md)** — `ol/style/Style`, `Fill`, `Stroke`, `Icon`, `Text`, `CircleStyle`, `RegularShape`, multi-pass road casings, dynamic style functions, and modern Flat Style Expressions.
-* **[api-projections-and-geom.md](api-projections-and-geom.md)** — Coordinate conversions (`fromLonLat`, `toLonLat`), custom `proj4` registration (Swiss LV95, British National Grid), and `ol/geom/*` geometry classes.
+### 1. Core API Specifications & Guides
+* **[api-map-and-view.md](api-map-and-view.md)** — `Map` methods, `View` camera physics, coordinate conversion, flight animations.
+* **[api-layers-and-sources.md](api-layers-and-sources.md)** — Complete layer and source classes (`Tile`, `Vector`, `VectorTile`, `WebGLTile`, `GeoTIFF`, `Raster`).
+* **[api-styling-and-renderers.md](api-styling-and-renderers.md)** — Imperative style classes, dynamic style functions, Flat Style expressions, WebGL shader rules.
+* **[api-interactions-and-controls.md](api-interactions-and-controls.md)** — Vector CAD digitization (`Draw`, `Modify`, `Snap`, `Select`, `Translate`) and UI controls.
+* **[api-projections-and-geom.md](api-projections-and-geom.md)** — Coordinate systems, Proj4js registration (LV95, BNG, EPSG:4326), and geometry hierarchy.
+* **[official-examples-catalog.md](official-examples-catalog.md)** — API-to-Recipe directory cross-referencing all OpenLayers APIs to the 60 official task recipes.
+* **[ogc-wms-wmts-wfs.md](ogc-wms-wmts-wfs.md)** — Enterprise OGC stack (WMS `getFeatureInfoUrl`, WMTS matrix sets, WFS BBOX strategy & XML filters).
+* **[patterns-gotchas.md](patterns-gotchas.md)** — Solutions for the top OpenLayers bugs (EPSG:3857 coordinate trap, missing CSS, snap ordering, canvas export).
+* **[events.md](events.md)** — Map lifecycle, view changes, pointer tracking, vector feature events, and render hooks.
+* **[frameworks.md](frameworks.md)** — Integrating OpenLayers in React, Vue 3, Svelte, and Next.js SPAs.
+* **[prompt-benchmarks.md](prompt-benchmarks.md)** — Standardized OpenLayers evaluation prompts and patterns.
 
-### 🚀 2. Advanced Geospatial Capabilities
-* **[spatial-analysis-and-editing.md](spatial-analysis-and-editing.md)** — Precision drawing, live polygon boundary tracing (`trace: true`), magnetic snapping, and Turf.js spatial analysis.
-* **[advanced-webgl-and-cog.md](advanced-webgl-and-cog.md)** — Cloud-Optimized GeoTIFF (COG) ingestion, real-time NDVI band math in WebGL fragment shaders, and 100k+ WebGL point sprites.
-* **[ogc-wms-wmts-wfs.md](ogc-wms-wmts-wfs.md)** — Enterprise OGC services: Tiled vs Single-Image WMS, interactive `GetFeatureInfo`, streaming WFS with BBOX loading strategy, and WMTS capabilities parsing.
-* **[advanced-vector-tiles-and-reprojection.md](advanced-vector-tiles-and-reprojection.md)** — Client-side `geojson-vt` tile slicing and on-the-fly raster/vector coordinate reprojection.
-* **[canvas-effects-and-animations.md](canvas-effects-and-animations.md)** — Split-screen layer swipe comparisons, magnifying spyglass lens, flight pulse rings, and high-resolution PDF/PNG exports.
-
-### 🛠️ 3. Ecosystem, Frameworks & Best Practices
-* **[installation-and-cdn.md](installation-and-cdn.md)** — Package manager installations (NPM, pnpm, yarn, bun) and hosted CDN script tag bundles.
-* **[vector-tiles-mapbox-style.md](vector-tiles-mapbox-style.md)** — `ol-mapbox-style` integration (`apply`), vector tile basemaps, and runtime styling.
-* **[frameworks.md](frameworks.md)** — React (`useRef`/`useEffect`), Next.js App Router SSR safety, Svelte (`bind:this`), and Vue 3 integrations.
-* **[events.md](events.md)** — Exhaustive dictionary of OpenLayers map, layer, source, geometry, and pointer events.
-* **[patterns-gotchas.md](patterns-gotchas.md)** — Solutions for the top 10 OpenLayers anti-patterns (Null Island, projection mismatches, memory leaks on unmount).
-* **[prompt-benchmarks.md](prompt-benchmarks.md)** — 10 comprehensive architectural prompt benchmarks with evaluation rubrics.
-* **[basemaps-and-terrain.md](basemaps-and-terrain.md)** — Production basemap style URLs (`streets-v4`, `outdoor-v4`, `satellite-v4`, `dataviz-v4-dark`), high-DPI raster XYZ endpoints, and shaded relief hillshades.
-* **[geocoding-and-services.md](geocoding-and-services.md)** — Direct REST API specifications for forward/reverse geocoding, autocomplete search, static maps, and elevation lookups.
-* **[vector-tile-schemas.md](vector-tile-schemas.md)** — Complete 9-schema vector catalog (`Planet v4`, `Outdoor`, `Contours`, `3D Buildings`, `Ocean`, `Cadastre`, `Landcover`).
+### 2. Basemaps, Schemas & Services
+* **[vector-tile-schemas.md](vector-tile-schemas.md)** — Complete Planet v4 vector tile schema (transportation, building, water, place, poi, boundary).
+* **[basemaps-and-terrain.md](basemaps-and-terrain.md)** — Production endpoints for `streets-v4`, `dataviz-v4-dark`, `outdoor-v4`, `satellite-v4`, and Terrain-RGB.
+* **[geocoding-and-services.md](geocoding-and-services.md)** — Forward/reverse geocoding, autocomplete search, static maps, and elevation.
 
 ---
 

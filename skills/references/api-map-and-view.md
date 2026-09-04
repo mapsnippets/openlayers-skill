@@ -1,112 +1,150 @@
-# OpenLayers API Reference — `ol/Map`, `ol/View` & `ol/Overlay`
+# OpenLayers Map & View API Reference 🗺️📐
 
-Source: https://openlayers.org/en/latest/apidoc/module-ol_Map-Map.html
+> Comprehensive technical reference for `ol/Map` and `ol/View`, covering constructor options, camera controls, coordinate transformations, projections, resolution constraints, and animations.
 
 ---
 
 ## 1. `ol/Map`
 
-The central class of OpenLayers. Renders layers to a target container.
+The core component responsible for managing layers, view state, user interactions, DOM event listeners, and WebGL/Canvas rendering.
 
-### Import:
 ```javascript
-import Map from "ol/Map.js";
+import Map from 'ol/Map.js';
+import View from 'ol/View.js';
+import TileLayer from 'ol/layer/Tile.js';
+import XYZ from 'ol/source/XYZ.js';
+
+const map = new Map({
+  target: 'map',
+  layers: [
+    new TileLayer({
+      source: new XYZ({
+        url: `https://api.maptiler.com/maps/streets-v4/{z}/{x}/{y}.png?key=${MAPTILER_KEY}`,
+        tileSize: 512
+      })
+    })
+  ],
+  view: new View({
+    center: [0, 0],
+    zoom: 2
+  })
+});
 ```
 
-### Constructor Options (`MapOptions`):
+### Constructor Options Table
+
 | Option | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
-| `target` | `HTMLElement | string` | `undefined` | DOM container element or its `id`. |
-| `layers` | `Array<BaseLayer> | Collection`| `[]` | Array of layers to render. |
-| `view` | `View` | `undefined` | Map's `ol/View` instance. |
-| `controls` | `Collection<Control>` | `defaults()` | UI controls (`Zoom`, `Attribution`, `Rotate`). |
-| `interactions` | `Collection<Interaction>` | `defaults()` | Mouse/touch interactions (`DragPan`, `PinchZoom`, `MouseWheelZoom`). |
-| `overlays` | `Collection<Overlay>` | `[]` | HTML overlay popups. |
-| `maxTilesLoading`| `number` | `16` | Max concurrent tile requests. |
+| **`target`** | `HTMLElement \| string` | `undefined` | The container element or DOM ID where the map is rendered. |
+| **`view`** | `ol/View` | `undefined` | The map's view determining center, zoom, resolution, and projection. |
+| **`layers`** | `Array<ol/layer/Base> \| ol/Collection` | `[]` | Visual layers rendered from bottom to top. |
+| **`controls`** | `Array<ol/control/Control> \| ol/Collection`| Default controls | Controls displayed on top of the map. |
+| **`interactions`**| `Array<ol/interaction/Interaction>` | Default interactions | Pointer, touch, drag, and zoom interactions. |
+| **`overlays`** | `Array<ol/Overlay> \| ol/Collection`| `[]` | DOM elements anchored to geographical coordinates. |
+| **`pixelRatio`** | `number` | `window.devicePixelRatio` | Canvas pixel ratio (crucial for HiDPI/Retina screens). |
+| **`maxTilesLoading`**| `number` | `16` | Maximum concurrent tile network requests. |
 
-### Key Methods:
-* `setTarget(target: HTMLElement | string | null)` — Assigns target container. **Pass `null` to destroy and clean up map!**
-* `getTarget(): HTMLElement | string`
-* `getView(): View` / `setView(view: View)`
-* `addLayer(layer: BaseLayer)` / `removeLayer(layer: BaseLayer)` / `getLayers(): Collection<BaseLayer>`
-* `addOverlay(overlay: Overlay)` / `removeOverlay(overlay: Overlay)`
-* `addControl(control: Control)` / `removeControl(control: Control)`
-* `addInteraction(interaction: Interaction)` / `removeInteraction(interaction: Interaction)`
-* `forEachFeatureAtPixel(pixel, callback, options)` — Hit-testing vector features under pointer.
-* `getCoordinateFromPixel(pixel: Pixel): Coordinate`
-* `getPixelFromCoordinate(coordinate: Coordinate): Pixel`
-* `updateSize()` — Re-evaluates container dimensions (call after modal/tab opens or container resize).
-* `render()` — Forces map re-render.
-
-### Map Events:
-* `click`, `singleclick`, `dblclick`, `pointermove`, `pointerdrag`, `movestart`, `moveend`, `postrender`, `change:size`.
+### Core Methods
+* **`map.render()`**: Requests that the map be rendered immediately on the next animation frame.
+* **`map.renderSync()`**: Forces an immediate synchronous render pass.
+* **`map.setSize(size)`**: Manually updates map viewport dimensions `[width, height]` (vital after container resize).
+* **`map.updateSize()`**: Recalculates viewport dimensions from the DOM target element.
+* **`map.getPixelFromCoordinate(coord)`**: Converts geographical coordinate to screen pixel `[x, y]`.
+* **`map.getCoordinateFromPixel(pixel)`**: Converts screen pixel `[x, y]` to geographical coordinate.
+* **`map.forEachFeatureAtPixel(pixel, callback, options?)`**: Hits vector features under pixel with tolerance.
+* **`map.hasFeatureAtPixel(pixel, options?)`**: Returns boolean if a feature exists under pixel.
 
 ---
 
 ## 2. `ol/View`
 
-Manages 2D viewport parameters: center, zoom, resolution, rotation, projection, and animations.
+Manages 2D camera geometry, projections, resolutions, zoom limits, and animations.
 
-### Import:
 ```javascript
-import View from "ol/View.js";
+import View from 'ol/View.js';
+import { fromLonLat } from 'ol/proj.js';
+
+const view = new View({
+  center: fromLonLat([8.5417, 47.3769]), // Zurich
+  zoom: 12,
+  minZoom: 2,
+  maxZoom: 20,
+  rotation: 0,
+  enableRotation: true,
+  constrainRotation: true
+});
 ```
 
-### Constructor Options (`ViewOptions`):
-* `center` (`Coordinate`): Center coordinate in the view projection (use `fromLonLat([lng, lat])`).
-* `zoom` (`number`): Initial zoom level.
-* `projection` (`ProjectionLike` = `'EPSG:3857'`): Projection of the view.
-* `rotation` (`number` = `0`): Rotation in radians (clockwise).
-* `minZoom` (`number` = `0`) / `maxZoom` (`number` = `28`)
-* `extent` (`Extent`): Constrain the view center within a bounding box `[minX, minY, maxX, maxY]`.
-* `smoothExtentConstraint` (`boolean` = `true`)
-* `enableRotation` (`boolean` = `true`)
+### Constructor Options Table
 
-### Key Methods:
-* `getCenter(): Coordinate` / `setCenter(center: Coordinate)`
-* `getZoom(): number` / `setZoom(zoom: number)`
-* `getResolution(): number` / `setResolution(resolution: number)`
-* `getRotation(): number` / `setRotation(rotation: number)`
-* `getProjection(): Projection`
-* `calculateExtent(size?: Size): Extent` — Returns visible bounding box in view coordinates.
-* `fit(geometryOrExtent: SimpleGeometry | Extent, options?: FitOptions)` — Fits the view to show given extent.
-  * Options: `padding: [top, right, bottom, left]`, `duration: 1000`, `maxZoom: 18`, `easing: easeOut`.
-* `animate(...animations: Array<AnimationOptions>)` — Smooth animated transition.
-  ```javascript
-  view.animate({
-    center: fromLonLat([14.4378, 50.0755]),
-    zoom: 15,
-    duration: 1200
-  });
-  ```
+| Option | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| **`center`** | `ol/coordinate` | `undefined` | Center coordinate in the view's projection (e.g. EPSG:3857). |
+| **`zoom`** | `number` | `undefined` | Zoom level used to calculate initial resolution. |
+| **`minZoom`** | `number` | `0` | Minimum allowable zoom level. |
+| **`maxZoom`** | `number` | `28` | Maximum allowable zoom level. |
+| **`resolution`**| `number` | `undefined` | Map resolution in projection units per pixel (e.g. meters/pixel). |
+| **`resolutions`**| `Array<number>` | `undefined` | Discrete custom resolution tiers for custom tile grids. |
+| **`projection`**| `ol/proj/ProjectionLike`| `'EPSG:3857'` | Projection code (e.g. `'EPSG:3857'`, `'EPSG:4326'`, `'EPSG:2056'`). |
+| **`rotation`** | `number` | `0` | Camera rotation in radians clockwise from North. |
+| **`enableRotation`**| `boolean` | `true` | Allows user to rotate the map via touch or keyboard. |
+| **`constrainResolution`**| `boolean` | `false` | If `true`, rounds zoom to nearest integer upon release. |
+| **`extent`** | `ol/extent` | `undefined` | Bounding extent `[minx, miny, maxx, maxy]` outside which panning is constrained. |
 
 ---
 
-## 3. `ol/Overlay` (Popups & HTML Elements)
+## 3. Cinematic Camera Animations (`view.animate`)
 
-Renders custom DOM HTML elements pinned to geographical coordinates.
+`view.animate(options, ...)` queues smooth, multi-stage camera transitions:
 
-### Import:
 ```javascript
-import Overlay from "ol/Overlay.js";
+import { fromLonLat } from 'ol/proj.js';
+
+// FlyTo animation with curved bounce easing
+function flyTo(view, location, done) {
+  const duration = 2000;
+  const zoom = view.getZoom();
+  let parts = 2;
+  let called = false;
+
+  function callback(complete) {
+    --parts;
+    if (parts === 0 && !called) {
+      called = true;
+      done(complete);
+    }
+  }
+
+  // Animate center and zoom simultaneously
+  view.animate({
+    center: location,
+    duration: duration
+  }, callback);
+
+  view.animate({
+    zoom: zoom - 1.5,
+    duration: duration / 2
+  }, {
+    zoom: 14,
+    duration: duration / 2
+  }, callback);
+}
+
+flyTo(map.getView(), fromLonLat([2.3522, 48.8566]), () => {
+  console.log('Flight arrived at Paris!');
+});
 ```
 
-### Example:
-```javascript
-const popupElement = document.getElementById("popup");
-const popupOverlay = new Overlay({
-  element: popupElement,
-  positioning: "bottom-center",
-  stopEvent: true, // Prevents clicks inside the popup from triggering map events
-  autoPan: {
-    animation: { duration: 250 }
-  }
-});
-map.addOverlay(popupOverlay);
+---
 
-map.on("click", (evt) => {
-  const coordinate = evt.coordinate;
-  popupOverlay.setPosition(coordinate);
-  popupElement.innerHTML = `<b>Clicked Coordinate:</b><br>${coordinate[0].toFixed(2)}, ${coordinate[1].toFixed(2)}`;
+## 4. Fitting Extents (`view.fit`)
+
+Fits the camera viewport to contain an extent or geometry with padding:
+
+```javascript
+view.fit(vectorSource.getExtent(), {
+  padding: [50, 50, 50, 350], // Top, Right, Bottom, Left (offset for sidebar)
+  maxZoom: 16,
+  duration: 1000
 });
 ```

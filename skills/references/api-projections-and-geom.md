@@ -1,64 +1,46 @@
-# OpenLayers API Reference — Projections & Geometries
+# OpenLayers Projections & Geometries Reference 🌍📐
 
-Source: https://openlayers.org/en/latest/apidoc/module-ol_proj.html
+> Complete technical dictionary for coordinate systems, Proj4js registration, client-side reprojection, and geometry classes in OpenLayers.
 
 ---
 
-## 1. Projections (`ol/proj`)
+## 1. Projections & Proj4js Integration
 
-OpenLayers natively supports `EPSG:3857` (Spherical Mercator) and `EPSG:4326` (WGS84 GPS). For national grid coordinate systems (e.g. Swiss LV95, British National Grid, Lambert), integrate `proj4`.
+OpenLayers natively supports **`EPSG:3857`** (Spherical Mercator) and **`EPSG:4326`** (WGS 84). Any other projection requires registering definition strings with `proj4`:
 
-### Core Transformation Functions:
-* `fromLonLat([lng, lat], opt_projection)` — Converts WGS84 coordinates to target projection (defaults to `EPSG:3857`).
-* `toLonLat([x, y], opt_projection)` — Converts projected coordinates back to WGS84 `[lng, lat]`.
-* `transform(coordinate, sourceProj, destProj)` — Transforms any coordinate between two projections.
-* `transformExtent(extent, sourceProj, destProj)` — Transforms a bounding box.
-
-### Custom CRS Integration with `proj4`:
-```bash
-npm install proj4
-```
 ```javascript
-import proj4 from "proj4";
-import { register } from "ol/proj/proj4.js";
-import { get as getProjection } from "ol/proj.js";
+import proj4 from 'proj4';
+import { register } from 'ol/proj/proj4.js';
+import { get as getProjection, fromLonLat, toLonLat } from 'ol/proj.js';
 
-// Example: Swiss LV95 (EPSG:2056)
-proj4.defs(
-  "EPSG:2056",
-  "+proj=somerc +lat_0=46.95240555555556 +lon_0=7.439583333333333 +k_0=1 +x_0=2600000 +y_0=1200000 +ellps=bessel +towgs84=674.374,15.056,405.346,0,0,0,0 +units=m +no_defs"
-);
+// 1. Swiss National Grid (LV95 / EPSG:2056)
+proj4.defs("EPSG:2056", "+proj=somerc +lat_0=46.95240555555556 +lon_0=7.439583333333333 +k_0=1 +x_0=2600000 +y_0=1200000 +ellps=bessel +towgs84=674.374,15.056,405.346,0,0,0,0 +units=m +no_defs");
+
+// 2. British National Grid (OSGB36 / EPSG:27700)
+proj4.defs("EPSG:27700", "+proj=tmerc +lat_0=49 +lon_0=-2 +k=0.9996012717 +x_0=400000 +y_0=-100000 +ellps=airy +towgs84=446.448,-125.157,542.06,0.15,0.247,0.842,-20.489 +units=m +no_defs");
+
+// Register all defined projections with OpenLayers
 register(proj4);
-
-const swissProjection = getProjection("EPSG:2056");
 ```
+
+### Essential Coordinate Transformations
+* **`fromLonLat([lng, lat], projection?)`**: Converts `[longitude, latitude]` (EPSG:4326) into view coordinates (default EPSG:3857).
+* **`toLonLat([x, y], projection?)`**: Converts view projection coordinates back to geographical `[longitude, latitude]`.
+* **`transform(coord, sourceProj, targetProj)`**: Transforms a coordinate between arbitrary registered projections.
+* **`transformExtent(extent, sourceProj, targetProj)`**: Transforms a bounding box `[minx, miny, maxx, maxy]` between projections.
 
 ---
 
-## 2. Geometries & Formats
+## 2. Geometry Classes Hierarchy
 
-### Geometry Classes (`ol/geom/*`):
-* `Point`: `new Point(fromLonLat([lng, lat]))`
-* `LineString`: `new LineString([coord1, coord2, ...])`
-* `Polygon`: `new Polygon([[ringCoord1, ringCoord2, ringCoord3, ringCoord1]])`
-* `MultiPolygon`: `new MultiPolygon([poly1, poly2])`
-* `Circle`: `new Circle(centerCoord, radiusInMeters)`
+All geometries in OpenLayers inherit from `ol/geom/Geometry`:
 
-### `ol/format/GeoJSON` Ingestion & Export:
-```javascript
-import GeoJSON from "ol/format/GeoJSON.js";
-
-const format = new GeoJSON();
-
-// Read GeoJSON into OpenLayers features with automatic reprojection
-const features = format.readFeatures(geoJsonObject, {
-  dataProjection: "EPSG:4326",    // Input format (standard GPS)
-  featureProjection: "EPSG:3857"  // View format (Map projection)
-});
-
-// Write OpenLayers features back to standard GeoJSON
-const exportedGeoJSON = format.writeFeaturesObject(vectorSource.getFeatures(), {
-  dataProjection: "EPSG:4326",
-  featureProjection: "EPSG:3857"
-});
-```
+| Geometry Class | Import Path | Structure |
+| :--- | :--- | :--- |
+| **`Point`** | `ol/geom/Point.js` | Single coordinate: `[x, y]` |
+| **`LineString`** | `ol/geom/LineString.js` | Array of coordinates: `[[x1, y1], [x2, y2], ...]` |
+| **`Polygon`** | `ol/geom/Polygon.js` | Array of linear rings: `[[[exterior ring...]], [[interior hole...]]]` |
+| **`MultiPoint`** | `ol/geom/MultiPoint.js` | Array of coordinates: `[[x1, y1], [x2, y2]]` |
+| **`MultiLineString`**| `ol/geom/MultiLineString.js`| Array of line coordinate arrays |
+| **`MultiPolygon`** | `ol/geom/MultiPolygon.js` | Array of polygon coordinate arrays |
+| **`Circle`** | `ol/geom/Circle.js` | Center coordinate and scalar radius in projection units |

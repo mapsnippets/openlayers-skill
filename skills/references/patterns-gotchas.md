@@ -1,63 +1,69 @@
-# OpenLayers Patterns & Common Gotchas
+# OpenLayers Production Gotchas & Failure Modes ⚠️⚡
 
-This document details the top 10 most frequent bugs and pitfalls encountered in OpenLayers development, along with verified fixes.
-
----
-
-### Gotcha 1: Null Island / Blank View (`fromLonLat` Missing)
-* **Problem:** Passing raw GPS `[14.4378, 50.0755]` to `new View({ center })`. In default `EPSG:3857`, coordinates are in meters. `[14.4, 50.0]` is 50 meters off the coast of Africa (Null Island).
-* **Fix:** Always wrap coordinates with `fromLonLat([lng, lat])`:
-```javascript
-view: new View({
-  center: fromLonLat([14.4378, 50.0755]),
-  zoom: 13
-})
-```
+> Critical failure modes, debugging patterns, coordinate gotchas, and performance guidelines for OpenLayers applications with MapTiler Cloud basemaps.
 
 ---
 
-### Gotcha 2: Legacy Global `ol.*` Anti-Pattern
-* **Problem:** Using `new ol.Map()` or `new ol.layer.Tile()` in modern bundlers causes `ReferenceError: ol is not defined`.
-* **Fix:** Use modular imports: `import Map from 'ol/Map.js';`.
+## 1. Top 6 Critical Gotchas in OpenLayers
+
+### 1. The EPSG:3857 vs EPSG:4326 Coordinate Trap
+* **Gotcha**: Passing raw GPS `[longitude, latitude]` directly into `view.setCenter([lng, lat])` without transformation.
+* **Symptom**: Map appears completely blank or zoomed into the Gulf of Guinea (coordinates [0,0]), because OpenLayers views default to `EPSG:3857` (meters).
+* **Fix**: Always wrap GPS coordinates with `fromLonLat([lng, lat])`:
+  ```javascript
+  import { fromLonLat } from 'ol/proj.js';
+  // CORRECT:
+  view.setCenter(fromLonLat([8.5417, 47.3769]));
+  ```
 
 ---
 
-### Gotcha 3: Missing `ol.css` Stylesheet
-* **Problem:** Map controls appear stretched, scattered across the screen, or interaction overlays misalign.
-* **Fix:** Add `import 'ol/ol.css';` at the top of your main JavaScript/TypeScript file.
+### 2. Missing `ol.css` Stylesheet
+* **Gotcha**: Forgetting to import or link `ol.css`.
+* **Symptom**: Zoom controls, attribution badges, and popups render distorted, unstyled, or stacked at the bottom of the page.
+* **Fix**:
+  ```html
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@v10.4.0/ol.css">
+  ```
 
 ---
 
-### Gotcha 4: GeoJSON Coordinate Mismatch (`dataProjection` vs `featureProjection`)
-* **Problem:** GeoJSON coordinates render in the ocean or invisible because they were not transformed during parsing.
-* **Fix:** Specify projection mapping in `ol/format/GeoJSON`:
-```javascript
-new GeoJSON().readFeatures(geoJsonData, {
-  dataProjection: "EPSG:4326",
-  featureProjection: "EPSG:3857"
-});
-```
+### 3. Container Resize & Invalidation
+* **Gotcha**: The map container DOM node changes size (e.g. sidebar collapse, modal open, window resize), but map doesn't adapt.
+* **Symptom**: Gray canvas areas or clipped map tiles.
+* **Fix**: Call `map.updateSize()` immediately after container dimensions change:
+  ```javascript
+  window.addEventListener('resize', () => map.updateSize());
+  ```
 
 ---
 
-### Gotcha 5: Container Resizing & Grey Canvas (`map.updateSize()`)
-* **Problem:** Initializing a map inside an inactive tab or hidden modal results in an unrendered canvas.
-* **Fix:** Call `map.updateSize()` once the container becomes visible.
+### 4. Reactive State Wrapping in React / Vue
+* **Gotcha**: Storing the `Map` instance in Vue `ref()` or React `useState()`.
+* **Symptom**: Memory leaks, call-stack overflow, and crippled performance due to reactive Proxy wrapping.
+* **Fix**: Use non-reactive containers (`useRef(null)` in React, `shallowRef(null)` in Vue 3).
 
 ---
 
-### Gotcha 6: React Double Initialization (`map.setTarget(null)`)
-* **Problem:** In React 18 Strict Mode, components mount twice, creating duplicate WebGL contexts and memory leaks.
-* **Fix:** Always clean up target in `useEffect`:
-```javascript
-useEffect(() => {
-  const map = new Map({ target: mapElementRef.current, ... });
-  return () => map.setTarget(null);
-}, []);
-```
+### 5. Snap Interaction Stacking Order
+* **Gotcha**: Adding `Snap` interaction to map *before* `Draw` or `Modify`.
+* **Symptom**: Vertices fail to snap magnetically during drawing.
+* **Fix**: `Snap` MUST always be added to the map AFTER `Draw` and `Modify`:
+  ```javascript
+  map.addInteraction(draw);
+  map.addInteraction(modify);
+  map.addInteraction(snap); // LAST!
+  ```
 
 ---
 
-### Gotcha 7: 512px Tile Blurriness
-* **Problem:** High-res vector/raster tiles appear blurry if using default 256px tile configuration.
-* **Fix:** Specify `tileSize: 512` and `maxZoom: 22` on `ol/source/XYZ`.
+### 6. Canvas Export / Screenshot Blank Issue
+* **Gotcha**: Calling `map.getViewport().querySelector('canvas').toDataURL()` returns a blank image.
+* **Fix**: Intercept the canvas via the `rendercomplete` event:
+  ```javascript
+  map.once('rendercomplete', () => {
+    const mapCanvas = document.createElement('canvas');
+    // Draw canvases onto mapCanvas and export
+  });
+  map.renderSync();
+  ```
