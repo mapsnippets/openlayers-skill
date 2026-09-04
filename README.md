@@ -112,7 +112,7 @@ git clone https://github.com/mapsnippets/openlayers-skill.git && mkdir -p ~/.gem
 Project-scoped. Copy the skill folder into your project's skills directory:
 
 ```bash
-mkdir -p .cursor/skills && cp -r skills/openlayers .cursor/skills/
+mkdir -p .cursor/skills && cp -r skills .cursor/skills/
 ```
 
 ### Windsurf
@@ -120,7 +120,7 @@ mkdir -p .cursor/skills && cp -r skills/openlayers .cursor/skills/
 Project-scoped, read by Cascade:
 
 ```bash
-mkdir -p .windsurf/skills && cp -r skills/openlayers .windsurf/skills/
+mkdir -p .windsurf/skills && cp -r skills .windsurf/skills/
 ```
 
 ---
@@ -134,8 +134,7 @@ mkdir -p .windsurf/skills && cp -r skills/openlayers .windsurf/skills/
   marketplace.json    — Claude Code marketplace manifest
   plugin.json         — Claude Code plugin manifest
 skills/
-  openlayers/
-    SKILL.md          — Main skill prompt entry point
+  SKILL.md          — Main skill prompt entry point
     references/       — Deep technical reference guides (loaded on demand)
 README.md             — This guide
 LICENSE.md            — MIT License
