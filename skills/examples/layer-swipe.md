@@ -22,7 +22,7 @@ Comparing historical satellite imagery against modern street layouts or aerial s
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>OpenLayers Layer Swipe</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@v10.4.0/ol.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@v10.10.0/ol.css" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>

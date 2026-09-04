@@ -16,7 +16,7 @@ Standard KML (Keyhole Markup Language) files frequently contain disaster telemet
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Earthquakes KML Layer & Dynamic Magnitude Styling 🌋</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@v10.4.0/ol.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@v10.10.0/ol.css" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>

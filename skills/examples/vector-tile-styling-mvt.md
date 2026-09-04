@@ -16,7 +16,7 @@ Styling raw Mapbox Vector Tiles (.pbf) on the client using OpenLayers modern Fla
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Client-Side Flat Style Expressions on MVT Vector Tiles 🎨</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@v10.4.0/ol.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@v10.10.0/ol.css" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>

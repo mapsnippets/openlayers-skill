@@ -50,10 +50,10 @@ For rapid prototypes or standalone HTML files without a build step:
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <!-- OpenLayers CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@v10.1.0/ol.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@v10.10.0/ol.css">
   
   <!-- OpenLayers JS -->
-  <script src="https://cdn.jsdelivr.net/npm/ol@v10.1.0/dist/ol.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/ol@v10.10.0/dist/ol.js"></script>
 
   <!-- ol-mapbox-style (for Vector Tiles) -->
   <script src="https://cdn.jsdelivr.net/npm/ol-mapbox-style@12.3.4/dist/olms.js"></script>

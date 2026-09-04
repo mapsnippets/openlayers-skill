@@ -23,7 +23,7 @@
 * **Symptom**: Zoom controls, attribution badges, and popups render distorted, unstyled, or stacked at the bottom of the page.
 * **Fix**:
   ```html
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@v10.4.0/ol.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@v10.10.0/ol.css">
   ```
 
 ---

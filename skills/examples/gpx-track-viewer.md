@@ -16,7 +16,7 @@ GPS telemetry logs recorded by cycling computers, hiking trackers, and mobile ap
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>GPS Track Viewer with GPX Format 🚴</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@v10.4.0/ol.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@v10.10.0/ol.css" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>

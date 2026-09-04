@@ -47,8 +47,8 @@ import "ol/ol.css";
 
 ### Option 2: Vanilla HTML (Hosted CDN)
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@v10.1.0/ol.css">
-<script src="https://cdn.jsdelivr.net/npm/ol@v10.1.0/dist/ol.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@v10.10.0/ol.css">
+<script src="https://cdn.jsdelivr.net/npm/ol@v10.10.0/dist/ol.js"></script>
 ```
 
 ## What it does

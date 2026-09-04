@@ -14,8 +14,8 @@ Displays vector tiles reprojected or tiled in global WGS 84 geographic coordinat
 <head>
   <meta charset="UTF-8">
   <title>OpenLayers - Vector Tiles in EPSG:4326</title>
-  <script src="https://cdn.jsdelivr.net/npm/ol@v10.4.0/dist/ol.js"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@v10.4.0/ol.css">
+  <script src="https://cdn.jsdelivr.net/npm/ol@v10.10.0/dist/ol.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@v10.10.0/ol.css">
   <script src="https://cdn.jsdelivr.net/npm/ol-mapbox-style@12.3.4/dist/olms.js"></script>
   <style>
     body { margin: 0; padding: 0; }

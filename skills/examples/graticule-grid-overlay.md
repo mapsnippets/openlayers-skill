@@ -14,8 +14,8 @@ Renders dynamic latitude/longitude graticule lines and border coordinates over M
 <head>
   <meta charset="UTF-8">
   <title>OpenLayers - Graticule Coordinate Grid</title>
-  <script src="https://cdn.jsdelivr.net/npm/ol@v10.4.0/dist/ol.js"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@v10.4.0/ol.css">
+  <script src="https://cdn.jsdelivr.net/npm/ol@v10.10.0/dist/ol.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@v10.10.0/ol.css">
   <style>
     body { margin: 0; padding: 0; }
     #map { width: 100vw; height: 100vh; }
