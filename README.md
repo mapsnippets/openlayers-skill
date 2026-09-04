@@ -73,11 +73,11 @@ graph LR
 
 You don't need special commands to use this skill. Any natural language request matching its capabilities will trigger it:
 
-- *"Create an OpenLayers map in React using ol-mapbox-style and MapTiler streets-v4 vector tiles."*
-- *"How do I reproject a British National Grid (EPSG:27700) GeoJSON polygon into OpenLayers EPSG:3857?"*
+- *"Create an interactive vector basemap in React using OpenLayers."*
+- *"How do I reproject a British National Grid (EPSG:27700) GeoJSON polygon into standard Web Mercator in OpenLayers?"*
 - *"Add a vector layer with drawing and vertex editing tools so users can digitize custom polygons."*
 - *"Implement high-density marker clustering with dynamic cluster count badges and spiderfy clicks in OpenLayers."*
-- *"Render a Cloud-Optimized GeoTIFF (COG) in OpenLayers using ol/source/GeoTIFF with true color bands."*
+- *"Render a Cloud-Optimized GeoTIFF (COG) in OpenLayers with true color satellite bands."*
 
 <br>
 
