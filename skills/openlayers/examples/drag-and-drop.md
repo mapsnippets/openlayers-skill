@@ -1,6 +1,6 @@
 # Drag & Drop File Loader (GeoJSON, GPX, KML) 📂
 
-> **Official OpenLayers Example:** [Drag-and-Drop](https://openlayers.org/en/latest/examples/drag-and-drop.html)  
+> **Documentation Link:** [Drag-and-Drop](https://openlayers.org/en/latest/examples/drag-and-drop.html)  
 > **Source Module:** `ol/interaction/DragAndDrop.js`, `ol/format/GeoJSON.js`, `ol/format/GPX.js`, `ol/format/KML.js`, `ol/layer/Vector.js`, `ol/source/Vector.js`
 
 This guide explains how to allow users to drag spatial data files (`.geojson`, `.gpx`, `.kml`) directly from their desktop into the browser, parse geometries on the client, and automatically frame the map viewport around the dropped data.

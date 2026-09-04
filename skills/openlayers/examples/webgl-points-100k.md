@@ -1,6 +1,6 @@
 # High-Performance 100k+ WebGL Point Sprites ⚡
 
-> **Official OpenLayers Example:** [WebGL Points Layer](https://openlayers.org/en/latest/examples/webgl-points.html)  
+> **Documentation Link:** [WebGL Points Layer](https://openlayers.org/en/latest/examples/webgl-points.html)  
 > **Target Category:** Production Task Implementation
 
 Rendering over 100,000 spatial points simultaneously at 60 FPS utilizing OpenLayers hardware-accelerated WebGL vector layer with literal JSON style expressions.
@@ -112,6 +112,6 @@ const map = new Map({
 
 | Parameter / Feature | Purpose |
 | :--- | :--- |
-| **Official Standard** | Conforms to `https://openlayers.org/en/latest/examples/webgl-points.html` with native `ol/*` modular ES imports. |
+| **Reference Spec** | Conforms to `https://openlayers.org/en/latest/examples/webgl-points.html` with native `ol/*` modular ES imports. |
 | **Basemap Service** | Powered by modern MapTiler Planet v4 high-DPI raster XYZ or vector tile styles. |
 | **Lifecycle Clean** | Safe for single-page applications (React, Vue, Svelte) via standard `map.setTarget(null)`. |

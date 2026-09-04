@@ -1,6 +1,6 @@
 # OGC WFS Layer with Dynamic BBOX Tile Loading 🌐
 
-> **Official OpenLayers Example:** [WFS - Web Feature Service](https://openlayers.org/en/latest/examples/vector-wfs.html)  
+> **Documentation Link:** [WFS - Web Feature Service](https://openlayers.org/en/latest/examples/vector-wfs.html)  
 > **Target Category:** Production Task Implementation
 
 Directly ingest vector points, lines, or polygons from enterprise OGC WFS (Web Feature Service) with dynamic BBOX tile chunking to keep memory lean.
@@ -102,6 +102,6 @@ const map = new Map({
 
 | Parameter / Feature | Purpose |
 | :--- | :--- |
-| **Official Standard** | Conforms to `https://openlayers.org/en/latest/examples/vector-wfs.html` with native `ol/*` modular ES imports. |
+| **Reference Spec** | Conforms to `https://openlayers.org/en/latest/examples/vector-wfs.html` with native `ol/*` modular ES imports. |
 | **Basemap Service** | Powered by modern MapTiler Planet v4 high-DPI raster XYZ or vector tile styles. |
 | **Lifecycle Clean** | Safe for single-page applications (React, Vue, Svelte) via standard `map.setTarget(null)`. |

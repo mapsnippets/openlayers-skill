@@ -1,6 +1,6 @@
 # Translate / Drag & Move Geometries 🚚
 
-> **Official OpenLayers Example:** [Translate Features](https://openlayers.org/en/latest/examples/translate-features.html)  
+> **Documentation Link:** [Translate Features](https://openlayers.org/en/latest/examples/translate-features.html)  
 > **Target Category:** Production Task Implementation
 
 Allowing users to drag and reposition points, polylines, or polygons across the map using `ol/interaction/Translate` while maintaining shape geometry.
@@ -112,6 +112,6 @@ map.addInteraction(translate);
 
 | Parameter / Feature | Purpose |
 | :--- | :--- |
-| **Official Standard** | Conforms to `https://openlayers.org/en/latest/examples/translate-features.html` with native `ol/*` modular ES imports. |
+| **Reference Spec** | Conforms to `https://openlayers.org/en/latest/examples/translate-features.html` with native `ol/*` modular ES imports. |
 | **Basemap Service** | Powered by modern MapTiler Planet v4 high-DPI raster XYZ or vector tile styles. |
 | **Lifecycle Clean** | Safe for single-page applications (React, Vue, Svelte) via standard `map.setTarget(null)`. |

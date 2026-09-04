@@ -1,6 +1,6 @@
 # HiDPI / Retina 512px Raster Tiles
 
-> Official Reference: [HiDPI / Retina 512px Raster Tiles](https://openlayers.org/en/latest/examples/xyz-retina.html)
+> **Documentation Reference:** [HiDPI / Retina 512px Raster Tiles](https://openlayers.org/en/latest/examples/xyz-retina.html)
 > Category: **Raster & Basemaps**
 
 ## Overview

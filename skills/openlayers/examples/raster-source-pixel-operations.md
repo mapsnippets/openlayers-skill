@@ -1,6 +1,6 @@
 # Pixelwise Operations with RasterSource (Elevation & Slope)
 
-> Official Reference: [Pixelwise Operations with RasterSource (Elevation & Slope)](https://openlayers.org/en/latest/examples/raster.html)
+> **Documentation Reference:** [Pixelwise Operations with RasterSource (Elevation & Slope)](https://openlayers.org/en/latest/examples/raster.html)
 > Category: **Raster & Terrain**
 
 ## Overview

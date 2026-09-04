@@ -1,6 +1,6 @@
 # Single-Image OGC WMS (Untiled Dynamic Render) 🖼️
 
-> **Official OpenLayers Example:** [Single Image WMS](https://openlayers.org/en/latest/examples/wms-image.html)  
+> **Documentation Link:** [Single Image WMS](https://openlayers.org/en/latest/examples/wms-image.html)  
 > **Target Category:** Production Task Implementation
 
 When labels or complex cartography would be sliced awkwardly across 256px tile boundaries, OpenLayers `ImageLayer` requests one seamless full-viewport image from the server on every pan/zoom.
@@ -95,6 +95,6 @@ const map = new Map({
 
 | Parameter / Feature | Purpose |
 | :--- | :--- |
-| **Official Standard** | Conforms to `https://openlayers.org/en/latest/examples/wms-image.html` with native `ol/*` modular ES imports. |
+| **Reference Spec** | Conforms to `https://openlayers.org/en/latest/examples/wms-image.html` with native `ol/*` modular ES imports. |
 | **Basemap Service** | Powered by modern MapTiler Planet v4 high-DPI raster XYZ or vector tile styles. |
 | **Lifecycle Clean** | Safe for single-page applications (React, Vue, Svelte) via standard `map.setTarget(null)`. |

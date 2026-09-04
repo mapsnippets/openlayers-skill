@@ -1,6 +1,6 @@
 # Freehand Drawing & Geometric Shapes ✏️
 
-> **Official OpenLayers Example:** [Draw Shapes](https://openlayers.org/en/latest/examples/draw-shapes.html)  
+> **Documentation Link:** [Draw Shapes](https://openlayers.org/en/latest/examples/draw-shapes.html)  
 > **Target Category:** Production Task Implementation
 
 Configuring `ol/interaction/Draw` with `createBox`, `createRegularPolygon`, and `freehand: true` to digitize custom stars, boxes, circles, and sketches.
@@ -155,6 +155,6 @@ setDrawMode('Box');
 
 | Parameter / Feature | Purpose |
 | :--- | :--- |
-| **Official Standard** | Conforms to `https://openlayers.org/en/latest/examples/draw-shapes.html` with native `ol/*` modular ES imports. |
+| **Reference Spec** | Conforms to `https://openlayers.org/en/latest/examples/draw-shapes.html` with native `ol/*` modular ES imports. |
 | **Basemap Service** | Powered by modern MapTiler Planet v4 high-DPI raster XYZ or vector tile styles. |
 | **Lifecycle Clean** | Safe for single-page applications (React, Vue, Svelte) via standard `map.setTarget(null)`. |

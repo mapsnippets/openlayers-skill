@@ -26,7 +26,7 @@ Maintained by **[MapSnippets](https://mapsnippets.org/)** — Open-source geospa
 
 ## ⚡ Architectural Scope & Data Reference Invariants
 
-* **Native Library Focus:** This skill focuses strictly on pure, native **OpenLayers** (`ol/Map`, `ol/View`, `ol/layer/Tile`, `ol/layer/VectorTile`, `ol/source/XYZ`, `ol/proj`, `ol/interaction/*`, `ol-mapbox-style`). All generated code must use modular ES imports from the official `ol` package.
+* **Native Library Focus:** This skill focuses strictly on pure, native **OpenLayers** (`ol/Map`, `ol/View`, `ol/layer/Tile`, `ol/layer/VectorTile`, `ol/source/XYZ`, `ol/proj`, `ol/interaction/*`, `ol-mapbox-style`). All generated code must use modular ES imports from the `ol` package.
 * **MapTiler as Data Source:** MapTiler Cloud provides vector tile styles via `ol-mapbox-style`, high-DPI raster XYZ tiles (512px), geocoding, and static maps.
 
 ---
@@ -57,7 +57,7 @@ Follow these rules on every OpenLayers code generation to prevent bugs:
   ```
 
 ### 3. 🎨 Vector Tiles via `ol-mapbox-style` (Recommended)
-* For vector tiles with Mapbox/MapLibre Style JSON (`streets-v4`), use the official `ol-mapbox-style` package:
+* For vector tiles with Mapbox/MapLibre Style JSON (`streets-v4`), use the `ol-mapbox-style` package:
   ```javascript
   import { apply } from "ol-mapbox-style";
   
@@ -100,14 +100,14 @@ To quickly find the exact OpenLayers implementation guide or API specification, 
 
 | Category | Location | Contents |
 | :--- | :--- | :--- |
-| **Official Task Examples** | **[examples/INDEX.md](examples/INDEX.md)** | **40 atomic official examples** with full HTML, CSS, and modular ES imports across Vector Basemaps, Digitization, Clustering, WebGL, Enterprise OGC, and COG |
+| **Task Examples** | **[examples/INDEX.md](examples/INDEX.md)** | **atomic runnable recipes** with full HTML, CSS, and modular ES imports across Vector Basemaps, Digitization, Clustering, WebGL, Enterprise OGC, and COG |
 | **Core API & Architecture** | **[references/INDEX.md](references/INDEX.md)** | Declarative specifications for Map & View, Layers & Sources, Interactions & Controls, Styling & Renderers, and Projections |
 | **Advanced GIS & WebGL** | `references/spatial-*`, `advanced-*`, `ogc-*` | Precision tracing, WebGL COG shaders, WMS/WMTS/WFS, vector tile reprojection, and canvas animations |
 | **Ecosystem & Services** | `references/frameworks.md`, `patterns-*`, `basemaps-*` | React, Next.js, Vue, Svelte, anti-pattern debugging, Planet v4 basemaps, and REST services |
 
 ---
 
-## 🧪 40 Official Task Examples (`examples/`)
+## 🧪 Runnable Task Examples (`examples/`)
 
 All task examples are self-contained with complete HTML, CSS, and modular ES imports (`import Map from "ol/Map.js"`) using MapTiler Planet v4 basemaps. Browse **[examples/INDEX.md](examples/INDEX.md)** for the complete categorized catalog:
 

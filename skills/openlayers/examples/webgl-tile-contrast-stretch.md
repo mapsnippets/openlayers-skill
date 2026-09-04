@@ -1,6 +1,6 @@
 # Band Contrast Stretch with WebGLTile
 
-> Official Reference: [Band Contrast Stretch with WebGLTile](https://openlayers.org/en/latest/examples/cog-stretch.html)
+> **Documentation Reference:** [Band Contrast Stretch with WebGLTile](https://openlayers.org/en/latest/examples/cog-stretch.html)
 > Category: **Raster & Terrain**
 
 ## Overview

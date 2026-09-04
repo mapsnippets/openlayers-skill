@@ -1,6 +1,6 @@
 # TopoJSON Administrative Boundaries 🗾
 
-> **Official OpenLayers Example:** [TopoJSON](https://openlayers.org/en/latest/examples/topojson.html)  
+> **Documentation Link:** [TopoJSON](https://openlayers.org/en/latest/examples/topojson.html)  
 > **Target Category:** Production Task Implementation
 
 TopoJSON encodes spatial topology to eliminate redundant shared polygon boundaries and substantially compress file size compared to raw GeoJSON. This guide demonstrates loading TopoJSON world/state boundaries in OpenLayers.
@@ -105,6 +105,6 @@ const map = new Map({
 
 | Parameter / Feature | Purpose |
 | :--- | :--- |
-| **Official Standard** | Conforms to `https://openlayers.org/en/latest/examples/topojson.html` with native `ol/*` modular ES imports. |
+| **Reference Spec** | Conforms to `https://openlayers.org/en/latest/examples/topojson.html` with native `ol/*` modular ES imports. |
 | **Basemap Service** | Powered by modern MapTiler Planet v4 high-DPI raster XYZ or vector tile styles. |
 | **Lifecycle Clean** | Safe for single-page applications (React, Vue, Svelte) via standard `map.setTarget(null)`. |

@@ -1,6 +1,6 @@
 # Turf.js Integration (Buffer, Convex Hull & Bounding Box)
 
-> Official Reference: [Turf.js Integration (Buffer, Convex Hull & Bounding Box)](https://openlayers.org/en/latest/examples/turf.html)
+> **Documentation Reference:** [Turf.js Integration (Buffer, Convex Hull & Bounding Box)](https://openlayers.org/en/latest/examples/turf.html)
 > Category: **Interactions & Digitization**
 
 ## Overview

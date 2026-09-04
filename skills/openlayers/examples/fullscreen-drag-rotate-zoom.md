@@ -1,6 +1,6 @@
 # FullScreen Control & DragRotateAndZoom
 
-> Official Reference: [FullScreen Control & DragRotateAndZoom](https://openlayers.org/en/latest/examples/full-screen-drag-rotate-and-zoom.html)
+> **Documentation Reference:** [FullScreen Control & DragRotateAndZoom](https://openlayers.org/en/latest/examples/full-screen-drag-rotate-and-zoom.html)
 > Category: **UI Controls & Layout**
 
 ## Overview

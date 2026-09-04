@@ -1,6 +1,6 @@
 # OpenLayers Reference Index 🗂️⚡
 
-> Master index and topic routing directory for all OpenLayers agent references, API standards, official documentation guides, and MapTiler basemap integrations. Load on demand.
+> Master index and topic routing directory for all OpenLayers agent references, API standards, comprehensive documentation guides, and MapTiler basemap integrations. Load on demand.
 
 Maintained by **[MapSnippets](https://mapsnippets.org/)** — Open-source geospatial snippets, guides, and agent tools.
 
@@ -10,7 +10,7 @@ Maintained by **[MapSnippets](https://mapsnippets.org/)** — Open-source geospa
 
 | Topic Area | Directory / Prefix | Contents |
 | :--- | :--- | :--- |
-| **Official Task Examples** | **[examples/INDEX.md](../examples/INDEX.md)** | **60 atomic official recipes** with full HTML, CSS, and native JS across Projections, Digitization, Clustering, WebGL, COG, OGC, and UI Overlays |
+| **Task Examples** | **[examples/INDEX.md](../examples/INDEX.md)** | **atomic runnable recipes** with full HTML, CSS, and native JS across Projections, Digitization, Clustering, WebGL, COG, OGC, and UI Overlays |
 | **Core API & View** | `references/api-map-*`, `references/api-projections-*` | `Map` options, `View` physics, coordinate transformations, Proj4js registration |
 | **Layers & Sources** | `references/api-layers-*`, `references/ogc-*` | `TileLayer`, `VectorLayer`, `WebGLTile`, COG, GeoZarr, WMS, WMTS, WFS |
 | **Styling & Shaders** | `references/api-styling-*` | Style DSL, dynamic style functions, Flat Style expressions, WebGL styling |
@@ -27,7 +27,7 @@ Maintained by **[MapSnippets](https://mapsnippets.org/)** — Open-source geospa
 * **[api-styling-and-renderers.md](api-styling-and-renderers.md)** — Imperative style classes, dynamic style functions, Flat Style expressions, WebGL shader rules.
 * **[api-interactions-and-controls.md](api-interactions-and-controls.md)** — Vector CAD digitization (`Draw`, `Modify`, `Snap`, `Select`, `Translate`) and UI controls.
 * **[api-projections-and-geom.md](api-projections-and-geom.md)** — Coordinate systems, Proj4js registration (LV95, BNG, EPSG:4326), and geometry hierarchy.
-* **[official-examples-catalog.md](official-examples-catalog.md)** — API-to-Recipe directory cross-referencing all OpenLayers APIs to the 60 official task recipes.
+* **[examples-catalog.md](examples-catalog.md)** — API-to-Recipe directory cross-referencing all OpenLayers APIs to the 61 standalone task recipes.
 * **[ogc-wms-wmts-wfs.md](ogc-wms-wmts-wfs.md)** — Enterprise OGC stack (WMS `getFeatureInfoUrl`, WMTS matrix sets, WFS BBOX strategy & XML filters).
 * **[patterns-gotchas.md](patterns-gotchas.md)** — Solutions for the top OpenLayers bugs (EPSG:3857 coordinate trap, missing CSS, snap ordering, canvas export).
 * **[events.md](events.md)** — Map lifecycle, view changes, pointer tracking, vector feature events, and render hooks.

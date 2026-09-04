@@ -1,6 +1,6 @@
 # ArcGIS REST FeatureServer Layer 🏢
 
-> **Official OpenLayers Example:** [ArcGIS REST Feature Service](https://openlayers.org/en/latest/examples/vector-esri.html)  
+> **Documentation Link:** [ArcGIS REST Feature Service](https://openlayers.org/en/latest/examples/vector-esri.html)  
 > **Target Category:** Production Task Implementation
 
 Connecting directly to enterprise Esri ArcGIS REST FeatureServer endpoints to query vector geometries using OpenLayers `EsriJSON` format and dynamic BBOX queries.
@@ -111,6 +111,6 @@ const map = new Map({
 
 | Parameter / Feature | Purpose |
 | :--- | :--- |
-| **Official Standard** | Conforms to `https://openlayers.org/en/latest/examples/vector-esri.html` with native `ol/*` modular ES imports. |
+| **Reference Spec** | Conforms to `https://openlayers.org/en/latest/examples/vector-esri.html` with native `ol/*` modular ES imports. |
 | **Basemap Service** | Powered by modern MapTiler Planet v4 high-DPI raster XYZ or vector tile styles. |
 | **Lifecycle Clean** | Safe for single-page applications (React, Vue, Svelte) via standard `map.setTarget(null)`. |

@@ -1,6 +1,6 @@
 # COG with Automatic Projection Lookup
 
-> Official Reference: [COG with Automatic Projection Lookup](https://openlayers.org/en/latest/examples/cog-projection.html)
+> **Documentation Reference:** [COG with Automatic Projection Lookup](https://openlayers.org/en/latest/examples/cog-projection.html)
 > Category: **Raster & Terrain**
 
 ## Overview

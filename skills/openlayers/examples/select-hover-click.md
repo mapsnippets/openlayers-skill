@@ -1,6 +1,6 @@
 # Select Features by Hover & Click 🖱️
 
-> **Official OpenLayers Example:** [Select Features](https://openlayers.org/en/latest/examples/select-features.html)  
+> **Documentation Link:** [Select Features](https://openlayers.org/en/latest/examples/select-features.html)  
 > **Target Category:** Production Task Implementation
 
 Configuring `ol/interaction/Select` with conditional triggers (pointermove vs singleclick) and multi-feature selection states with custom highlight symbology.
@@ -117,6 +117,6 @@ selectClick.on('select', (e) => {
 
 | Parameter / Feature | Purpose |
 | :--- | :--- |
-| **Official Standard** | Conforms to `https://openlayers.org/en/latest/examples/select-features.html` with native `ol/*` modular ES imports. |
+| **Reference Spec** | Conforms to `https://openlayers.org/en/latest/examples/select-features.html` with native `ol/*` modular ES imports. |
 | **Basemap Service** | Powered by modern MapTiler Planet v4 high-DPI raster XYZ or vector tile styles. |
 | **Lifecycle Clean** | Safe for single-page applications (React, Vue, Svelte) via standard `map.setTarget(null)`. |

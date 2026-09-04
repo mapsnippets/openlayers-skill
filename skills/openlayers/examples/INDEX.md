@@ -1,6 +1,6 @@
-# OpenLayers Official Task Examples Index 🧪🗺️
+# OpenLayers Task Examples Index 🧪🗺️
 
-> The authoritative index of **60 atomic, copy-pasteable task implementations** for OpenLayers (v9–v10+), extracted directly from official OpenLayers documentation and engineered with modern MapTiler Planet v4 basemap styles.
+> The authoritative index of **60 atomic, copy-pasteable task implementations** for OpenLayers (v9–v10+), curated from OpenLayers documentation and community recipes and engineered with modern MapTiler Planet v4 basemap styles.
 
 ---
 

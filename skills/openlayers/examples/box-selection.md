@@ -1,6 +1,6 @@
 # Marquee Box Spatial Selection 📦
 
-> **Official OpenLayers Example:** [Box Selection](https://openlayers.org/en/latest/examples/box-selection.html)  
+> **Documentation Link:** [Box Selection](https://openlayers.org/en/latest/examples/box-selection.html)  
 > **Target Category:** Production Task Implementation
 
 Using `ol/interaction/DragBox` with `Ctrl + Drag` or `Shift + Drag` to select multiple vector features within a rubber-band rectangle.
@@ -128,6 +128,6 @@ dragBox.on('boxend', () => {
 
 | Parameter / Feature | Purpose |
 | :--- | :--- |
-| **Official Standard** | Conforms to `https://openlayers.org/en/latest/examples/box-selection.html` with native `ol/*` modular ES imports. |
+| **Reference Spec** | Conforms to `https://openlayers.org/en/latest/examples/box-selection.html` with native `ol/*` modular ES imports. |
 | **Basemap Service** | Powered by modern MapTiler Planet v4 high-DPI raster XYZ or vector tile styles. |
 | **Lifecycle Clean** | Safe for single-page applications (React, Vue, Svelte) via standard `map.setTarget(null)`. |

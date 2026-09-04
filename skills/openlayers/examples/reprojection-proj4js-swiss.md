@@ -1,6 +1,6 @@
 # Swiss LV95 (EPSG:2056) Reprojection with Proj4js
 
-> Official Reference: [Swiss LV95 (EPSG:2056) Reprojection with Proj4js](https://openlayers.org/en/latest/examples/reprojection-by-code.html)
+> **Documentation Reference:** [Swiss LV95 (EPSG:2056) Reprojection with Proj4js](https://openlayers.org/en/latest/examples/reprojection-by-code.html)
 > Category: **Projections & Coordinate Systems**
 
 ## Overview

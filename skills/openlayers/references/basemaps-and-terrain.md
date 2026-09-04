@@ -6,7 +6,7 @@ This reference provides production-ready style JSON URLs, raster XYZ tile endpoi
 
 ## 1. Vector Map Styles (`style.json`)
 
-To apply MapTiler vector styles with Mapbox/MapLibre Style JSON in OpenLayers, use the official `ol-mapbox-style` package:
+To apply MapTiler vector styles with Mapbox/MapLibre Style JSON in OpenLayers, use the `ol-mapbox-style` package:
 
 ```javascript
 import Map from "ol/Map.js";

@@ -1,6 +1,6 @@
 # WFS GetFeature with Attribute & Spatial Filters
 
-> Official Reference: [WFS GetFeature with Attribute & Spatial Filters](https://openlayers.org/en/latest/examples/vector-wfs-getfeature.html)
+> **Documentation Reference:** [WFS GetFeature with Attribute & Spatial Filters](https://openlayers.org/en/latest/examples/vector-wfs-getfeature.html)
 > Category: **Enterprise OGC Services**
 
 ## Overview

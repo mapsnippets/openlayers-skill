@@ -1,6 +1,6 @@
 # OpenLayers & Ecosystem Versions 📦⚡
 
-This guide lists the current production versions of OpenLayers, verified official companion packages, geodetic transformers, raster engines, and MapTiler Planet v4 style endpoints. Use these versions when creating HTML scripts, `package.json` dependencies, or CDN links.
+This guide lists the current production versions of OpenLayers, verified companion packages, geodetic transformers, raster engines, and MapTiler Planet v4 style endpoints. Use these versions when creating HTML scripts, `package.json` dependencies, or CDN links.
 
 ---
 

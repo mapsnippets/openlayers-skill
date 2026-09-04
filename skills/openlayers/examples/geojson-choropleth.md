@@ -1,6 +1,6 @@
 # GeoJSON Choropleth & Dynamic Styling 🎨
 
-> **Official OpenLayers Example:** [GeoJSON Layer](https://openlayers.org/en/latest/examples/geojson.html) & [Vector Layer](https://openlayers.org/en/latest/examples/vector-layer.html)  
+> **Documentation Link:** [GeoJSON Layer](https://openlayers.org/en/latest/examples/geojson.html) & [Vector Layer](https://openlayers.org/en/latest/examples/vector-layer.html)  
 > **Source Module:** `ol/layer/Vector.js`, `ol/source/Vector.js`, `ol/format/GeoJSON.js`, `ol/style/Style.js`, `ol/style/Fill.js`, `ol/style/Stroke.js`
 
 This guide shows how to fetch external GeoJSON data, project it into `EPSG:3857`, calculate dynamic choropleth colors based on numeric feature attributes, and highlight polygons on hover.

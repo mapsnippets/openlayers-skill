@@ -1,6 +1,6 @@
 # High-Performance Marker Clustering 📍
 
-> **Official OpenLayers Example:** [Clustered Features](https://openlayers.org/en/latest/examples/cluster.html)  
+> **Documentation Link:** [Clustered Features](https://openlayers.org/en/latest/examples/cluster.html)  
 > **Source Module:** `ol/source/Cluster.js`, `ol/source/Vector.js`, `ol/layer/Vector.js`, `ol/style/Style.js`, `ol/style/Circle.js`, `ol/style/Text.js`
 
 This guide explains how to bundle thousands of point features into interactive clusters with dynamic radius sizing, feature counts, and smooth click-to-expand camera animations.

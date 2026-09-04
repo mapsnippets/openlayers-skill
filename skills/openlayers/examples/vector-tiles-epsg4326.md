@@ -1,6 +1,6 @@
 # Vector Tiles in Plate Carrée (EPSG:4326)
 
-> Official Reference: [Vector Tiles in Plate Carrée (EPSG:4326)](https://openlayers.org/en/latest/examples/vector-tiles-4326.html)
+> **Documentation Reference:** [Vector Tiles in Plate Carrée (EPSG:4326)](https://openlayers.org/en/latest/examples/vector-tiles-4326.html)
 > Category: **Projections & Coordinate Systems**
 
 ## Overview

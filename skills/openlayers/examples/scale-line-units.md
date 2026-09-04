@@ -1,6 +1,6 @@
 # Dynamic ScaleLine Bar (Metric, Imperial, Nautical) 📏
 
-> **Official OpenLayers Example:** [ScaleLine Control](https://openlayers.org/en/latest/examples/scaleline.html)  
+> **Documentation Link:** [ScaleLine Control](https://openlayers.org/en/latest/examples/scaleline.html)  
 > **Target Category:** Production Task Implementation
 
 Displaying high-precision physical map scale indicators supporting dynamic unit switching between metric, imperial, nautical, and US surveying feet.
@@ -105,6 +105,6 @@ document.getElementById('units').onchange = (e) => {
 
 | Parameter / Feature | Purpose |
 | :--- | :--- |
-| **Official Standard** | Conforms to `https://openlayers.org/en/latest/examples/scaleline.html` with native `ol/*` modular ES imports. |
+| **Reference Spec** | Conforms to `https://openlayers.org/en/latest/examples/scaleline.html` with native `ol/*` modular ES imports. |
 | **Basemap Service** | Powered by modern MapTiler Planet v4 high-DPI raster XYZ or vector tile styles. |
 | **Lifecycle Clean** | Safe for single-page applications (React, Vue, Svelte) via standard `map.setTarget(null)`. |

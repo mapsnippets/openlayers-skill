@@ -1,6 +1,6 @@
 # Overview Mini-Map Context Control 🗺️
 
-> **Official OpenLayers Example:** [OverviewMap Control](https://openlayers.org/en/latest/examples/overviewmap.html)  
+> **Documentation Link:** [OverviewMap Control](https://openlayers.org/en/latest/examples/overviewmap.html)  
 > **Target Category:** Production Task Implementation
 
 Embed a synchronized secondary overview map in the corner of the screen displaying the current viewport extent against a zoomed-out regional basemap.
@@ -98,6 +98,6 @@ const map = new Map({
 
 | Parameter / Feature | Purpose |
 | :--- | :--- |
-| **Official Standard** | Conforms to `https://openlayers.org/en/latest/examples/overviewmap.html` with native `ol/*` modular ES imports. |
+| **Reference Spec** | Conforms to `https://openlayers.org/en/latest/examples/overviewmap.html` with native `ol/*` modular ES imports. |
 | **Basemap Service** | Powered by modern MapTiler Planet v4 high-DPI raster XYZ or vector tile styles. |
 | **Lifecycle Clean** | Safe for single-page applications (React, Vue, Svelte) via standard `map.setTarget(null)`. |

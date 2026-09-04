@@ -1,6 +1,6 @@
 # GeoZarr Multidimensional Earth Observation
 
-> Official Reference: [GeoZarr Multidimensional Earth Observation](https://openlayers.org/en/latest/examples/geozarr.html)
+> **Documentation Reference:** [GeoZarr Multidimensional Earth Observation](https://openlayers.org/en/latest/examples/geozarr.html)
 > Category: **Raster & Terrain**
 
 ## Overview

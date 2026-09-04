@@ -1,6 +1,6 @@
 # Shared Views (Synchronized Dual Maps)
 
-> Official Reference: [Shared Views (Synchronized Dual Maps)](https://openlayers.org/en/latest/examples/side-by-side.html)
+> **Documentation Reference:** [Shared Views (Synchronized Dual Maps)](https://openlayers.org/en/latest/examples/side-by-side.html)
 > Category: **UI Controls & Layout**
 
 ## Overview

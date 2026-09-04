@@ -1,6 +1,6 @@
 # Custom Base Map Switcher UI 🗂️
 
-> **Official OpenLayers Example:** [Layer Groups](https://openlayers.org/en/latest/examples/layer-group.html)  
+> **Documentation Link:** [Layer Groups](https://openlayers.org/en/latest/examples/layer-group.html)  
 > **Target Category:** Production Task Implementation
 
 Build an elegant, accessible base layer switcher control enabling users to toggle between Streets v4, Outdoor v4, Satellite v4, and Dataviz Dark basemaps.
@@ -105,6 +105,6 @@ buttons.forEach((btn) => {
 
 | Parameter / Feature | Purpose |
 | :--- | :--- |
-| **Official Standard** | Conforms to `https://openlayers.org/en/latest/examples/layer-group.html` with native `ol/*` modular ES imports. |
+| **Reference Spec** | Conforms to `https://openlayers.org/en/latest/examples/layer-group.html` with native `ol/*` modular ES imports. |
 | **Basemap Service** | Powered by modern MapTiler Planet v4 high-DPI raster XYZ or vector tile styles. |
 | **Lifecycle Clean** | Safe for single-page applications (React, Vue, Svelte) via standard `map.setTarget(null)`. |

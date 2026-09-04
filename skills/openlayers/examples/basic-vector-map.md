@@ -1,9 +1,9 @@
 # Basic Vector Map with ol-mapbox-style 🗺️
 
-> **Official OpenLayers Example:** [Mapbox Vector Tiles](https://openlayers.org/en/latest/examples/mapbox-vector-tiles.html)  
+> **Documentation Link:** [Mapbox Vector Tiles](https://openlayers.org/en/latest/examples/mapbox-vector-tiles.html)  
 > **Source Module:** `ol-mapbox-style`, `ol/Map.js`, `ol/View.js`, `ol/proj.js`
 
-This guide demonstrates how to render a crisp, client-side vector tile basemap in OpenLayers using the official `ol-mapbox-style` package and the modern MapTiler Planet v4 vector tile schema.
+This guide demonstrates how to render a crisp, client-side vector tile basemap in OpenLayers using the `ol-mapbox-style` package and the modern MapTiler Planet v4 vector tile schema.
 
 ---
 

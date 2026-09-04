@@ -1,6 +1,6 @@
 # Flat Style Expressions for Vector Tiles
 
-> Official Reference: [Flat Style Expressions for Vector Tiles](https://openlayers.org/en/latest/examples/vector-tile-info.html)
+> **Documentation Reference:** [Flat Style Expressions for Vector Tiles](https://openlayers.org/en/latest/examples/vector-tile-info.html)
 > Category: **Vector Formats & MVT**
 
 ## Overview

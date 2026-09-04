@@ -1,6 +1,6 @@
 # Marker Animation along Line (Postrender Loop)
 
-> Official Reference: [Marker Animation along Line (Postrender Loop)](https://openlayers.org/en/latest/examples/feature-move-animation.html)
+> **Documentation Reference:** [Marker Animation along Line (Postrender Loop)](https://openlayers.org/en/latest/examples/feature-move-animation.html)
 > Category: **Interactions & Animation**
 
 ## Overview

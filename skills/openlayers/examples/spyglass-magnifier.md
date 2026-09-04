@@ -1,6 +1,6 @@
 # Interactive Spyglass / Magnifier Lens 🔍
 
-> **Official OpenLayers Example:** [Magnify](https://openlayers.org/en/latest/examples/magnify.html)  
+> **Documentation Link:** [Magnify](https://openlayers.org/en/latest/examples/magnify.html)  
 > **Target Category:** Production Task Implementation
 
 Display a circular magnifying spyglass lens showing high-resolution imagery or satellite layer beneath the cursor using HTML5 Canvas clipping on layer postrender hooks.
@@ -124,6 +124,6 @@ satellite.on('postrender', (event) => {
 
 | Parameter / Feature | Purpose |
 | :--- | :--- |
-| **Official Standard** | Conforms to `https://openlayers.org/en/latest/examples/magnify.html` with native `ol/*` modular ES imports. |
+| **Reference Spec** | Conforms to `https://openlayers.org/en/latest/examples/magnify.html` with native `ol/*` modular ES imports. |
 | **Basemap Service** | Powered by modern MapTiler Planet v4 high-DPI raster XYZ or vector tile styles. |
 | **Lifecycle Clean** | Safe for single-page applications (React, Vue, Svelte) via standard `map.setTarget(null)`. |

@@ -1,6 +1,6 @@
 # High-Resolution Map Export to PNG & PDF 🖨️
 
-> **Official OpenLayers Example:** [Export PDF Example](https://openlayers.org/en/latest/examples/export-pdf.html)  
+> **Documentation Link:** [Export PDF Example](https://openlayers.org/en/latest/examples/export-pdf.html)  
 > **Target Category:** Production Task Implementation
 
 Render and stitch all active map canvas contexts, tile layers, and vector overlays into high-DPI downloadable PNG image or multi-page PDF document.
@@ -133,6 +133,6 @@ document.getElementById('export-png').addEventListener('click', () => {
 
 | Parameter / Feature | Purpose |
 | :--- | :--- |
-| **Official Standard** | Conforms to `https://openlayers.org/en/latest/examples/export-pdf.html` with native `ol/*` modular ES imports. |
+| **Reference Spec** | Conforms to `https://openlayers.org/en/latest/examples/export-pdf.html` with native `ol/*` modular ES imports. |
 | **Basemap Service** | Powered by modern MapTiler Planet v4 high-DPI raster XYZ or vector tile styles. |
 | **Lifecycle Clean** | Safe for single-page applications (React, Vue, Svelte) via standard `map.setTarget(null)`. |

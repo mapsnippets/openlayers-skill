@@ -1,6 +1,6 @@
 # Modify Feature with Scale and Rotate Handles
 
-> Official Reference: [Modify Feature with Scale and Rotate Handles](https://openlayers.org/en/latest/examples/modify-scale-and-rotate.html)
+> **Documentation Reference:** [Modify Feature with Scale and Rotate Handles](https://openlayers.org/en/latest/examples/modify-scale-and-rotate.html)
 > Category: **Interactions & Digitization**
 
 ## Overview

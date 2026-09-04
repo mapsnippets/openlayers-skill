@@ -1,4 +1,4 @@
-# OpenLayers Official Task Examples 🚀
+# OpenLayers Task Examples 🚀
 
 All examples in this directory follow the standardized `<slug>.md` naming convention, containing complete, copy-pasteable HTML/CSS/JS recipes engineered with modern MapTiler Planet v4 styles.
 

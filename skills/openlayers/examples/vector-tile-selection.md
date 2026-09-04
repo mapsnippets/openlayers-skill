@@ -1,6 +1,6 @@
 # Vector Tile Feature Selection & Highlighting 🎯
 
-> **Official OpenLayers Example:** [Vector Tile Selection](https://openlayers.org/en/latest/examples/vector-tile-selection.html)  
+> **Documentation Link:** [Vector Tile Selection](https://openlayers.org/en/latest/examples/vector-tile-selection.html)  
 > **Source Module:** `ol/layer/VectorTile.js`, `ol/source/VectorTile.js`, `ol/format/MVT.js`, `ol/style/Style.js`
 
 This guide demonstrates how to inspect and dynamically highlight individual geometries within Mapbox Vector Tiles (MVT) using OpenLayers `VectorTileLayer` and feature ID tracking.

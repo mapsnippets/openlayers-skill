@@ -1,6 +1,6 @@
 # Icon Sprites with WebGL
 
-> Official Reference: [Icon Sprites with WebGL](https://openlayers.org/en/latest/examples/icon-sprite-webgl.html)
+> **Documentation Reference:** [Icon Sprites with WebGL](https://openlayers.org/en/latest/examples/icon-sprite-webgl.html)
 > Category: **Clustering & WebGL**
 
 ## Overview

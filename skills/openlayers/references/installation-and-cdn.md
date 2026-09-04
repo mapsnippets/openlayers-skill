@@ -8,7 +8,7 @@ This guide details all methods for loading OpenLayers: NPM package managers, mod
 
 ## 1. Modern Package Managers (NPM / Yarn / PNPM / Bun) — Recommended
 
-OpenLayers is distributed as ES modules in the official `ol` package.
+OpenLayers is distributed as ES modules in the `ol` package.
 
 ### Installation:
 ```bash

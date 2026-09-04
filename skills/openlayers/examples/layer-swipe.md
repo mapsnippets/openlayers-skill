@@ -1,6 +1,6 @@
 # Layer Swipe & Split-Screen Comparison 🪟
 
-> **Official OpenLayers Example:** [Layer Swipe](https://openlayers.org/en/latest/examples/layer-swipe.html)  
+> **Documentation Link:** [Layer Swipe](https://openlayers.org/en/latest/examples/layer-swipe.html)  
 > **Source Module:** `ol/layer/Tile.js`, `ol/render.js`, `ol/source/XYZ.js`, `ol/Map.js`
 
 This guide explains how to implement a side-by-side visual swipe tool comparing two layers (e.g. Satellite imagery vs Vector street map) using HTML5 Canvas clipping on render lifecycles.

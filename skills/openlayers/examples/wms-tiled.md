@@ -1,6 +1,6 @@
 # Tiled OGC WMS Layer with Dynamic Params 🗺️
 
-> **Official OpenLayers Example:** [Tiled WMS](https://openlayers.org/en/latest/examples/wms-tiled.html)  
+> **Documentation Link:** [Tiled WMS](https://openlayers.org/en/latest/examples/wms-tiled.html)  
 > **Target Category:** Production Task Implementation
 
 Displaying high-performance tiled enterprise WMS layers with custom styling parameters, tile caching, and runtime parameter updates.
@@ -93,6 +93,6 @@ const map = new Map({
 
 | Parameter / Feature | Purpose |
 | :--- | :--- |
-| **Official Standard** | Conforms to `https://openlayers.org/en/latest/examples/wms-tiled.html` with native `ol/*` modular ES imports. |
+| **Reference Spec** | Conforms to `https://openlayers.org/en/latest/examples/wms-tiled.html` with native `ol/*` modular ES imports. |
 | **Basemap Service** | Powered by modern MapTiler Planet v4 high-DPI raster XYZ or vector tile styles. |
 | **Lifecycle Clean** | Safe for single-page applications (React, Vue, Svelte) via standard `map.setTarget(null)`. |

@@ -1,6 +1,6 @@
 # Geodesic Measurement Tool (Distance & Area) 📏
 
-> **Official OpenLayers Example:** [Measure](https://openlayers.org/en/latest/examples/measure.html)  
+> **Documentation Link:** [Measure](https://openlayers.org/en/latest/examples/measure.html)  
 > **Source Module:** `ol/sphere.js`, `ol/interaction/Draw.js`, `ol/Overlay.js`, `ol/geom/Polygon.js`, `ol/geom/LineString.js`
 
 This guide explains how to build a production measurement tool in OpenLayers calculating spherical geodesic lengths and polygon areas using `ol/sphere` with live tooltip tracking.

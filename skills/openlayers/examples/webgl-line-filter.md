@@ -1,6 +1,6 @@
 # WebGL Line Rendering & Dynamic Attribute Filter ⚡
 
-> **Official OpenLayers Example:** [WebGL Line Filter](https://openlayers.org/en/latest/examples/filter-webgl-line.html)  
+> **Documentation Link:** [WebGL Line Filter](https://openlayers.org/en/latest/examples/filter-webgl-line.html)  
 > **Target Category:** Production Task Implementation
 
 Rendering thousands of polyline trajectories with WebGL and updating numeric attribute filters in real-time at 60 FPS.
@@ -118,6 +118,6 @@ slider.oninput = () => {
 
 | Parameter / Feature | Purpose |
 | :--- | :--- |
-| **Official Standard** | Conforms to `https://openlayers.org/en/latest/examples/filter-webgl-line.html` with native `ol/*` modular ES imports. |
+| **Reference Spec** | Conforms to `https://openlayers.org/en/latest/examples/filter-webgl-line.html` with native `ol/*` modular ES imports. |
 | **Basemap Service** | Powered by modern MapTiler Planet v4 high-DPI raster XYZ or vector tile styles. |
 | **Lifecycle Clean** | Safe for single-page applications (React, Vue, Svelte) via standard `map.setTarget(null)`. |

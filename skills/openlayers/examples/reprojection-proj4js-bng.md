@@ -1,6 +1,6 @@
 # British National Grid (EPSG:27700) with Proj4js
 
-> Official Reference: [British National Grid (EPSG:27700) with Proj4js](https://openlayers.org/en/latest/examples/reprojection-by-code.html)
+> **Documentation Reference:** [British National Grid (EPSG:27700) with Proj4js](https://openlayers.org/en/latest/examples/reprojection-by-code.html)
 > Category: **Projections & Coordinate Systems**
 
 ## Overview

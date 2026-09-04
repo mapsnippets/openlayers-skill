@@ -1,6 +1,6 @@
 # Cinematic Camera Flight Navigation 🚀
 
-> **Official OpenLayers Example:** [View Animation](https://openlayers.org/en/latest/examples/animation.html)  
+> **Documentation Link:** [View Animation](https://openlayers.org/en/latest/examples/animation.html)  
 > **Target Category:** Production Task Implementation
 
 Smoothly pan and zoom between distant locations with cinematic camera arcs combining zoom-out, pan, and zoom-in easing.
@@ -139,6 +139,6 @@ document.getElementById('to-prague').onclick = () => flyTo(fromLonLat([14.4378, 
 
 | Parameter / Feature | Purpose |
 | :--- | :--- |
-| **Official Standard** | Conforms to `https://openlayers.org/en/latest/examples/animation.html` with native `ol/*` modular ES imports. |
+| **Reference Spec** | Conforms to `https://openlayers.org/en/latest/examples/animation.html` with native `ol/*` modular ES imports. |
 | **Basemap Service** | Powered by modern MapTiler Planet v4 high-DPI raster XYZ or vector tile styles. |
 | **Lifecycle Clean** | Safe for single-page applications (React, Vue, Svelte) via standard `map.setTarget(null)`. |

@@ -1,6 +1,6 @@
 # Drawing Regular Polygons and Stars
 
-> Official Reference: [Drawing Regular Polygons and Stars](https://openlayers.org/en/latest/examples/regularshape.html)
+> **Documentation Reference:** [Drawing Regular Polygons and Stars](https://openlayers.org/en/latest/examples/regularshape.html)
 > Category: **Interactions & Digitization**
 
 ## Overview

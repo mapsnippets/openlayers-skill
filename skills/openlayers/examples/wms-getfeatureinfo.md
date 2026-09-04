@@ -1,6 +1,6 @@
 # OGC WMS Layer & GetFeatureInfo Inspection ℹ️
 
-> **Official OpenLayers Example:** [WMS GetFeatureInfo (Tile Layer)](https://openlayers.org/en/latest/examples/getfeatureinfo-tile.html)  
+> **Documentation Link:** [WMS GetFeatureInfo (Tile Layer)](https://openlayers.org/en/latest/examples/getfeatureinfo-tile.html)  
 > **Source Module:** `ol/source/TileWMS.js`, `ol/layer/Tile.js`, `ol/Map.js`, `ol/View.js`
 
 This guide explains how to display enterprise OGC Web Map Service (WMS) layers alongside a MapTiler basemap and perform spatial click queries using `getFeatureInfoUrl`.

@@ -1,6 +1,6 @@
 # High-Density Vector Heatmaps 🔥
 
-> **Official OpenLayers Example:** [Earthquakes Heatmap](https://openlayers.org/en/latest/examples/heatmap-earthquakes.html)  
+> **Documentation Link:** [Earthquakes Heatmap](https://openlayers.org/en/latest/examples/heatmap-earthquakes.html)  
 > **Source Module:** `ol/layer/Heatmap.js`, `ol/source/Vector.js`, `ol/format/KML.js`, `ol/format/GeoJSON.js`
 
 This guide explains how to render density gradients across dense point datasets using OpenLayers `Heatmap` layer with configurable blur, radius, and magnitude weighting.

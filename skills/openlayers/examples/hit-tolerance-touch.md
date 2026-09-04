@@ -1,6 +1,6 @@
 # Hit Tolerance for Mobile and Touch Interaction
 
-> Official Reference: [Hit Tolerance for Mobile and Touch Interaction](https://openlayers.org/en/latest/examples/hit-tolerance.html)
+> **Documentation Reference:** [Hit Tolerance for Mobile and Touch Interaction](https://openlayers.org/en/latest/examples/hit-tolerance.html)
 > Category: **Interactions & Digitization**
 
 ## Overview

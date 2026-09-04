@@ -1,6 +1,6 @@
 # Graticule (Coordinate Grid Lines Overlay)
 
-> Official Reference: [Graticule (Coordinate Grid Lines Overlay)](https://openlayers.org/en/latest/examples/graticule.html)
+> **Documentation Reference:** [Graticule (Coordinate Grid Lines Overlay)](https://openlayers.org/en/latest/examples/graticule.html)
 > Category: **Cartography & Overlays**
 
 ## Overview

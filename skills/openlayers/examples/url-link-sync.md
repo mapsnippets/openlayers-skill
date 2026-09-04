@@ -1,6 +1,6 @@
 # Synchronize Map State with URL Query Params 🔗
 
-> **Official OpenLayers Example:** [Link Interaction](https://openlayers.org/en/latest/examples/link.html)  
+> **Documentation Link:** [Link Interaction](https://openlayers.org/en/latest/examples/link.html)  
 > **Source Module:** `ol/interaction/Link.js`, `ol/Map.js`, `ol/View.js`, `ol/layer/Tile.js`
 
 This guide explains how to keep map position, zoom level, and rotation bidirectionally synchronized with browser URL parameters using OpenLayers `Link` interaction.

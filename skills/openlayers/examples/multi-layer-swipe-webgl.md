@@ -1,6 +1,6 @@
 # WebGL Tile Layer Swipe
 
-> Official Reference: [WebGL Tile Layer Swipe](https://openlayers.org/en/latest/examples/webgl-layer-swipe.html)
+> **Documentation Reference:** [WebGL Tile Layer Swipe](https://openlayers.org/en/latest/examples/webgl-layer-swipe.html)
 > Category: **Raster & Terrain**
 
 ## Overview

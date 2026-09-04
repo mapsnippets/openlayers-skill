@@ -1,6 +1,6 @@
 # Interactive Bounding Box Crop & Extent Handles 🔲
 
-> **Official OpenLayers Example:** [Extent Interaction](https://openlayers.org/en/latest/examples/extent-interaction.html)  
+> **Documentation Link:** [Extent Interaction](https://openlayers.org/en/latest/examples/extent-interaction.html)  
 > **Target Category:** Production Task Implementation
 
 Allow users to drag and resize an active spatial bounding box using vertex and corner handles for area clipping, data exports, or regional spatial queries.
@@ -95,6 +95,6 @@ extent.on('extentchanged', (e) => {
 
 | Parameter / Feature | Purpose |
 | :--- | :--- |
-| **Official Standard** | Conforms to `https://openlayers.org/en/latest/examples/extent-interaction.html` with native `ol/*` modular ES imports. |
+| **Reference Spec** | Conforms to `https://openlayers.org/en/latest/examples/extent-interaction.html` with native `ol/*` modular ES imports. |
 | **Basemap Service** | Powered by modern MapTiler Planet v4 high-DPI raster XYZ or vector tile styles. |
 | **Lifecycle Clean** | Safe for single-page applications (React, Vue, Svelte) via standard `map.setTarget(null)`. |

@@ -6,7 +6,7 @@
 [![OpenLayers](https://img.shields.io/badge/OpenLayers-v10.10.0-1F6B75)](https://openlayers.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE.md)
 
-> Official **OpenLayers** AI skill for coding assistants (Claude Code, Cursor, Antigravity, GitHub Copilot, Windsurf, Roo Code, Gemini CLI). Built in accordance with the open **[Agent Skills Specification](https://agentskills.io/)**.
+> Open-source **OpenLayers** AI skill for coding assistants (Claude Code, Cursor, Antigravity, GitHub Copilot, Windsurf, Roo Code, Gemini CLI). Built in accordance with the open **[Agent Skills Specification](https://agentskills.io/)**.
 
 Maintained by **[MapSnippets](https://mapsnippets.org/)** — Open-source geospatial snippets, guides, and agent tools.
 
@@ -95,7 +95,7 @@ npx skills add mapsnippets/openlayers-skill
 
 ### Option 2: Claude Code Plugin
 
-Install directly via the official Claude Code plugin marketplace:
+Install directly via the Claude Code plugin marketplace:
 
 ```bash
 /plugin marketplace add mapsnippets/openlayers-skill
@@ -205,7 +205,7 @@ const map = new Map({
 ## 🔑 Basemap API Keys
 
 The vector and raster tile recipes in this skill use MapTiler Planet v4 basemap styles. To run recipes with live vector tiles:
-- Follow the official guide on [how to get a free MapTiler API Key](https://docs.maptiler.com/cloud/api/authentication-key/) (free tier includes 100,000 monthly requests).
+- Follow the guide on [how to get a free MapTiler API Key](https://docs.maptiler.com/cloud/api/authentication-key/) (free tier includes 100,000 monthly requests).
 - Replace `YOUR_API_KEY` in the snippet with your active key.
 
 <br>
@@ -219,7 +219,7 @@ This skill includes an automated evaluation benchmark suite in `skills/openlayer
 4. Vector Marker Clustering (`ol/source/Cluster`)
 5. Cloud-Optimized GeoTIFF & WMS Overlays
 
-To validate compliance against the official Agent Skills specification using the reference validator:
+To validate compliance against the Agent Skills specification using the reference validator:
 
 ```bash
 npx @agentskills/skills-ref validate skills/openlayers
@@ -230,7 +230,7 @@ npx @agentskills/skills-ref validate skills/openlayers
 ## Links
 
 - 🌐 [MapSnippets Community](https://mapsnippets.org/)
-- 📚 [OpenLayers Official Documentation](https://openlayers.org/doc/)
+- 📚 [OpenLayers Documentation](https://openlayers.org/doc/)
 - 📋 [Agent Skills Specification](https://agentskills.io/)
 - 🐙 [GitHub Repository](https://github.com/mapsnippets/openlayers-skill)
 

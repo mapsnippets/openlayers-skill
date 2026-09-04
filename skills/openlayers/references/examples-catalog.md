@@ -1,4 +1,4 @@
-# OpenLayers Official Recipe Directory & API Cross-Reference 📚🛠️
+# OpenLayers Recipe Catalog & API Cross-Reference 📚🛠️
 
 > An encyclopedic technical directory connecting every OpenLayers API class, layer, and interaction directly to its verified, production-grade standalone recipe in `skills/examples/`. Engineered with modern MapTiler Planet v4 styles.
 

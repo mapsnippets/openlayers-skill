@@ -1,6 +1,6 @@
 # Earthquakes KML Layer & Dynamic Magnitude Styling 🌋
 
-> **Official OpenLayers Example:** [Earthquakes in KML](https://openlayers.org/en/latest/examples/kml-earthquakes.html)  
+> **Documentation Link:** [Earthquakes in KML](https://openlayers.org/en/latest/examples/kml-earthquakes.html)  
 > **Target Category:** Production Task Implementation
 
 Standard KML (Keyhole Markup Language) files frequently contain disaster telemetry, sensor points, or GIS survey pins. This guide demonstrates parsing remote KML using `ol/format/KML` and dynamically scaling circle radius and fill opacity by earthquake magnitude.
@@ -140,6 +140,6 @@ map.on('pointermove', (evt) => {
 
 | Parameter / Feature | Purpose |
 | :--- | :--- |
-| **Official Standard** | Conforms to `https://openlayers.org/en/latest/examples/kml-earthquakes.html` with native `ol/*` modular ES imports. |
+| **Reference Spec** | Conforms to `https://openlayers.org/en/latest/examples/kml-earthquakes.html` with native `ol/*` modular ES imports. |
 | **Basemap Service** | Powered by modern MapTiler Planet v4 high-DPI raster XYZ or vector tile styles. |
 | **Lifecycle Clean** | Safe for single-page applications (React, Vue, Svelte) via standard `map.setTarget(null)`. |

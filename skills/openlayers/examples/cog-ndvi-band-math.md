@@ -1,6 +1,6 @@
 # Real-Time WebGL NDVI Vegetation Index from COG 🌿
 
-> **Official OpenLayers Example:** [NDVI from a Sentinel 2 COG](https://openlayers.org/en/latest/examples/cog-math.html)  
+> **Documentation Link:** [NDVI from a Sentinel 2 COG](https://openlayers.org/en/latest/examples/cog-math.html)  
 > **Target Category:** Production Task Implementation
 
 Calculate the Normalized Difference Vegetation Index (NDVI = (NIR - Red) / (NIR + Red)) live on the user's GPU using WebGL expression math across Sentinel-2 GeoTIFF bands.
@@ -109,6 +109,6 @@ cogLayer.getSource().getView().then((viewConfig) => map.setView(new View(viewCon
 
 | Parameter / Feature | Purpose |
 | :--- | :--- |
-| **Official Standard** | Conforms to `https://openlayers.org/en/latest/examples/cog-math.html` with native `ol/*` modular ES imports. |
+| **Reference Spec** | Conforms to `https://openlayers.org/en/latest/examples/cog-math.html` with native `ol/*` modular ES imports. |
 | **Basemap Service** | Powered by modern MapTiler Planet v4 high-DPI raster XYZ or vector tile styles. |
 | **Lifecycle Clean** | Safe for single-page applications (React, Vue, Svelte) via standard `map.setTarget(null)`. |

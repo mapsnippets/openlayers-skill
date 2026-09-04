@@ -1,6 +1,6 @@
 # Client-Side Flat Style Expressions on MVT Vector Tiles 🎨
 
-> **Official OpenLayers Example:** [Vector Tile Info & Expressions](https://openlayers.org/en/latest/examples/vector-tile-info.html)  
+> **Documentation Link:** [Vector Tile Info & Expressions](https://openlayers.org/en/latest/examples/vector-tile-info.html)  
 > **Target Category:** Production Task Implementation
 
 Styling raw Mapbox Vector Tiles (.pbf) on the client using OpenLayers modern Flat Style declarative expression syntax without third-party style packages.
@@ -109,6 +109,6 @@ const map = new Map({
 
 | Parameter / Feature | Purpose |
 | :--- | :--- |
-| **Official Standard** | Conforms to `https://openlayers.org/en/latest/examples/vector-tile-info.html` with native `ol/*` modular ES imports. |
+| **Reference Spec** | Conforms to `https://openlayers.org/en/latest/examples/vector-tile-info.html` with native `ol/*` modular ES imports. |
 | **Basemap Service** | Powered by modern MapTiler Planet v4 high-DPI raster XYZ or vector tile styles. |
 | **Lifecycle Clean** | Safe for single-page applications (React, Vue, Svelte) via standard `map.setTarget(null)`. |

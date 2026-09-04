@@ -1,6 +1,6 @@
 # Interactive Popup Overlay 💬
 
-> **Official OpenLayers Example:** [Popup](https://openlayers.org/en/latest/examples/popup.html)  
+> **Documentation Link:** [Popup](https://openlayers.org/en/latest/examples/popup.html)  
 > **Source Module:** `ol/Overlay.js`, `ol/Map.js`, `ol/View.js`, `ol/coordinate.js`
 
 This guide demonstrates how to anchor an interactive HTML popup to map coordinates using `ol/Overlay`, complete with an animated camera auto-pan and closer button.

@@ -1,6 +1,6 @@
 # Draw, Modify & Snap Vector Geometries ✍️
 
-> **Official OpenLayers Example:** [Draw and Modify Features](https://openlayers.org/en/latest/examples/draw-and-modify-features.html) & [Snap Interaction](https://openlayers.org/en/latest/examples/snap.html)  
+> **Documentation Link:** [Draw and Modify Features](https://openlayers.org/en/latest/examples/draw-and-modify-features.html) & [Snap Interaction](https://openlayers.org/en/latest/examples/snap.html)  
 > **Source Module:** `ol/interaction/Draw.js`, `ol/interaction/Modify.js`, `ol/interaction/Snap.js`, `ol/source/Vector.js`, `ol/layer/Vector.js`
 
 This guide shows how to assemble a complete GIS editing suite in OpenLayers allowing users to digitize points, lines, and polygons, edit existing vertices, and magnetically snap to shared boundaries.
