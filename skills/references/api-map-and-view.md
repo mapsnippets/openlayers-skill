@@ -97,7 +97,7 @@ const popupElement = document.getElementById("popup");
 const popupOverlay = new Overlay({
   element: popupElement,
   positioning: "bottom-center",
-  stopEvent: false,
+  stopEvent: true, // Prevents clicks inside the popup from triggering map events
   autoPan: {
     animation: { duration: 250 }
   }
