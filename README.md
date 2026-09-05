@@ -38,16 +38,6 @@ When activated for **OpenLayers**, this skill guides the agent to:
 
 This skill follows the **[Agent Skills open format](https://agentskills.io/)**, utilizing a **three-tier progressive disclosure model** to minimize context overhead:
 
-```mermaid
-flowchart LR
-    A["1. Discovery (Startup)<br/>name & description (~50 tokens)"]
-    B["2. Activation (Load)<br/>SKILL.md router (under 5k tokens)"]
-    C["3. Execution (Deep Dive)<br/>Modular References & Recipes"]
-
-    A -->|Match Query| B
-    B -->|As Needed| C
-```
-
 1. **Discovery (Startup)**: The agent only inspects the YAML frontmatter `name` and `description` (~50 tokens).
 2. **Activation (Task Identified)**: When your prompt mentions OpenLayers, modular `ol/*` imports, vector tiles, or reprojection, the agent loads `skills/openlayers/SKILL.md` (< 2,850 tokens).
 3. **Execution (Deep Dive)**: The agent traverses targeted guides in `references/` or runnable recipes in `examples/` on demand, without polluting your context window.
