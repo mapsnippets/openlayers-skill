@@ -49,7 +49,6 @@ Maintained by **[MapSnippets](https://mapsnippets.org/)** — Open-source geospa
 ### 3. Basemaps & Services
 * **[versions.md](versions.md)** — Core OpenLayers v10.10.0, companion packages, CDN URLs, and V4 raster endpoints.
 * **[basemaps-and-terrain.md](basemaps-and-terrain.md)** — Production endpoints for `streets-v4`, `dataviz-v4-dark`, `outdoor-v4`, `satellite-v4`, and Terrain-RGB.
-* **[vector-tile-schemas.md](vector-tile-schemas.md)** — Complete MapTiler Planet v4 and Countries vector tile schema specifications and OpenLayers consumption patterns.
 * **[geocoding-and-services.md](geocoding-and-services.md)** — Forward/reverse geocoding, autocomplete search, static maps, and elevation.
 
 ---
