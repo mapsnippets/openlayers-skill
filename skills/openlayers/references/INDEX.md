@@ -33,6 +33,7 @@ Maintained by **[MapSnippets](https://mapsnippets.org/)** — Open-source geospa
 * **[api-projections-and-geom.md](api-projections-and-geom.md)** — Coordinate systems, Proj4js registration (LV95, BNG, EPSG:4326), and geometry hierarchy.
 * **[ogc-wms-wmts-wfs.md](ogc-wms-wmts-wfs.md)** — Enterprise OGC stack (WMS `getFeatureInfoUrl`, WMTS matrix sets, WFS BBOX strategy & XML filters).
 * **[patterns-gotchas.md](patterns-gotchas.md)** — Solutions for the top OpenLayers bugs (EPSG:3857 coordinate trap, missing CSS, snap ordering, canvas export).
+* **[plugins-catalog.md](plugins-catalog.md)** — Extension suite catalog (`ol-ext`, `proj4`, `ol-mapbox-style`, `ol-layerswitcher`, `ol-contextmenu`).
 * **[events.md](events.md)** — Map lifecycle, view changes, pointer tracking, vector feature events, and render hooks.
 * **[frameworks.md](frameworks.md)** — Integrating OpenLayers in React, Vue 3, Svelte, and Next.js SPAs.
 * **[installation-and-cdn.md](installation-and-cdn.md)** — Bundler setup (Vite, Webpack, rollup), ESM CDN imports, and stylesheet assets.

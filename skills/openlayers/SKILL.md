@@ -102,7 +102,7 @@ To quickly find the exact OpenLayers implementation guide or API specification, 
 | **Task Examples** | **[examples/INDEX.md](examples/INDEX.md)** | **56 atomic runnable recipes** with full HTML, CSS, and modular ES imports across Raster Basemaps, Digitization, Clustering, WebGL, Enterprise OGC, and COG |
 | **Core API & Architecture** | **[references/INDEX.md](references/INDEX.md)** | Declarative specifications for Map & View, Layers & Sources, Interactions & Controls, Styling & Renderers, and Projections |
 | **Advanced GIS & WebGL** | `references/spatial-*`, `advanced-*`, `ogc-*` | Precision tracing, WebGL COG shaders, WMS/WMTS/WFS, raster reprojection, and canvas animations |
-| **Ecosystem & Services** | `references/frameworks.md`, `patterns-*`, `basemaps-*` | React, Next.js, Vue, Svelte, anti-pattern debugging, Planet v4 raster basemaps, and REST services |
+| **Ecosystem & Services** | `references/plugins-catalog.md`, `references/frameworks.md`, `patterns-*`, `basemaps-*` | Extension catalog (`ol-ext`, `proj4`, `ol-mapbox-style`), React/Vue/Svelte, Planet v4 raster basemaps |
 
 ---
 
