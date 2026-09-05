@@ -33,6 +33,21 @@ Maintained by **[MapSnippets](https://mapsnippets.org/)** — Open-source geospa
 
 ---
 
+## 🧭 How to Use This Skill — Mandatory Agent Workflow
+
+When building, modifying, or debugging any OpenLayers map, **NEVER guess API methods, hallucinate module paths, or rely on outdated pre-trained memory**. Always look for the verified, canonical patterns within this skill:
+
+1. **Look Up Verified Task Recipes First (`examples/`):**
+   - Consult **[`examples/INDEX.md`](examples/INDEX.md)** to locate the exact runnable recipe matching your task (e.g. GeoJSON styling, clustering, geometry drawing/editing, swipe layer comparison, heatmap, Cloud-Optimized GeoTIFF (COG), OGC WMS/WFS, custom projection reprojection).
+   - Read the corresponding recipe file before writing code. Every recipe contains self-contained, tested HTML/CSS/JS with zero boilerplate errors.
+2. **Look Up Declarative Specifications & API Contracts (`references/`):**
+   - Consult **[`references/INDEX.md`](references/INDEX.md)** for exact class imports, geometry methods, vector styling rules, projection utilities (`ol/proj`), and layer/source constructors.
+   - For troubleshooting, always check **[`references/patterns-gotchas.md`](references/patterns-gotchas.md)** to avoid common pitfalls (EPSG:3857 vs EPSG:4326 coordinate transforms via `fromLonLat`, missing 512px tile grid configuration, style function caching, and interaction cleanup).
+3. **Adhere to Core Design Contracts:**
+   - Follow the foundational contracts below for lifecycle, high-DPI raster basemaps, coordinate transformations, and modular architecture.
+
+---
+
 ## 📐 Core Structural Design Contracts
 
 ### 1. Universal Map Lifecycle & Projection Contract
