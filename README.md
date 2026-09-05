@@ -119,7 +119,7 @@ mapsnippets/openlayers-skill/
 │       ├── SKILL.md        — Entry point prompt & router (< 200 lines)
 │       ├── evals/
 │       │   └── evals.json  — Machine-readable evaluation benchmarks
-│       ├── examples/       — 61 standalone runnable recipes
+│       ├── examples/       — 60 standalone runnable recipes
 │       │   ├── INDEX.md    — Curated catalog of all recipes
 │       │   └── ...         — Vector tiles, drawing, clustering, COG
 │       └── references/     — 22 deep technical reference guides & APIs

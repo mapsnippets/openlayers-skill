@@ -23,7 +23,7 @@ Maintained by **[MapSnippets](https://mapsnippets.org/)** — Open-source geospa
 
 ## 📑 Complete Reference Catalog (`references/`)
 
-### 1. Core API Specifications & Guides
+### 1. Core API Specifications & Architecture
 * **[api-catalog.md](api-catalog.md)** — **Exhaustive 293-module official OpenLayers API directory** linking directly to [`openlayers.org/en/latest/apidoc/`](https://openlayers.org/en/latest/apidoc/).
 * **[examples-catalog.md](examples-catalog.md)** — Exhaustive index of all 281 official OpenLayers website examples cross-referenced to standalone recipes.
 * **[api-map-and-view.md](api-map-and-view.md)** — `Map` methods, `View` camera physics, coordinate conversion, flight animations.
@@ -35,9 +35,17 @@ Maintained by **[MapSnippets](https://mapsnippets.org/)** — Open-source geospa
 * **[patterns-gotchas.md](patterns-gotchas.md)** — Solutions for the top OpenLayers bugs (EPSG:3857 coordinate trap, missing CSS, snap ordering, canvas export).
 * **[events.md](events.md)** — Map lifecycle, view changes, pointer tracking, vector feature events, and render hooks.
 * **[frameworks.md](frameworks.md)** — Integrating OpenLayers in React, Vue 3, Svelte, and Next.js SPAs.
+* **[installation-and-cdn.md](installation-and-cdn.md)** — Bundler setup (Vite, Webpack, rollup), ESM CDN imports, and stylesheet assets.
 * **[prompt-benchmarks.md](prompt-benchmarks.md)** — Standardized OpenLayers evaluation prompts and patterns.
 
-### 2. Basemaps, Schemas & Services
+### 2. Advanced Vector, WebGL & Spatial Analytics
+* **[vector-tiles-mapbox-style.md](vector-tiles-mapbox-style.md)** — Client-side Mapbox Style specification parsing with `ol-mapbox-style`.
+* **[advanced-vector-tiles-and-reprojection.md](advanced-vector-tiles-and-reprojection.md)** — Client-side on-the-fly reprojection and custom grid vector tiles.
+* **[advanced-webgl-and-cog.md](advanced-webgl-and-cog.md)** — Cloud-Optimized GeoTIFF (COG), multi-band WebGL shaders, and raster math.
+* **[canvas-effects-and-animations.md](canvas-effects-and-animations.md)** — Canvas post-render clipping, swipe comparison controls, and flight animations.
+* **[spatial-analysis-and-editing.md](spatial-analysis-and-editing.md)** — Spatial analysis, geometry validation, snapping, and topology editing.
+
+### 3. Basemaps, Schemas & Services
 * **[vector-tile-schemas.md](vector-tile-schemas.md)** — Complete Planet v4 vector tile schema (transportation, building, water, place, poi, boundary).
 * **[versions.md](versions.md)** — Core OpenLayers v10.10.0, companion packages, CDN URLs, and V4 styles.
 * **[basemaps-and-terrain.md](basemaps-and-terrain.md)** — Production endpoints for `streets-v4`, `dataviz-v4-dark`, `outdoor-v4`, `satellite-v4`, and Terrain-RGB.
