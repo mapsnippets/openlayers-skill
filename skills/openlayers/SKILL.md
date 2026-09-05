@@ -134,6 +134,7 @@ All task examples are self-contained with complete HTML, CSS, and modular ES imp
 
 Deep architectural and schema reference files live under `references/` and should be loaded on demand:
 - [references/INDEX.md](references/INDEX.md) — **Master API reference index & router**.
+- [references/api-catalog.md](references/api-catalog.md) — **Official OpenLayers API Directory** (293 classes & modules mapped to `openlayers.org/en/latest/apidoc/`).
 - [references/api-map-and-view.md](references/api-map-and-view.md) — `ol/Map`, `ol/View`, `ol/Overlay`, view animations, resolutions, and event dictionary.
 - [references/api-layers-and-sources.md](references/api-layers-and-sources.md) — `TileLayer`, `VectorLayer`, `VectorTileLayer`, `WebGLPoints`, `Heatmap`, `Cluster`.
 - [references/api-styling-and-renderers.md](references/api-styling-and-renderers.md) — `ol/style/Style`, `Fill`, `Stroke`, `Icon`, `Text`, dynamic style functions, Flat Style Expressions.

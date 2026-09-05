@@ -1,10 +1,11 @@
 # OpenLayers Map & View API Reference 🗺️📐
 
 > Comprehensive technical reference for `ol/Map` and `ol/View`, covering constructor options, camera controls, coordinate transformations, projections, resolution constraints, and animations.
+> Official API Docs: [`ol/Map` apidoc](https://openlayers.org/en/latest/apidoc/module-ol_Map-Map.html) | [`ol/View` apidoc](https://openlayers.org/en/latest/apidoc/module-ol_View-View.html) | [Full API Directory](api-catalog.md)
 
 ---
 
-## 1. `ol/Map`
+## 1. `ol/Map` ([Official API Docs &rarr;](https://openlayers.org/en/latest/apidoc/module-ol_Map-Map.html))
 
 The core component responsible for managing layers, view state, user interactions, DOM event listeners, and WebGL/Canvas rendering.
 
@@ -56,7 +57,7 @@ const map = new Map({
 
 ---
 
-## 2. `ol/View`
+## 2. `ol/View` ([Official API Docs &rarr;](https://openlayers.org/en/latest/apidoc/module-ol_View-View.html))
 
 Manages 2D camera geometry, projections, resolutions, zoom limits, and animations.
 
