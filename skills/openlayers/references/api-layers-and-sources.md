@@ -1,6 +1,6 @@
 # OpenLayers Layers & Sources Reference 📦🗺️
 
-> Comprehensive technical reference for OpenLayers layer and source architectures, covering vector tiles, raster XYZ, WebGL renderers, Cloud-Optimized GeoTIFFs (COG), GeoZarr, and OGC services.
+> Comprehensive technical reference for OpenLayers layer and source architectures, covering raster XYZ basemaps, client-side vector geometries, WebGL renderers, Cloud-Optimized GeoTIFFs (COG), GeoZarr, and OGC services.
 
 ---
 
@@ -12,7 +12,6 @@ Every layer in OpenLayers inherits from `ol/layer/Base` and manages visual styli
 | :--- | :--- | :--- |
 | **`TileLayer`** | `ol/layer/Tile.js` | Tiled raster imagery (MapTiler Streets, Satellite, OSM, WMS, WMTS). |
 | **`VectorLayer`** | `ol/layer/Vector.js` | Client-side 2D vector geometries (GeoJSON, KML, GPX, Shapefiles). |
-| **`VectorTileLayer`**| `ol/layer/VectorTile.js` | Tiled vector slices in Mapbox Vector Tile (`.pbf`) format. |
 | **`WebGLTile`** | `ol/layer/WebGLTile.js` | Hardware-accelerated WebGL raster tile rendering, COG, and shader expressions. |
 | **`WebGLPoints`** | `ol/layer/WebGLPoints.js` | Ultra-high performance rendering of 100,000+ vector points at 60 FPS. |
 | **`ImageLayer`** | `ol/layer/Image.js` | Single untiled dynamic images (Single-image WMS, custom Canvas). |
@@ -34,32 +33,18 @@ Consumes slippy map raster tiles (`{z}/{x}/{y}`):
 import XYZ from 'ol/source/XYZ.js';
 
 const source = new XYZ({
-  url: `https://api.maptiler.com/maps/streets-v4/{z}/{x}/{y}.png?key=${MAPTILER_KEY}`,
+  url: `https://api.maptiler.com/maps/streets-v4/{z}/{x}/{y}@2x.png?key=${MAPTILER_KEY}`,
   tileSize: 512,
   tilePixelRatio: 2, // HiDPI Retina support
-  maxZoom: 19,
-  crossOrigin: 'anonymous'
+  maxZoom: 22,
+  crossOrigin: 'anonymous',
+  attributions: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a>'
 });
 ```
 
 ---
 
-### B. `ol/source/VectorTile` (MVT Vector Tiles)
-Consumes Mapbox Vector Tiles (`.pbf`):
-```javascript
-import VectorTileSource from 'ol/source/VectorTile.js';
-import MVT from 'ol/format/MVT.js';
-
-const vtSource = new VectorTileSource({
-  format: new MVT(),
-  url: `https://api.maptiler.com/tiles/v4/{z}/{x}/{y}.pbf?key=${MAPTILER_KEY}`,
-  maxZoom: 14
-});
-```
-
----
-
-### C. `ol/source/Vector` (Feature Datasets)
+### B. `ol/source/Vector` (Feature Datasets)
 Stores client-side vector geometries with spatial indexing:
 ```javascript
 import VectorSource from 'ol/source/Vector.js';
@@ -75,7 +60,7 @@ const vectorSource = new VectorSource({
 
 ---
 
-### D. `ol/source/Cluster` (Point Aggregation)
+### C. `ol/source/Cluster` (Point Aggregation)
 Groups nearby points within a pixel radius into aggregated cluster features:
 ```javascript
 import Cluster from 'ol/source/Cluster.js';
@@ -89,7 +74,7 @@ const clusterSource = new Cluster({
 
 ---
 
-### E. `ol/source/GeoTIFF` (Cloud-Optimized GeoTIFF)
+### D. `ol/source/GeoTIFF` (Cloud-Optimized GeoTIFF)
 Streams multi-band Cloud-Optimized GeoTIFFs using HTTP range requests:
 ```javascript
 import GeoTIFF from 'ol/source/GeoTIFF.js';
@@ -106,7 +91,7 @@ const cogSource = new GeoTIFF({
 
 ---
 
-### F. `ol/source/Raster` (Pixelwise GPU/Worker Operations)
+### E. `ol/source/Raster` (Pixelwise GPU/Worker Operations)
 Executes pixelwise raster operations across multiple input sources:
 ```javascript
 import RasterSource from 'ol/source/Raster.js';

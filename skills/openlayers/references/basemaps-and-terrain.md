@@ -1,48 +1,12 @@
-# Basemaps, Styles & Terrain Reference (Planet v4) — OpenLayers
+# Basemaps & High-DPI Raster Tiles Reference (Planet v4) — OpenLayers
 
-This reference provides production-ready style JSON URLs, raster XYZ tile endpoints, and elevation/terrain configurations for OpenLayers applications.
-
----
-
-## 1. Vector Map Styles (`style.json`)
-
-To apply MapTiler vector styles with Mapbox/MapLibre Style JSON in OpenLayers, use the `ol-mapbox-style` package:
-
-```javascript
-import Map from "ol/Map.js";
-import { apply } from "ol-mapbox-style";
-
-const map = new Map({ target: "map" });
-apply(map, "https://api.maptiler.com/maps/streets-v4/style.json?key=YOUR_API_KEY");
-```
-
-### Full Catalog of Modern v4 Styles:
-
-| Style Name | Style URL | Recommended Use Case |
-| :--- | :--- | :--- |
-| **Streets v4** | `https://api.maptiler.com/maps/streets-v4/style.json?key=YOUR_API_KEY` | General purpose navigation, city maps, POIs |
-| **Streets v4 Dark** | `https://api.maptiler.com/maps/streets-v4-dark/style.json?key=YOUR_API_KEY` | Night mode, high-contrast dark theme |
-| **Streets v4 Pastel** | `https://api.maptiler.com/maps/streets-v4-pastel/style.json?key=YOUR_API_KEY` | Vintage / soft pastel streets theme |
-| **Outdoor v4** | `https://api.maptiler.com/maps/outdoor-v4/style.json?key=YOUR_API_KEY` | Hiking, cycling, topographic contours & hillshading |
-| **Outdoor v4 Dark** | `https://api.maptiler.com/maps/outdoor-v4-dark/style.json?key=YOUR_API_KEY` | Night mode trails and terrain |
-| **Satellite v4** | `https://api.maptiler.com/maps/satellite-v4/style.json?key=YOUR_API_KEY` | High-resolution satellite imagery |
-| **Satellite Hybrid v4** | `https://api.maptiler.com/maps/hybrid-v4/style.json?key=YOUR_API_KEY` | Satellite imagery with streets & labels |
-| **Dataviz v4 Dark** | `https://api.maptiler.com/maps/dataviz-v4-dark/style.json?key=YOUR_API_KEY` | Minimalist contrast theme optimized for dense data overlays |
-| **Dataviz v4 Light** | `https://api.maptiler.com/maps/dataviz-v4-light/style.json?key=YOUR_API_KEY` | Clean light background for analytical data overlays |
-| **Dataviz v4** | `https://api.maptiler.com/maps/dataviz-v4/style.json?key=YOUR_API_KEY` | Balanced neutral backdrop for data visualizations |
-| **Topo v4** | `https://api.maptiler.com/maps/topo-v4/style.json?key=YOUR_API_KEY` | Traditional topographic cartography with contours |
-| **Base v4** | `https://api.maptiler.com/maps/base-v4/style.json?key=YOUR_API_KEY` | Clean muted background for custom thematic layers |
-| **Base v4 Dark** | `https://api.maptiler.com/maps/base-v4-dark/style.json?key=YOUR_API_KEY` | Dark muted background for custom thematic layers |
-| **Base v4 Light** | `https://api.maptiler.com/maps/base-v4-light/style.json?key=YOUR_API_KEY` | Light minimalist background for custom thematic layers |
-| **Bright v4** | `https://api.maptiler.com/maps/bright-v4/style.json?key=YOUR_API_KEY` | Vibrant, colorful presentation style |
-| **Winter v4** | `https://api.maptiler.com/maps/winter-v4/style.json?key=YOUR_API_KEY` | Ski slopes, winter pistes, and snow terrain |
-| **Ocean** | `https://api.maptiler.com/maps/ocean/style.json?key=YOUR_API_KEY` | Nautical bathymetry and oceanic features |
+This reference provides production-ready raster XYZ tile endpoints, Retina (@2x) configurations, and elevation/terrain endpoints for OpenLayers applications.
 
 ---
 
-## 2. High-DPI Raster Tiles (512×512)
+## 1. High-DPI Raster Tiles (512×512)
 
-Standard OpenLayers raster tile implementation using `ol/layer/Tile` and `ol/source/XYZ`:
+Standard OpenLayers raster tile implementation using native `ol/layer/Tile` and `ol/source/XYZ`:
 
 ```javascript
 import TileLayer from "ol/layer/Tile.js";
@@ -58,7 +22,7 @@ const rasterLayer = new TileLayer({
   })
 });
 
-// Crisp High-DPI Retina 512px raster tiles (@2x)
+// Crisp High-DPI Retina 512px raster tiles (@2x - Recommended)
 const retinaLayer = new TileLayer({
   source: new XYZ({
     url: "https://api.maptiler.com/maps/streets-v4/{z}/{x}/{y}@2x.png?key=YOUR_API_KEY",
@@ -85,44 +49,45 @@ const retinaLayer = new TileLayer({
 > * ✅ **VALID (512px):** `https://api.maptiler.com/maps/streets-v4/{z}/{x}/{y}@2x.png?key=KEY` (retina) or `.../{z}/{x}/{y}.png?key=KEY` (normal)
 > * ✅ **VALID (256px):** `https://api.maptiler.com/maps/streets-v4/256/{z}/{x}/{y}@2x.png?key=KEY` (only 256px requires explicit `/256/` prefix)
 
-### High-DPI Raster Endpoints:
+---
 
-* **Streets v4:**
-  - Standard (512px): `https://api.maptiler.com/maps/streets-v4/{z}/{x}/{y}.png?key=YOUR_API_KEY`
-  - Retina (512px @2x): `https://api.maptiler.com/maps/streets-v4/{z}/{x}/{y}@2x.png?key=YOUR_API_KEY`
-* **Satellite v4:**
-  - Standard (512px): `https://api.maptiler.com/maps/satellite-v4/{z}/{x}/{y}.jpg?key=YOUR_API_KEY`
-  - Retina (512px @2x): `https://api.maptiler.com/maps/satellite-v4/{z}/{x}/{y}@2x.jpg?key=YOUR_API_KEY`
-* **Outdoor v4:**
-  - Standard (512px): `https://api.maptiler.com/maps/outdoor-v4/{z}/{x}/{y}.png?key=YOUR_API_KEY`
-  - Retina (512px @2x): `https://api.maptiler.com/maps/outdoor-v4/{z}/{x}/{y}@2x.png?key=YOUR_API_KEY`
-* **Dataviz v4 Dark:**
-  - Standard (512px): `https://api.maptiler.com/maps/dataviz-v4-dark/{z}/{x}/{y}.png?key=YOUR_API_KEY`
-  - Retina (512px @2x): `https://api.maptiler.com/maps/dataviz-v4-dark/{z}/{x}/{y}@2x.png?key=YOUR_API_KEY`
+## 2. Complete Catalog of High-DPI Raster Basemap Endpoints
+
+All MapTiler Planet v4 styles are available as high-performance, pre-rendered 512px raster XYZ tiles:
+
+| Style Name | Standard (512px) URL | Retina (@2x) URL | Recommended Use Case |
+| :--- | :--- | :--- | :--- |
+| **Streets v4** | `.../maps/streets-v4/{z}/{x}/{y}.png?key=...` | `.../maps/streets-v4/{z}/{x}/{y}@2x.png?key=...` | General purpose navigation, city maps, POIs |
+| **Streets v4 Dark** | `.../maps/streets-v4-dark/{z}/{x}/{y}.png?key=...` | `.../maps/streets-v4-dark/{z}/{x}/{y}@2x.png?key=...` | Night mode, high-contrast dark theme |
+| **Streets v4 Pastel** | `.../maps/streets-v4-pastel/{z}/{x}/{y}.png?key=...` | `.../maps/streets-v4-pastel/{z}/{x}/{y}@2x.png?key=...` | Vintage / soft pastel streets theme |
+| **Outdoor v4** | `.../maps/outdoor-v4/{z}/{x}/{y}.png?key=...` | `.../maps/outdoor-v4/{z}/{x}/{y}@2x.png?key=...` | Hiking, cycling, topographic contours & hillshading |
+| **Outdoor v4 Dark** | `.../maps/outdoor-v4-dark/{z}/{x}/{y}.png?key=...` | `.../maps/outdoor-v4-dark/{z}/{x}/{y}@2x.png?key=...` | Night mode trails and terrain |
+| **Satellite v4** | `.../maps/satellite-v4/{z}/{x}/{y}.jpg?key=...` | `.../maps/satellite-v4/{z}/{x}/{y}@2x.jpg?key=...` | High-resolution satellite imagery |
+| **Satellite Hybrid v4** | `.../maps/hybrid-v4/{z}/{x}/{y}.jpg?key=...` | `.../maps/hybrid-v4/{z}/{x}/{y}@2x.jpg?key=...` | Satellite imagery with streets & labels |
+| **Dataviz v4 Dark** | `.../maps/dataviz-v4-dark/{z}/{x}/{y}.png?key=...` | `.../maps/dataviz-v4-dark/{z}/{x}/{y}@2x.png?key=...` | Minimalist contrast theme for dense data overlays |
+| **Dataviz v4 Light** | `.../maps/dataviz-v4-light/{z}/{x}/{y}.png?key=...` | `.../maps/dataviz-v4-light/{z}/{x}/{y}@2x.png?key=...` | Clean light background for analytical data overlays |
+| **Dataviz v4** | `.../maps/dataviz-v4/{z}/{x}/{y}.png?key=...` | `.../maps/dataviz-v4/{z}/{x}/{y}@2x.png?key=...` | Balanced neutral backdrop for data visualizations |
+| **Topo v4** | `.../maps/topo-v4/{z}/{x}/{y}.png?key=...` | `.../maps/topo-v4/{z}/{x}/{y}@2x.png?key=...` | Traditional topographic cartography with contours |
+| **Base v4** | `.../maps/base-v4/{z}/{x}/{y}.png?key=...` | `.../maps/base-v4/{z}/{x}/{y}@2x.png?key=...` | Clean muted background for custom thematic layers |
+| **Base v4 Dark** | `.../maps/base-v4-dark/{z}/{x}/{y}.png?key=...` | `.../maps/base-v4-dark/{z}/{x}/{y}@2x.png?key=...` | Dark muted background for custom thematic layers |
+| **Bright v4** | `.../maps/bright-v4/{z}/{x}/{y}.png?key=...` | `.../maps/bright-v4/{z}/{x}/{y}@2x.png?key=...` | Vibrant, colorful presentation style |
+| **Winter v4** | `.../maps/winter-v4/{z}/{x}/{y}.png?key=...` | `.../maps/winter-v4/{z}/{x}/{y}@2x.png?key=...` | Ski slopes, winter pistes, and snow terrain |
+| **Ocean** | `.../maps/ocean/{z}/{x}/{y}.png?key=...` | `.../maps/ocean/{z}/{x}/{y}@2x.png?key=...` | Nautical bathymetry and oceanic features |
 
 ---
 
-## 3. Terrain, Hillshading & Elevation in OpenLayers
+## 3. Terrain-RGB & Elevation Tiles
 
-### A. Shaded Relief / Hillshade Layer
-Overlay shaded relief over your basemap:
-```javascript
-const hillshadeLayer = new TileLayer({
-  source: new XYZ({
-    url: "https://api.maptiler.com/tiles/hillshade/{z}/{x}/{y}.png?key=YOUR_API_KEY",
-    tileSize: 512,
-    maxZoom: 20
-  }),
-  opacity: 0.5
-});
+MapTiler provides global DEM (Digital Elevation Model) tiles encoded in RGB format:
+
+```text
+https://api.maptiler.com/tiles/terrain-rgb-v2/{z}/{x}/{y}.webp?key=YOUR_API_KEY
 ```
 
-### B. Point Elevation Lookup (Elevation API)
-Query exact terrain elevation in meters for coordinates:
+### Elevation Calculation Formula from RGB:
 ```javascript
-async function getElevation(lng, lat, apiKey) {
-  const res = await fetch(`https://api.maptiler.com/elevation/${lng},${lat}.json?key=${apiKey}`);
-  const data = await res.json();
-  return data[0][2]; // [lng, lat, elevation_in_meters]
-}
+// Height in meters from RGB values
+const height = -10000 + ((R * 256 * 256 + G * 256 + B) * 0.1);
 ```
+
+Used with OpenLayers `ol/source/Raster` for client-side pixel manipulation, hillshading, contour generation, or slope analysis.

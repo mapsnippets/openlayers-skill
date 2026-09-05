@@ -1,12 +1,12 @@
 {
   "skill_name": "openlayers",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "evals": [
     {
       "id": 1,
-      "name": "Modern Interactive Vector Basemap",
-      "prompt": "Create an interactive vector basemap in OpenLayers with smooth zooming, navigation controls, and clean streets styling.",
-      "expected_output": "A complete, valid HTML/JavaScript application using modular ES imports from the 'ol' package and 'ol-mapbox-style', importing ol/ol.css, initializing an ol/Map with target 'map', and applying MapTiler Streets v4 vector style via apply(map, styleJsonUrl)."
+      "name": "Modern Interactive Raster Basemap",
+      "prompt": "Create an interactive high-DPI raster basemap in OpenLayers with smooth zooming, navigation controls, and clean streets styling.",
+      "expected_output": "A complete, valid HTML/JavaScript application using modular ES imports from the 'ol' package, importing ol/ol.css, initializing an ol/Map with target 'map', and configuring a high-DPI 512px raster tile basemap with ol/layer/Tile and ol/source/XYZ using MapTiler Streets v4 (https://api.maptiler.com/maps/streets-v4/{z}/{x}/{y}@2x.png?key=...)."
     },
     {
       "id": 2,

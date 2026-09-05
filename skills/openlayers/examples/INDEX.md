@@ -1,28 +1,24 @@
 # OpenLayers Task Examples Index 🧪🗺️
 
-> The authoritative index of **60 atomic, copy-pasteable task implementations** for OpenLayers (v9–v10+), curated from OpenLayers documentation and community recipes and engineered with modern MapTiler Planet v4 basemap styles.
+> The authoritative index of **56 atomic, copy-pasteable task implementations** for OpenLayers (v9–v10+), curated from OpenLayers documentation and community recipes and engineered with modern MapTiler Planet v4 high-DPI raster basemaps.
 
 ---
 
 ## 📑 Examples by Category
 
-### 1. 📦 Vector Basemaps & Data Formats
-* **[basic-vector-map.md](basic-vector-map.md)** — Vector tile basemap using `ol-mapbox-style` and MapTiler Streets v4.
-* **[geojson-choropleth.md](geojson-choropleth.md)** — Dynamic data-driven style function, HTML legend, and hover highlight.
+### 1. 📦 Raster Basemaps & Vector Data Formats
+* **[basic-raster-map.md](basic-raster-map.md)** — Crisp 512px Retina raster basemap with `TileLayer`, `XYZ`, and MapTiler Streets v4.
+* **[geojson-choropleth.md](geojson-choropleth.md)** — Dynamic data-driven style function, HTML legend, and hover highlight on GeoJSON.
 * **[kml-earthquakes.md](kml-earthquakes.md)** — KML data parsing and circle radius scaling by seismic magnitude.
 * **[gpx-track-viewer.md](gpx-track-viewer.md)** — Ingesting GPS telemetry tracks and waypoints with custom line styling.
 * **[topojson-layer.md](topojson-layer.md)** — Compressed topological administrative boundaries rendering.
 * **[flatgeobuf-loading.md](flatgeobuf-loading.md)** — Streaming indexed binary FlatGeobuf files with spatial BBOX chunking.
 * **[esri-rest-feature-service.md](esri-rest-feature-service.md)** — Direct integration with enterprise ArcGIS REST FeatureServer.
-* **[vector-tile-selection.md](vector-tile-selection.md)** — Feature inspection and dynamic selection inside binary MVT tiles.
-* **[vector-tile-styling-mvt.md](vector-tile-styling-mvt.md)** — Client-side Flat Style declarative expressions on raw MVT vector tiles.
-* **[vector-tile-style-expressions.md](vector-tile-style-expressions.md)** — Advanced Flat Style expressions (`interpolate`, `match`, `case`) on MVT.
 * **[drag-and-drop.md](drag-and-drop.md)** — Client-side drag-and-drop parsing `.geojson`, `.gpx`, and `.kml` files.
 
 ### 2. 🌍 Projections & Coordinate Systems
-* **[reprojection-proj4js-swiss.md](reprojection-proj4js-swiss.md)** — Swiss LV95 (`EPSG:2056`) coordinate reprojection with Proj4js over MapTiler basemaps.
+* **[reprojection-proj4js-swiss.md](reprojection-proj4js-swiss.md)** — Swiss LV95 (`EPSG:2056`) coordinate reprojection with Proj4js over MapTiler raster basemaps.
 * **[reprojection-proj4js-bng.md](reprojection-proj4js-bng.md)** — British National Grid (`EPSG:27700`) client reprojection with Proj4js and extent bounding.
-* **[vector-tiles-epsg4326.md](vector-tiles-epsg4326.md)** — Mapbox Vector Tiles reprojected or styled in Plate Carrée / WGS 84 (`EPSG:4326`).
 * **[graticule-grid-overlay.md](graticule-grid-overlay.md)** — Latitude/longitude graticule coordinate grid lines overlay with custom labels.
 
 ### 3. ✍️ Vector Digitization & GIS Interactions

@@ -2,7 +2,7 @@
 
 Source: https://openlayers.org/download/
 
-This guide details all methods for loading OpenLayers: NPM package managers, modern bundlers (Vite, Webpack, Next.js), hosted CDNs, and offline packages.
+This guide details methods for loading OpenLayers: NPM package managers, modern bundlers (Vite, Webpack, Next.js), hosted CDNs, and offline packages.
 
 ---
 
@@ -13,16 +13,16 @@ OpenLayers is distributed as ES modules in the `ol` package.
 ### Installation:
 ```bash
 # npm
-npm install ol ol-mapbox-style
+npm install ol
 
 # yarn
-yarn add ol ol-mapbox-style
+yarn add ol
 
 # pnpm
-pnpm add ol ol-mapbox-style
+pnpm add ol
 
 # bun
-bun add ol ol-mapbox-style
+bun add ol
 ```
 
 ### Ingestion in JavaScript / TypeScript:
@@ -52,29 +52,26 @@ For rapid prototypes or standalone HTML files without a build step:
   <!-- OpenLayers CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@v10.10.0/ol.css">
   
-  <!-- OpenLayers JS -->
+  <!-- OpenLayers JS (Full UMD Bundle) -->
   <script src="https://cdn.jsdelivr.net/npm/ol@v10.10.0/dist/ol.js"></script>
-
-  <!-- ol-mapbox-style (for Vector Tiles) -->
-  <script src="https://cdn.jsdelivr.net/npm/ol-mapbox-style@12.3.4/dist/olms.js"></script>
-
+  
   <style>
-    #map { height: 100vh; width: 100%; margin: 0; padding: 0; }
+    body { margin: 0; padding: 0; }
+    #map { width: 100vw; height: 100vh; }
   </style>
 </head>
 <body>
   <div id="map"></div>
-
   <script>
     const map = new ol.Map({
       target: 'map',
       layers: [
         new ol.layer.Tile({
           source: new ol.source.XYZ({
-            url: 'https://api.maptiler.com/maps/streets-v4/{z}/{x}/{y}.png?key=YOUR_API_KEY',
+            url: 'https://api.maptiler.com/maps/streets-v4/{z}/{x}/{y}@2x.png?key=YOUR_API_KEY',
+            tilePixelRatio: 2,
             tileSize: 512,
-            maxZoom: 22,
-            attributions: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a>'
+            maxZoom: 22
           })
         })
       ],
@@ -87,11 +84,3 @@ For rapid prototypes or standalone HTML files without a build step:
 </body>
 </html>
 ```
-
----
-
-## 3. Offline / Self-Hosted Distribution
-
-For offline environments or enterprise intranets:
-* Download release package: `https://github.com/openlayers/openlayers/releases/download/v10.10.0/v10.10.0-package.zip`
-* Include `ol.js` and `ol.css` in your static public directory.

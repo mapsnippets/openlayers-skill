@@ -158,8 +158,8 @@ The 281 official examples are organized across 7 core GIS and WebGL domains:
 | **[Vector Layer Hit Detection](https://openlayers.org/en/latest/examples/hitdetect-vector.html)** | Example of hit detection on an ecoregions vector layer with protection status. | — |
 | **[Vector Tile Info](https://openlayers.org/en/latest/examples/vector-tile-info.html)** | Getting feature information from vector tiles. | — |
 | **[Vector Tile Selection](https://openlayers.org/en/latest/examples/vector-tile-selection.html)** | Select features from vector tiles. | — |
-| **[Vector tiles created from a Mapbox Style object](https://openlayers.org/en/latest/examples/mapbox-style.html)** | Example of using ol-mapbox-style with tiles from maptiler.com. | — |
-| **[Vector tiles in EPSG:4326](https://openlayers.org/en/latest/examples/vector-tiles-4326.html)** | Example showing vector tiles in EPSG:4326 (styled using ol-mapbox-style) | — |
+| **[Vector tiles created from a Mapbox Style object](https://openlayers.org/en/latest/examples/mapbox-style.html)** | Example of vector tile styling (use MapLibre skill for Mapbox/MapLibre Style JSON). | — |
+| **[Vector tiles in EPSG:4326](https://openlayers.org/en/latest/examples/vector-tiles-4326.html)** | Example showing geographic coordinate reprojection (see raster-basemaps-xyz.md for recommended OpenLayers basemaps). | — |
 | **[Vector tiles rendered in an offscreen canvas](https://openlayers.org/en/latest/examples/offscreen-canvas.html)** | Example of a map that delegates rendering to a worker. | — |
 | **[View Padding](https://openlayers.org/en/latest/examples/view-padding.html)** | This example demonstrates the use of the view's padding option. | — |
 | **[View Rotation](https://openlayers.org/en/latest/examples/rotation.html)** | Example of a rotated map. | — |
