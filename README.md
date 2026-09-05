@@ -38,11 +38,14 @@ When activated for **OpenLayers**, this skill guides the agent to:
 
 This skill follows the **[Agent Skills open format](https://agentskills.io/)**, utilizing a **three-tier progressive disclosure model** to minimize context overhead:
 
-```text
-┌────────────────────────┐         Match Query         ┌────────────────────────┐         As Needed          ┌───────────────────────────────────┐
-│ 1. Discovery (Startup) │ ──────────────────────────> │ 2. Activation (Load)   │ ─────────────────────────> │ 3. Execution (Deep Dive)          │
-│    name & description  │                             │    SKILL.md router     │                            │    Modular References & Recipes   │
-└────────────────────────┘                             └────────────────────────┘                            └───────────────────────────────────┘
+```mermaid
+flowchart LR
+    A["1. Discovery (Startup)<br/>name & description (~50 tokens)"]
+    B["2. Activation (Load)<br/>SKILL.md router (under 5k tokens)"]
+    C["3. Execution (Deep Dive)<br/>Modular References & Recipes"]
+
+    A -->|Match Query| B
+    B -->|As Needed| C
 ```
 
 1. **Discovery (Startup)**: The agent only inspects the YAML frontmatter `name` and `description` (~50 tokens).
@@ -113,16 +116,16 @@ mapsnippets/openlayers-skill/
 │   └── plugin.json         — Claude Code plugin manifest & metadata
 ├── skills/
 │   └── openlayers/
-│       ├── SKILL.md        — Entry point prompt & progressive disclosure router (< 200 lines)
+│       ├── SKILL.md        — Entry point prompt & router (< 200 lines)
 │       ├── evals/
-│       │   └── evals.json  — Machine-readable evaluation benchmarks (5 core test cases)
-│       ├── examples/       — 61 standalone runnable recipes (HTML/CSS/JS)
-│       │   ├── INDEX.md    — Curated categorized catalog of all recipes
-│       │   └── ...         — Vector tiles, drawing tools, clustering, GeoTIFF, WMS
-│       └── references/     — 21 deep technical reference guides & API specifications
+│       │   └── evals.json  — Machine-readable evaluation benchmarks
+│       ├── examples/       — 61 standalone runnable recipes
+│       │   ├── INDEX.md    — Curated catalog of all recipes
+│       │   └── ...         — Vector tiles, drawing, clustering, COG
+│       └── references/     — 22 deep technical reference guides & APIs
 │           ├── INDEX.md    — Searchable index of references
-│           ├── versions.md — Single source of truth for library releases & styles
-│           └── ...         — modular imports, vector tile styling, projections, interactions
+│           ├── versions.md — Release matrix & style endpoints
+│           └── ...         — Modular imports, projections, styles
 ├── README.md               — Project documentation & setup guide
 └── LICENSE.md              — MIT License
 ```
@@ -148,7 +151,10 @@ const map = new Map({
   })
 });
 
-apply(map, "https://api.maptiler.com/maps/streets-v4/style.json?key=YOUR_API_KEY");
+apply(
+  map,
+  "https://api.maptiler.com/maps/streets-v4/style.json?key=YOUR_API_KEY"
+);
 ```
 
 <br>
@@ -168,10 +174,16 @@ const map = new Map({
   layers: [
     new TileLayer({
       source: new XYZ({
-        url: "https://api.maptiler.com/maps/streets-v4/{z}/{x}/{y}.png?key=YOUR_API_KEY",
+        url:
+          "https://api.maptiler.com/maps/streets-v4/{z}/{x}/{y}.png?key=" +
+          "YOUR_API_KEY",
         tileSize: 512,
         maxZoom: 19,
-        attributions: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
+        attributions:
+          '<a href="https://www.maptiler.com/copyright/" ' +
+          'target="_blank">&copy; MapTiler</a> ' +
+          '<a href="https://www.openstreetmap.org/copyright" ' +
+          'target="_blank">&copy; OpenStreetMap contributors</a>'
       })
     })
   ],
