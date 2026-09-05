@@ -67,3 +67,14 @@
   });
   map.renderSync();
   ```
+
+---
+
+### 7. Invalid `/512/` Path in Tile URLs & 512px Resolution
+* **Gotcha**: Adding `/512/` to MapTiler tile URLs (e.g. `https://api.maptiler.com/maps/streets-v4/512/{z}/{x}/{y}@2x.png`).
+* **Symptom**: Tile request fails with HTTP 404 / 403 / error response.
+* **Fix**: 512px is the default resolution on MapTiler Cloud — there is **no `/512/` path prefix**!
+  - **512px Standard (Default):** `https://api.maptiler.com/maps/{style}/{z}/{x}/{y}.png?key=KEY`
+  - **512px Retina (@2x):** `https://api.maptiler.com/maps/{style}/{z}/{x}/{y}@2x.png?key=KEY`
+  - **256px Legacy:** `https://api.maptiler.com/maps/{style}/256/{z}/{x}/{y}.png?key=KEY` (only 256px tiles require an explicit size prefix).
+

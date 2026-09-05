@@ -65,12 +65,29 @@ Follow these rules on every OpenLayers code generation to prevent bugs:
   apply(map, "https://api.maptiler.com/maps/streets-v4/style.json?key=YOUR_API_KEY");
   ```
 
-### 4. 🖼️ High-DPI 512px Raster Tiles (`ol/source/XYZ`)
-* When using raster tile layers with 512px tiles, configure `tileSize: 512` and `maxZoom: 22`:
+### 4. 🖼️ High-DPI 512px Raster Tiles (`ol/source/XYZ`) & Tile URL Rules
+* **512px is the Default on MapTiler Cloud:**
+  * **512px Standard:** `https://api.maptiler.com/maps/streets-v4/{z}/{x}/{y}.png?key=YOUR_API_KEY`
+  * **512px Retina (@2x):** `https://api.maptiler.com/maps/streets-v4/{z}/{x}/{y}@2x.png?key=YOUR_API_KEY`
+  * ⚠️ **CRITICAL GOTCHA: NEVER use `/512/` in the URL path** — `.../maps/streets-v4/512/...` is **INVALID** and returns HTTP errors. 512px tiles have no size prefix in their path.
+  * **256px Legacy Tiles:** Only 256px tiles require an explicit size path: `.../maps/streets-v4/256/{z}/{x}/{y}.png` (or `@2x.png`).
+* When using raster tile layers with 512px tiles in OpenLayers, configure `tileSize: 512` and `maxZoom: 22`:
   ```javascript
+  // 512px Standard
   const rasterLayer = new TileLayer({
     source: new XYZ({
       url: "https://api.maptiler.com/maps/streets-v4/{z}/{x}/{y}.png?key=YOUR_API_KEY",
+      tileSize: 512,
+      maxZoom: 22,
+      attributions: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OSM</a>'
+    })
+  });
+
+  // 512px Retina (@2x)
+  const retinaLayer = new TileLayer({
+    source: new XYZ({
+      url: "https://api.maptiler.com/maps/streets-v4/{z}/{x}/{y}@2x.png?key=YOUR_API_KEY",
+      tilePixelRatio: 2,
       tileSize: 512,
       maxZoom: 22,
       attributions: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OSM</a>'
