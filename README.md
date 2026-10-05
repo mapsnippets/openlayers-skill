@@ -1,5 +1,6 @@
 # OpenLayers Agent Skill 🌐🗺️
 
+[![Security: Grade A — Skills Directory](https://www.skillsdirectory.com/api/skills/mapsnippets-openlayers/badge)](https://www.skillsdirectory.com/skills/mapsnippets-openlayers)
 The authoritative AI coding skill for building enterprise-grade, high-performance web maps with **OpenLayers** (v10+), native high-DPI raster basemaps, and rich GIS data layers.
 
 Maintained by **[MapSnippets](https://mapsnippets.org/)** — Open-source geospatial snippets, guides, and agent tools.
